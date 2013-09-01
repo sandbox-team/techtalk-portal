@@ -17,6 +17,7 @@ app
   .use(express.static(path.join(__dirname, 'public')))
   .use(express.bodyParser())
   .use(express.methodOverride())
+  .use(express.cookieParser())
   .use(app.router);
 
 app.get('/', function(req, res){
@@ -24,8 +25,42 @@ app.get('/', function(req, res){
 });
 
 app.get('/views/:templateName', function(req, res) {
-  console.log(req.params.templateName.yellow)
+  console.log('view changed to: ' + req.params.templateName.green);
   res.render(req.params.templateName);
+});
+
+app.get('/test', function(req, res) {
+  res.send({
+    '3': [{
+      id: 'asd',
+      title: 'CSS features',
+      location: 'k1-3 215',
+      author: {
+        id: 'tester',
+        firstName: 'Sergey',
+        lastName: 'Net ne on'
+      }
+    }],
+    '21': [{
+      id: 'asd',
+      title: 'CSS55 features',
+      location: 'k1',
+      author: {
+        id: 'tester',
+        firstName: 'Sergey',
+        lastName: 'Net ne on'
+      }
+    }, {
+      id: 'asd',
+      title: 'JS',
+      location: 'n58',
+      author: {
+        id: 'tester',
+        firstName: 'Sergey',
+        lastName: 'Net ne on'
+      }
+    }]
+  });
 });
 
 app.listen(3000);
