@@ -10,7 +10,7 @@
           monthIndex = now.getMonth(),
           year = now.getFullYear(),
           monthName = helper.getMonthName(monthIndex),
-          daysNumber = getDaysInMonth(monthIndex, year),
+          daysNumber = helper.getDaysInMonth(monthIndex, year),
           i = 1,
           periodDescription = [];
 
@@ -21,13 +21,8 @@
             year: year
           });
         }
-debugger;
-        return periodDescription;
-      }
 
-      //if you are using the format(first month has 1 index) set useHumanReadableMonthBase to true
-      function getDaysInMonth(month, year, useHumanReadableMonthBase) {
-        return new Date(year, month + useHumanReadableMonthBase ? 0 : 1, 0).getDate();
+        return periodDescription;
       }
     }]);
 
