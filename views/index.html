@@ -27,15 +27,27 @@
               <ul class="nav navbar-nav">
                 <!--<li class="active"><a href="#">Home</a></li>-->
               </ul>
-              <form class="navbar-form navbar-right">
+
+              <form class="navbar-form navbar-right" 
+                novalidate
+                data-ng-if="!global.isAuthN"
+                data-ng-submit="signin();">
                 <div class="form-group">
-                  <input type="text" placeholder="Email" class="form-control">
+                  <input type="text" placeholder="Email" class="form-control" 
+                    required
+                    data-ng-model="auth.login"/>
                 </div>
                 <div class="form-group">
-                  <input type="password" placeholder="Password" class="form-control">
+                  <input type="password" placeholder="Password" class="form-control" 
+                    required
+                    data-ng-model="auth.password"/>
                 </div>
                 <button type="submit" class="btn btn-success">Sign in</button>
               </form>
+              <div class="userMenu pull-right" data-ng-if="global.isAuthN">
+                Hi, <a href="" data-ng-bind="global.user.firstName"></a>
+                <a href="" class="btn btn-danger">Log out</a>
+              </div>
             </div><!--/.navbar-collapse -->
           </div>
         </div>
@@ -55,6 +67,8 @@
   <script src="/js/core.js"></script>
   <script src="/js/scripts/app.js"></script>
   <script src="/js/scripts/services/helper.js"></script>
+  <script src="/js/scripts/services/data-provider.js"></script>
+  <script src="/js/scripts/services/auth-service.js"></script>
   <script src="/js/scripts/controllers/calendar-controller.js"></script>
 </body>
 </html>
