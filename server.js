@@ -24,6 +24,7 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
+//stub routes
 app.get('/views/:templateName', function(req, res) {
   console.log('view changed to: ' + req.params.templateName.green);
   res.render(req.params.templateName);
@@ -32,7 +33,7 @@ app.get('/views/:templateName', function(req, res) {
 app.get('/test', function(req, res) {
   res.send({
     '3': [{
-      id: 'asd',
+      id: '1',
       title: 'CSS features',
       location: 'k1-3 215',
       author: {
@@ -42,7 +43,7 @@ app.get('/test', function(req, res) {
       }
     }],
     '21': [{
-      id: 'asd',
+      id: '2',
       title: 'CSS55 features',
       location: 'k1',
       author: {
@@ -51,7 +52,7 @@ app.get('/test', function(req, res) {
         lastName: 'Net ne on'
       }
     }, {
-      id: 'asd',
+      id: '1',
       title: 'JS',
       location: 'n58',
       author: {
@@ -63,5 +64,41 @@ app.get('/test', function(req, res) {
   });
 });
 
+app.get('/details/:techtalkId', function(req, res) {
+  var data = {
+    '1': {
+      title: 'CSS features',
+      content: '<b>html here</b>'
+    },
+    '2': {
+      title: 'CSS2 features',
+      content: '<i>html here</i>'
+    }
+  };
+
+  var id = req.params.techtalkId;
+
+  res.send(data[id] || {});
+});
+
+app.post('/auth', function(req, res) {
+  console.log(req.body.green);
+  var login = req.body.login,
+    password = req.body.password;
+
+  if (login === 'test' && password === '123') {
+    res.send({
+      status: 'success'
+    });
+  }
+  else {
+    res.send({
+      status: 'error',
+      message: 'Not valid login or password'
+    })
+  }
+})
+
+//server starts here
 app.listen(3000);
 console.log('start web-server on port 3000'.green);

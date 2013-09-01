@@ -6,7 +6,11 @@
     .config(['$routeProvider', '$locationProvider', '$provide',
      function($routeProvider, $locationProvider, $provide) {
       $provide.constant('appConfig', {
-        userCookie: 'user_settings'
+        userCookie: 'user_settings',
+        responseStatus: {
+          SUCCESS: 'success',
+          ERROR: 'error'
+        }
       });
 
       $locationProvider
@@ -14,9 +18,13 @@
         .hashPrefix('!');
 
       $routeProvider.when('/', {
-        controller: 'CalendarCtrl',
-        templateUrl: 'views/calendar-page'
-      });
+          controller: 'CalendarCtrl',
+          templateUrl: 'views/calendar-page'
+        })
+        .when('/details/:techtalkId', {
+          controller: 'DetailsCtrl',
+          templateUrl: 'views/details-page'
+        });
     }])
     /**
      * 
@@ -25,18 +33,31 @@
       function($rootScope, $scope, authService) {
         $rootScope.global = {
           isAuthN: authService.isAuthN(),
-          authService: authService,
-          user: {
-            firstName: 'asd'
-          }
+          authService: authService
         };
 
+        $scope.auth = {};
+
         $scope.signin = function() {
-          var userData = {
-            login: $scope.auth.login,
-            password: $scope.auth.password
-          };
-        };  
+          $scope.authInProgress = true;
+
+          authService.login({
+              login: $scope.auth.login,
+              password: $scope.auth.password
+            })
+            .then(function() {
+              
+            }, function(msg) {
+              alert(msg);
+            })
+            ['finally'](function() {
+              $scope.authInProgress = false;
+            });
+        }; 
+
+        $scope.logout = function() {
+          authService.logout(); 
+        } 
       }]);
 
 
