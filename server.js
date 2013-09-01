@@ -16,5 +16,9 @@ app.get("/", function(req, res){
   res.render("index");
 });
 
+app.get("/views/:templateName", function(req, res){
+  res.render(req.params.templateName);
+});
+
 app.listen(3000);
 console.log("start web-server on port 3000".green);
