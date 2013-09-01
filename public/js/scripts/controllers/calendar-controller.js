@@ -15,6 +15,7 @@
           dates: []
         };
 
+      $scope.global.pageTitle = 'Calendar view';
 
       dataProvider
         .getSchedule()

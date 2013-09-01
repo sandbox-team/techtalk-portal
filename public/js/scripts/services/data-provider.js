@@ -11,9 +11,15 @@
         method: 'GET',
         url: 'test'
       });
-     }
-   };
- }];
+    },
+    getTechtalkData: function(id) {
+      return $http({
+        method: 'GET',
+        url: '/details/' + id
+      });
+    }
+  };
+}];
 });
 
 })(angular);
