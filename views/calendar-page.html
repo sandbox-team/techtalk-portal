@@ -4,7 +4,7 @@
     <li class="list-group-item" data-ng-repeat="date in schedule.dates">
       <b data-ng-bind="date.date"></b>
       <div class="well" data-ng-repeat="talk in date.data">
-        <h5><a href="" data-ng-bind="talk.title"></a></h5>
+        <h5><a href="" data-ng-href="details/{{talk.id}}" data-ng-bind="talk.title"></a></h5>
         <dl>
           <dt>Location: </dt>
           <dd data-ng-bind="talk.location"></dd>

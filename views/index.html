@@ -1,13 +1,14 @@
 <!doctype html>
-<html lang="en" data-ng-app="tp">
+<html lang="en" data-ng-app="tp" data-ng-controller="AppCtrl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/css/styles.css">
-  <title>TechTalk portal</title>
+  <title data-ng-bind="global.pageTitle">TechTalk portal</title>
+  <!-- we probably need more control here -->
   <base href="/"></base>
 </head>
-<body data-ng-controller="AppCtrl">
+<body>
   <!-- Wrap all page content here -->
   <div class="pageWrap">
     <!-- Begin page content -->
@@ -30,7 +31,9 @@
 
               <form class="navbar-form navbar-right" 
                 novalidate
-                data-ng-if="!global.isAuthN"
+                name="loginForm"
+                data-ng-cloak
+                data-ng-if="!global.isAuthN && !authInProgress"
                 data-ng-submit="signin();">
                 <div class="form-group">
                   <input type="text" placeholder="Email" class="form-control" 
@@ -42,17 +45,18 @@
                     required
                     data-ng-model="auth.password"/>
                 </div>
-                <button type="submit" class="btn btn-success">Sign in</button>
+                <button type="submit" class="btn btn-success"
+                  data-ng-disabled="loginForm.$invalid">Sign in</button>
               </form>
+              <span class="text-info pull-right signInLoader" data-ng-if="authInProgress">Please wait...</span>
               <div class="userMenu pull-right" data-ng-if="global.isAuthN">
                 Hi, <a href="" data-ng-bind="global.user.firstName"></a>
-                <a href="" class="btn btn-danger">Log out</a>
+                <a href="" class="btn btn-danger" data-ng-click="logout();">Log out</a>
               </div>
             </div><!--/.navbar-collapse -->
           </div>
         </div>
       </header>
-
       <!-- Main view comes here -->
       <div data-ng-view></div>
     </section>
@@ -69,6 +73,7 @@
   <script src="/js/scripts/services/helper.js"></script>
   <script src="/js/scripts/services/data-provider.js"></script>
   <script src="/js/scripts/services/auth-service.js"></script>
+  <script src="/js/scripts/controllers/details-controller.js"></script>
   <script src="/js/scripts/controllers/calendar-controller.js"></script>
 </body>
 </html>
