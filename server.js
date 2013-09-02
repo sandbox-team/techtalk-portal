@@ -100,5 +100,5 @@ app.post('/auth', function(req, res) {
 })
 
 //server starts here
-app.listen(3000);
-console.log('start web-server on port 3000'.green);
+app.listen(app.get('port'));
+console.log(('start web-server on port ' + app.get('port')).green);
