@@ -10,7 +10,7 @@ app
   
   .set('view engine', 'html')
   .set('port', process.env.PORT || 3001)
-  .set('views', __dirname + '/views')
+  .set('views', 'views')
   
   .use(express.favicon())
   .use(express.logger('tiny'))
