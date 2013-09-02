@@ -28,7 +28,7 @@ In console navigate to the folder you've cloned:
   cd \Websites\techtalk-portal
 ```
 
-Run this command in your CLI:
+And run this commands to build the application:
 ```
 
 npm install
