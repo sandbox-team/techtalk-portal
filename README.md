@@ -30,7 +30,6 @@ In console navigate to the folder you've cloned:
 
 And run this commands to build the application:
 ```
-
 npm install
 bower install
 ```
