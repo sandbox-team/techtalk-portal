@@ -14,7 +14,7 @@ app
   
   .use(express.favicon())
   .use(express.logger('tiny'))
-  .use(express.static(path.join(__dirname, 'public')))
+  .use(express.static('public'))
   .use(express.bodyParser())
   .use(express.methodOverride())
   .use(express.cookieParser())
