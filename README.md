@@ -24,8 +24,8 @@ git clone https://github.com/sandbox-team/techtalk-portal.git
 
 In console navigate to the folder you've cloned:
 ```
-  D:
-  cd \Websites\techtalk-portal
+D:
+cd \Websites\techtalk-portal
 ```
 
 And run this commands to finish installing the application:
@@ -35,6 +35,9 @@ bower install
 ```
 
 ## Build
+
+If you are running on Windows, install grunt-cli first:
+`npm install -g grunt-cli`
 
 Run this command in your CLI from techtalk-portal dir:
 
