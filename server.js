@@ -9,7 +9,7 @@ app
   .engine('html', require('ejs').renderFile)  
   
   .set('view engine', 'html')
-  .set('port', process.env.PORT || 3001)
+  .set('port', process.env.PORT || 3000)
   .set('views', 'views')
   
   .use(express.favicon())
