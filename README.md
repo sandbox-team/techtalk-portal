@@ -12,11 +12,25 @@ Tech talk portal web application
 
 ## Install
 
-Run this command in your CLI:
 
+Clone the Repo:
 ```
 git clone git@github.com:sandbox-team/techtalk-portal.git
-cd techtalk-portal
+```
+Or if you are having problems with SSH keys on EPAM machine, such as I do, just use regular https clone url:
+```
+git clone https://github.com/sandbox-team/techtalk-portal.git
+```
+
+In console navigate to the folder you've cloned:
+```
+  D:
+  cd \Websites\techtalk-portal
+```
+
+Run this command in your CLI:
+```
+
 npm install
 bower install
 ```
