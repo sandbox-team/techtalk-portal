@@ -28,7 +28,7 @@ In console navigate to the folder you've cloned:
   cd \Websites\techtalk-portal
 ```
 
-And run this commands to build the application:
+And run this commands to finish installing the application:
 ```
 npm install
 bower install
