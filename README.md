@@ -12,16 +12,32 @@ Tech talk portal web application
 
 ## Install
 
-Run this command in your CLI:
 
+Clone the Repo:
 ```
 git clone git@github.com:sandbox-team/techtalk-portal.git
-cd techtalk-portal
+```
+Or if you are having problems with SSH keys on EPAM machine, such as I do, just use regular https clone url:
+```
+git clone https://github.com/sandbox-team/techtalk-portal.git
+```
+
+In console navigate to the folder you've cloned:
+```
+D:
+cd \Websites\techtalk-portal
+```
+
+And run this commands to finish installing the application:
+```
 npm install
 bower install
 ```
 
 ## Build
+
+If you are running on Windows, install grunt-cli first:
+`npm install -g grunt-cli`
 
 Run this command in your CLI from techtalk-portal dir:
 
@@ -36,6 +52,14 @@ Run this command in your CLI from techtalk-portal dir:
 ```
 node server.js
 ```
+
+##Build the project for deployment(minification included)
+
+```
+grunt build
+node server prod
+```
+
 
 And open [http://localhost:3000](http://localhost:3000) in your browser
 
