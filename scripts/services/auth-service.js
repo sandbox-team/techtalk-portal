@@ -5,7 +5,6 @@
     .factory('authService', ['$http', '$q', '$cookieStore', '$rootScope', 'appConfig',
       function($http, $q, $cookieStore, $rootScope, appConfig) {
 
-
         return {
           isAuthN: function() {
             var userSettings = $cookieStore.get(appConfig.userCookie);

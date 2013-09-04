@@ -1,12 +1,25 @@
 'use strict';
 
 module.exports = function(grunt) {
+  var config = {
+      app: './',
+      dist: 'dist'
+    };
+
+  try {
+    config.app = require('./bower.json').appPath || config.app;
+  } catch (e) {}  
+
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-usemin');
 
   grunt.initConfig({
+    config: config,
     watch: {
       options: {
         livereload: true
@@ -55,39 +68,45 @@ module.exports = function(grunt) {
       },
 
       production: {
-        app: {
-          src: [
-            'scripts/app.js'
-          ],
-          dest: 'public/js/app.js'
-        },
+      }
+    },
 
-        calendar: {
-          src: [
-            'scripts/calendar.js'
-          ],
-          dest: 'public/js/calendar.js'
-        },
-
-        details: {
-          src: [
-            'scripts/details.js'
-          ],
-          dest: 'public/js/details.js'
+    copy: {
+      development: {
+        expand: true,
+        cwd: './scripts/',
+        src: '{,**/}*.js',
+        dest: './public/js/'
+      },
+      build: {
+        files: {
+          'dist/': ['./public/{css/**, img/**}', 'views/**']
         }
       }
     },
 
-    //TODO: there are some permissions problems with cwd usage
-    copy: {
-      development: {
-        src: 'scripts/**',
-        dest: 'public/js/'
+    clean: {
+      dist: {
+        src: ['<%= config.dist %>', './.tmp'],
+        force: true
+      }
+    },
+
+    useminPrepare: {
+      html: ['./views/index.html'],
+      options: {
+        dest: './dist/public'
+      }
+    },
+    usemin: {
+      html: ['dist/views/index.html'],
+      options: {
+        basedir: './public'
       }
     }
 
   });
 
   grunt.registerTask('default', ['copy:development', 'less:development', 'concat:development']);
-  grunt.registerTask('build', []);
+  grunt.registerTask('build', ['clean:dist', 'copy:build', 'useminPrepare', 'concat', 'uglify', 'usemin']);
 };
