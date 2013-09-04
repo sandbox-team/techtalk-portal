@@ -53,6 +53,14 @@ Run this command in your CLI from techtalk-portal dir:
 node server.js
 ```
 
+##Build the project for deployment(minification included)
+
+```
+grunt build
+node server prod
+```
+
+
 And open [http://localhost:3000](http://localhost:3000) in your browser
 
 Enjoy!
