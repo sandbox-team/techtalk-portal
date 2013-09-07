@@ -21,43 +21,30 @@
           controller: 'CalendarCtrl',
           templateUrl: 'views/calendar-page'
         })
-        .when('/details/:talkId', {
+        .when('/details/:techtalkId', {
           controller: 'DetailsCtrl',
           templateUrl: 'views/details-page'
-        })
-        .when('/edit/:talkId', {
-          controller: 'EditCtrl',
-          templateUrl: 'views/edit-page'
         })
         .when('/post/:slug', {
           controller: 'PostCtrl',
           templateUrl: 'views/post'
         })
-        .when('/post/:slug/edit', {
-          controller: 'PostEditCtrl',
-          templateUrl: 'views/post-edit'
-        })
-        .otherwise({redirectTo: '/'});
+       .when('/post/:slug/edit', {
+         controller: 'PostEditCtrl',
+         templateUrl: 'views/post-edit'
+       });
     }])
-    .run(function() {
-
-    })
     /**
      * 
      */
-    .controller('AppCtrl', ['$rootScope', '$scope', 'authService', 'data',
-      function($rootScope, $scope, authService, dataProvider) {
+    .controller('AppCtrl', ['$rootScope', '$scope', 'authService', 
+      function($rootScope, $scope, authService) {
         $rootScope.global = {
           isAuthN: authService.isAuthN(),
-          authService: authService,
-          data: {}
+          authService: authService
         };
 
         $scope.auth = {};
-
-        dataProvider.getAll().then(function(data) {
-          $rootScope.global.data = data.data;
-        });
 
         $scope.signin = function() {
           $scope.authInProgress = true;
