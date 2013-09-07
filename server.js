@@ -1,9 +1,7 @@
 require('colors');
 
 var express = require('express'),
-  app = express(),
-  path = require('path'),
-  isProduction = process.argv[2] === 'prod';
+  app = express();
 
 app
   .disable('x-powered-by')
@@ -11,11 +9,11 @@ app
   
   .set('view engine', 'html')
   .set('port', process.env.PORT || 3000)
-  .set('views', (isProduction ? 'dist/' : '') + 'views')
+  .set('views', 'views')
   
   .use(express.favicon())
   .use(express.logger('tiny'))
-  .use(express.static((isProduction ? 'dist/' : '') + 'public'))
+  .use(express.static('public'))
   .use(express.bodyParser())
   .use(express.methodOverride())
   .use(express.cookieParser())
