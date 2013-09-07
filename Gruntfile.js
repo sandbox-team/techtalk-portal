@@ -80,7 +80,12 @@ module.exports = function(grunt) {
       },
       build: {
         files: {
-          'dist/': ['./public/{css/**, img/**}', 'views/**']
+          'dist/': [
+            './public/{css/**, img/**}',
+            'views/**',
+            'server.js',
+            'node_modules/**'
+          ]
         }
       }
     },
