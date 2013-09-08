@@ -21,22 +21,35 @@
           controller: 'CalendarCtrl',
           templateUrl: 'views/calendar-page'
         })
-        .when('/details/:techtalkId', {
+        .when('/details/:talkId', {
           controller: 'DetailsCtrl',
           templateUrl: 'views/details-page'
-        });
+        })
+        .when('/edit/:talkId', {
+          controller: 'EditCtrl',
+          templateUrl: 'views/edit-page'
+        })
+        .otherwise({redirectTo: '/'});
     }])
+    .run(function() {
+      
+    })
     /**
      * 
      */
-    .controller('AppCtrl', ['$rootScope', '$scope', 'authService', 
-      function($rootScope, $scope, authService) {
+    .controller('AppCtrl', ['$rootScope', '$scope', 'authService', 'data', 
+      function($rootScope, $scope, authService, dataProvider) {
         $rootScope.global = {
           isAuthN: authService.isAuthN(),
-          authService: authService
+          authService: authService,
+          users: {}
         };
 
         $scope.auth = {};
+
+        dataProvider.getUser().then(function(data) {
+          $rootScope.global.users = data;
+        });
 
         $scope.signin = function() {
           $scope.authInProgress = true;

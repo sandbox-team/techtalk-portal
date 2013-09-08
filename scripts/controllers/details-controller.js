@@ -4,13 +4,13 @@
   ng.module('tp')
     .controller('DetailsCtrl', ['$scope', '$routeParams', 'data', 
       function($scope, $routeParams, dataProvider) {
-        var currentTalkId = $routeParams.techtalkId;
+        var currentTalkId = $routeParams.talkId;
 
-        $scope.global.pageTitle = 'details view';
+        $scope.global.pageTitle = 'talk: ' + currentTalkId;
 
         if (ng.isDefined(currentTalkId)) {
           dataProvider
-            .getTechtalkData($routeParams.techtalkId)
+            .getTechtalkData(currentTalkId)
             .success(function(data) {
               $scope.details = data;    
             })
