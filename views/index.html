@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/vendor.css">
   <link rel="stylesheet" href="/css/styles.css">
   <title data-ng-bind="global.pageTitle">TechTalk portal</title>
   <!-- we probably need more control here -->
@@ -67,14 +68,37 @@
     </div>
   </footer>
 
+  <div class="text-options">
+      <div class="options">
+        <span class="no-overflow">
+          <span class="lengthen ui-inputs">
+            <button class="url useicons">&#xe005;</button>
+            <input class="url-input" type="text" placeholder="Type or Paste URL here"/>
+            <button class="bold">b</button>
+            <button class="italic">i</button>
+            <button class="quote">&rdquo;</button>
+          </span>
+        </span>
+      </div>
+    </div>
+
+
+
   <!-- build:js(public) /js/app.min.js -->
   <script src="/js/core.js"></script>
+  <!--<script src="/js/vendor/zenpen/libs/Blob.js"></script>
+  <script src="/js/vendor/zenpen/libs/FileSaver.min.js"></script>
+  <script src="/js/vendor/zenpen/libs/fullScreen.js"></script>
+  <script src="/js/vendor/zenpen/utils.js"></script>
+  <script src="/js/vendor/zenpen/ui.js"></script>
+  <script src="/js/vendor/zenpen/editor.js"></script>-->
   <script src="/js/app.js"></script>
   <script src="/js/services/helper.js"></script>
   <script src="/js/services/data-provider.js"></script>
   <script src="/js/services/auth-service.js"></script>
   <script src="/js/controllers/details-controller.js"></script>
   <script src="/js/controllers/calendar-controller.js"></script>
+  <script src="/js/controllers/edit-controller.js"></script>
   <!-- endbuild -->
 </body>
 </html>

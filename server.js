@@ -1,8 +1,70 @@
+'use strict';
+
 require('colors');
 
 var express = require('express'),
-  app = express();
+  app = express(),
+  fs = require('fs'),
+  data = JSON.parse(fs.readFileSync('data.json', {
+    encoding: 'utf-8'
+  })),
+  talks = data.talks,
+  users = data.users,
+  tags = data.tags;
 
+//helper
+var getTalkById = (function() {
+  var memory = {};
+
+  return function(id) {
+    var memorized = memory[id],
+      talk;
+
+    if (memorized) {
+      return memorized;
+    }
+    else {
+      talks.forEach(function(resource, i) {
+        if (resource._id === id) {
+          talk = resource;
+          memory[id] = resource;
+          return false;
+        }
+      });
+
+      return talk;
+    }
+  }; 
+})();
+
+var getSchedule = (function() {
+  var memory = {};
+
+  return function(year, month) {
+    var dateStack = {},
+      periodId = year + '/' + month,
+      memorized = memory[periodId];
+
+    if (memorized) {
+      return memorized;
+    } 
+    else {
+      talks.forEach(function(talk, i) {
+        var talkDate = new Date(talk.date),
+          date = talkDate.getDate();
+
+        if(talkDate.getFullYear() == year && talkDate.getMonth() == month) {
+          var current = dateStack[date] = dateStack[date] || [];
+          current.push(talk);
+        }
+      });
+      
+      return (memory[periodId] = dateStack);
+    }
+  };
+})();
+
+//config
 app
   .disable('x-powered-by')
   .engine('html', require('ejs').renderFile)  
@@ -29,55 +91,21 @@ app.get('/views/:templateName', function(req, res) {
   res.render(req.params.templateName);
 });
 
-app.get('/test', function(req, res) {
-  res.send({
-    '3': [{
-      id: '1',
-      title: 'CSS features',
-      location: 'k1-3 215',
-      author: {
-        id: 'tester',
-        firstName: 'Sergey',
-        lastName: 'Net ne on'
-      }
-    }],
-    '21': [{
-      id: '2',
-      title: 'CSS55 features',
-      location: 'k1',
-      author: {
-        id: 'tester',
-        firstName: 'Sergey',
-        lastName: 'Net ne on'
-      }
-    }, {
-      id: '1',
-      title: 'JS',
-      location: 'n58',
-      author: {
-        id: 'tester',
-        firstName: 'Sergey',
-        lastName: 'Net ne on'
-      }
-    }]
-  });
+app.get('/talks/:year/:month', function(req, res) {
+  var year = req.params.year,
+    month = req.params.month;
+
+  res.send(getSchedule(year, month) || talks);
 });
 
-app.get('/details/:techtalkId', function(req, res) {
-  var data = {
-    '1': {
-      title: 'CSS features',
-      content: '<b>html here</b>'
-    },
-    '2': {
-      title: 'CSS2 features',
-      content: '<i>html here</i>'
-    }
-  };
+app.get('/details/:talkId', function(req, res) {
+  var id = req.params.talkId;
 
-  var id = req.params.techtalkId;
+  res.send(getTalkById(id) || {});
+});
 
-  res.send(data[id] || {});
+app.get('/user', function(req, res) {
+  res.send(users);
 });
 
 app.post('/auth', function(req, res) {

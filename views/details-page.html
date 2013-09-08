@@ -1,3 +1,10 @@
-<h2 data-ng-bind="details.title"></h2>
-<button type="button" class="btn btn-success" data-ng-if="global.isAuthN">Edit</button>
-<div data-ng-bind-html="details.content"></div>
+<a href="/edit" class="btn btn-success pull-right">Edit</a>
+<hgroup>
+  <h2 data-ng-bind="details.title"></h2>
+  <h3><a href="" data-ng-repeat="user in details.lector" data-ng-bind="global.users[user].full_name"></a></h3>
+  <h4><a href="" data-ng-repeat="tag in details.tags" data-ng-bind="tag"></a></h4>
+</hgroup>
+<div data-ng-bind-html="details.description"></div>
+<div class="well">
+  <a href="" data-ng-repeat="user in details.attendees">{{global.users[user].full_name}} </a>
+</div>
