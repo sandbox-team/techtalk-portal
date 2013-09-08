@@ -56,15 +56,26 @@ module.exports = function(grunt) {
 
     concat: {
       development: {
-        src: [
-          'bower_components/jquery/jquery.js', 
-          'bower_components/angular/angular.js',
-          'bower_components/angular-route/angular-route.js',
-          'bower_components/angular-resource/angular-resource.js',
-          'bower_components/angular-cookies/angular-cookies.js',
-          'bower_components/angular-sanitize/angular-sanitize.js'
-        ],
-        dest: 'public/js/core.js'
+        files: {
+          'public/js/core.js': [
+            'bower_components/jquery/jquery.js', 
+            'bower_components/angular/angular.js',
+            'bower_components/angular-route/angular-route.js',
+            'bower_components/angular-resource/angular-resource.js',
+            'bower_components/angular-cookies/angular-cookies.js',
+            'bower_components/angular-sanitize/angular-sanitize.js',
+            'vendor/zenpen/js/libs/Blob.js',
+            'vendor/zenpen/js/libs/FileSaver.js',
+            'vendor/zenpen/js/libs/fullScreen.js',
+            'vendor/zenpen/js/utils.js',
+            //'vendor/zenpen/js/ui.js',
+            'vendor/zenpen/js/editor.js'
+          ],
+          'public/css/vendor.css': [
+            'vendor/zenpen/css/fonts.css',
+            'vendor/zenpen/css/style.css'
+          ]
+        }
       },
 
       production: {
@@ -73,10 +84,20 @@ module.exports = function(grunt) {
 
     copy: {
       development: {
-        expand: true,
-        cwd: './scripts/',
-        src: '{,**/}*.js',
-        dest: './public/js/'
+        files: [
+          {
+            expand: true,
+            cwd: './scripts/',
+            src: '{,**/}*.js',
+            dest: './public/js/'
+          },
+          {
+            expand: true,
+            cwd: './styles/fonts/',
+            src: '**',
+            dest: './public/css/fonts/'
+          }
+        ]
       },
       build: {
         files: {

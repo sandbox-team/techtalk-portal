@@ -1,0 +1,1659 @@
+{
+	"talks": [
+		{
+			"_id": "1",
+			"date": "2\/22\/2013",
+			"title": "CSS via JS",
+			"lector": ["siarhei_mikhailau"],
+			"location": "N58",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore, consequuntur suscipit harum omnis neque vitae id voluptatem assumenda quam eos saepe nulla aliquid voluptas ut modi in minima debitis!",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"andrey_demchenko",
+				"veranika_mishurina",
+				"mikita_khatsimtsou",
+				"maryna_belavusava",
+				"nadzeya_pratasava",
+				"varely_zhurovich"
+			],
+			"tags": [
+				"css",
+				"js",
+				"prefix",
+				"xbrowser"
+			]
+		},
+
+
+
+		{
+			"_id": "2",
+			"date": "2\/27\/2013",
+			"title": "CSS via JS",
+			"lector": ["siarhei_mikhailau"],
+			"location": "K1+K10",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, eveniet harum libero dolor iure nulla voluptatibus aperiam aliquam? Voluptas, qui, voluptatem rerum excepturi similique dolorum consectetur cumque quisquam expedita voluptate.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"aliaksandr_arlou",
+				"khrystsina_tsikhanovich",
+				"nadzeya_shedava",
+				"dmitry_beynya",
+				"maria_putyrskaya",
+				"viktor_busko",
+				"uladzimir_hartsau",
+				"aliaksei_yanachkin",
+				"tatsiana_hlebik",
+				"alena_karaba",
+				"anton_prokofyev"
+			],
+			"tags": [
+				"css",
+				"js",
+				"prefix",
+				"xbrowser"
+			]
+		},
+
+
+		{
+			"_id": "3",
+			"date": "2\/27\/2013",
+			"title": "CSS via JS",
+			"lector": ["siarhei_mikhailau"],
+			"location": "K1\/3",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, dolorem, quisquam, quo officiis voluptatem doloribus repudiandae reprehenderit dolor excepturi hic culpa quidem fugit nulla animi voluptas. Aspernatur perspiciatis pariatur voluptatibus.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"dzmitry_osipau",
+				"raman_vysotski",
+				"aliaksandr_kurash",
+				"ivan_straltsou",
+				"andrei_valuyev",
+				"nikolay_zhgirovsky",
+				"kirill_malets",
+				"siarhei_mikulich",
+				"anton_sharapa",
+				"aleh_nadolskiy",
+				"aliaksei_tryputsen",
+				"andrew_krook"
+			],
+			"tags": [
+				"css",
+				"js",
+				"prefix",
+				"xbrowser"
+			]
+		},
+
+
+		{
+			"_id": "4",
+			"date": "2\/25\/2013",
+			"title": "Tetris",
+			"lector": ["siarhei_mikhailau"],
+			"location": "N58",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, maiores facilis natus sapiente ex optio inventore ad quam veritatis atque cum quod laborum suscipit aut aperiam nihil itaque minus nam.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"andrey_demchenko",
+				"veranika_mishurina",
+				"mikita_khatsimtsou",
+				"maryna_belavusava",
+				"nadzeya_pratasava",
+				"varely_zhurovich"
+			],
+			"tags": [
+				"talk",
+				"algorithm",
+				"game"
+			]
+		},
+
+
+
+		{
+			"_id": "7",
+			"date": "4\/12\/2013",
+			"title": "noJS framework or \":checked\"",
+			"lector": ["siarhei_mikhailau"],
+			"location": "N58",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, illo, a molestias tenetur facere commodi cum voluptatem laborum beatae itaque soluta voluptatum molestiae deserunt quisquam laudantium nihil sapiente. Sit, facere.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"andrey_demchenko",
+				"mikita_khatsimtsou",
+				"maryna_belavusava",
+				"nadzeya_pratasava",
+				"varely_zhurovich"
+			],
+			"tags": [
+				"css",
+				"prototype"
+			]
+		},
+
+
+		{
+			"_id": "5",
+			"date": "3\/6\/2013",
+			"title": "Tetris",
+			"lector": ["siarhei_mikhailau"],
+			"location": "K1\/3",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quisquam nostrum aperiam. Ducimus, pariatur, at, quibusdam, reiciendis sint iure hic quisquam non id inventore laborum dolorem eaque ab repudiandae iste.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"dzmitry_osipau",
+				"aliaksandr_padabed",
+				"aliaksandr_kurash",
+				"ivan_straltsou",
+				"volha_bainova",
+				"nikolay_zhgirovsky",
+				"kirill_malets",
+				"siarhei_mikulich",
+				"anton_sharapa",
+				"aleh_nadolskiy",
+				"aliaksei_tryputsen",
+				"raman_vysotski",
+				"andrew_krook",
+				"kseniya_smirnova",
+				"andrei_valuyev",
+				"yulia_douha"
+			],
+			"tags": [
+				"talk",
+				"algorithm",
+				"game"
+			]
+		},
+
+
+		{
+			"_id": "6",
+			"date": "3\/5\/2013",
+			"title": "Tetris",
+			"lector": ["siarhei_mikhailau"],
+			"location": "K1+K10",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, debitis, placeat, aut quibusdam at laboriosam ratione nulla nisi maxime iste enim deleniti ex officia sed qui? Praesentium sapiente voluptatum sint.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"aliaksandr_arlou",
+				"yauhen_karmyzau",
+				"khrystsina_tsikhanovich",
+				"nadzeya_shedava",
+				"maria_putyrskaya",
+				"viktor_busko",
+				"uladzimir_hartsau",
+				"aliaksei_yanachkin",
+				"tatsiana_hlebik",
+				"anton_prokofyev",
+				"ilya_kvachenko"
+			],
+			"tags": [
+				"talk",
+				"algorithm",
+				"game"
+			]
+		},
+
+
+
+		{
+			"_id": "8",
+			"date": "4\/16\/2013",
+			"title": "Tetris",
+			"lector": ["siarhei_mikhailau"],
+			"location": "N186",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, qui, velit impedit libero non deserunt aliquid incidunt ipsam ducimus accusantium neque nihil voluptatum quis consequatur repellat deleniti similique inventore mollitia!",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"yauheni_pas",
+				"aliaksei_rubinau",
+				"tatsiana_petrushkevich",
+				"anton_raby",
+				"dzmitry_yurkavets"
+			],
+			"tags": [
+				"talk",
+				"algorithm",
+				"game"
+			]
+		},
+
+
+		{
+			"_id": "9",
+			"date": "3\/12\/2013",
+			"title": "Backbone",
+			"lector": ["aliaksandr_arlou"],
+			"location": "K1\/3",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, necessitatibus, repellat, voluptate aliquid deserunt illum praesentium blanditiis eius sint ab placeat porro doloremque debitis impedit perspiciatis similique recusandae dolore! Sint.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"siarhei_mikhailau",
+				"raman_vysotski",
+				"aliaksandr_padabed",
+				"aliaksandr_kurash",
+				"ivan_straltsou",
+				"volha_bainova",
+				"andrei_valuyev",
+				"kseniya_smirnova",
+				"dzianis_ziankovich",
+				"anton_sharapa",
+				"aleh_nadolskiy",
+				"aliaksei_tryputsen",
+				"yury_tarasevich",
+				"andrew_krook",
+				"yulia_douha",
+				"yauhen_karmyzau",
+				"khrystsina_tsikhanovich",
+				"nadzeya_shedava",
+				"dzianis_kryvashei",
+				"viktor_busko",
+				"uladzimir_hartsau",
+				"aliaksei_yanachkin",
+				"alena_karaba",
+				"andrey_demchenko",
+				"mikita_khatsimtsou"
+			],
+			"tags": [
+				"backbone",
+				"mvc",
+				"js"
+			]
+
+		},
+
+
+		{
+			"_id": "10",
+			"date": "3\/20\/2013",
+			"title": "NodeJS",
+			"lector": ["andrei_barysiuk"],
+			"location": "K1\/3",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, officia similique in eaque accusamus voluptate quibusdam debitis possimus voluptatibus illum placeat quasi culpa cum numquam cumque modi ex. Inventore, itaque?",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"siarhei_mikhailau",
+				"dzmitry_osipau",
+				"stanislau_zubovich",
+				"aliaksandr_kurash",
+				"ivan_straltsou",
+				"volha_bainova",
+				"kseniya_smirnova",
+				"dzianis_ziankovich",
+				"siarhei_mikulich",
+				"anton_sharapa",
+				"aleh_nadolskiy",
+				"aliaksei_tryputsen",
+				"yury_tarasevich",
+				"andrew_krook",
+				"yulia_douha",
+				"yauhen_karmyzau",
+				"khrystsina_tsikhanovich",
+				"nadzeya_shedava",
+				"maria_putyrskaya",
+				"dzianis_kryvashei",
+				"viktor_busko",
+				"uladzimir_hartsau",
+				"aliaksei_yanachkin",
+				"alena_karaba",
+				"veranika_mishurina",
+				"mikita_khatsimtsou"
+			],
+			"tags": [
+				"nodejs",
+				"js",
+				"server",
+				"build",
+				"minify"
+			]
+		},
+
+
+
+		{
+			"_id": "11",
+			"date": "3\/19\/2013",
+			"title": "Web Inspector",
+			"lector": ["siarhei_mikhailau"],
+			"location": "K1+K10",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, sapiente, molestiae, minima, sunt ratione maiores quae aut nisi eaque adipisci eum dolorum totam ipsa esse alias incidunt id dicta quasi!",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"aliaksandr_arlou",
+				"yauhen_karmyzau",
+				"khrystsina_tsikhanovich",
+				"nadzeya_shedava",
+				"maria_putyrskaya",
+				"dzianis_kryvashei",
+				"viktor_busko",
+				"uladzimir_hartsau",
+				"aliaksei_yanachkin",
+				"alena_karaba",
+				"ilya_kvachenko"		
+			],
+			"tags": [
+				"minify",
+				"js",
+				"dom",
+				"transform",
+				"algorithm",
+				"css",
+				"html"
+			]
+		},
+
+
+		{
+			"_id": "12",
+			"date": "3\/27\/2013",
+			"title": "Web Inspector",
+			"lector": ["siarhei_mikhailau"],
+			"location": "K1\/3",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, cumque, voluptatum, placeat alias eos id nemo illum provident vero similique culpa molestias ipsa error ad saepe quo porro. Ab, ea.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"dzmitry_osipau",
+				"aliaksandr_padabed",
+				"aliaksandr_kurash",
+				"ivan_straltsou",
+				"volha_bainova",
+				"nikolay_zhgirovsky",
+				"kirill_malets",
+				"siarhei_mikulich",
+				"anton_sharapa",
+				"aleh_nadolskiy",
+				"aliaksei_tryputsen",
+				"yury_tarasevich",
+				"andrew_krook",
+				"stanislau_zubovich",
+				"andrei_valuyev",
+				"kseniya_smirnova",
+				"dzianis_ziankovich"
+			],
+			"tags": [
+				"minify",
+				"js",
+				"dom",
+				"transform",
+				"algorithm",
+				"css",
+				"html"
+			]
+		},
+
+		{
+			"_id": "13",
+			"date": "4\/10\/2013",
+			"title": "Web Inspector",
+			"lector": ["siarhei_mikhailau"],
+			"location": "N186",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, officia, nostrum porro possimus in itaque fuga incidunt tempore aspernatur et error reprehenderit vero perspiciatis a quod pariatur quo nobis veritatis.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"maksim_kovalev",
+				"siarhei_prudnikau",
+				"andrei_dzeuhuts",
+				"fyodor_yakimchouk",
+				"yauheni_pas",
+				"aliaksei_rubinau",
+				"tatsiana_petrushkevich",
+				"andrei_akula",
+				"anton_raby",
+				"dzmitry_yurkavets"
+			],
+			"tags": [
+				"minify",
+				"js",
+				"dom",
+				"transform",
+				"algorithm",
+				"css",
+				"html"
+			]
+		},
+
+		{
+			"_id": "14",
+			"date": "4\/19\/2013",
+			"title": "Web Inspector",
+			"lector": ["siarhei_mikhailau"],
+			"location": "N58",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, cumque, neque error nisi rerum cupiditate dolorum quaerat excepturi sapiente perspiciatis recusandae tempora voluptatem possimus mollitia accusamus consequuntur quas aut modi!",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"andrey_demchenko",
+				"veranika_mishurina",
+				"mikita_khatsimtsou",
+				"nadzeya_pratasava",
+				"iryna_dastanka"
+			],
+			"tags": [
+				"minify",
+				"js",
+				"dom",
+				"transform",
+				"algorithm",
+				"css",
+				"html"
+			]
+		},
+
+
+		{
+			"_id": "15",
+			"date": "3\/28\/2013",
+			"title": "CSS Flexbox",
+			"lector": ["maria_putyrskaya"],
+			"location": "K1+K10",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident architecto consectetur tempora perferendis explicabo assumenda molestiae mollitia voluptas. Molestiae, provident, similique dolorem autem consectetur ipsum doloribus hic vel consequuntur voluptates!",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"aliaksandr_arlou",
+				"yauhen_karmyzau",
+				"khrystsina_tsikhanovich",
+				"nadzeya_shedava",
+				"dmitry_beynya",
+				"dzianis_kryvashei",
+				"uladzimir_hartsau",
+				"siarhei_mikhailau"
+			],
+			"tags": [
+				"css",
+				"flex"
+			]
+		},
+
+
+
+		{
+			"_id": "16",
+			"date": "4\/3\/2013",
+			"title": "Javascript Modularity",
+			"lector": ["andrei_barysiuk"],
+			"location": "K1\/3",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, fugiat temporibus cum illo inventore ex autem voluptas officia nulla sapiente assumenda quaerat ducimus ipsum sunt quis ut ea dignissimos aut.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"siarhei_mikhailau",
+				"dzianis_ziankovich",
+				"andrei_valuyev",
+				"aliaksei_tryputsen",
+				"dzmitry_osipau",
+				"anton_sharapa",
+				"dmitry_beynya",
+				"aleh_nadolskiy",
+				"aliaksandr_kurash",
+				"aliaksandr_padabed",
+				"yulia_douha",
+				"andrei_volkau1",
+				"nikolay_zhgirovsky",
+				"ivan_straltsou",
+				"kirill_malets",
+				"yury_tarasevich",
+				"stanislau_zubovich",
+				"anatoli_tsyporyn",
+				"dzianis_skliar",
+				"kseniya_smirnova",
+				"yauhen_tsikhan",
+				"aliaksandr_timbaliuc",
+				"aliaksandr_arlou",
+				"yauhen_karmyzau",
+				"khrystsina_tsikhanovich",
+				"nadzeya_shedava",
+				"dzianis_kryvashei",
+				"viktor_busko",
+				"maryia_sinkevich",
+				"mikita_khatsimtsou",
+				"pavel_valadzko",
+				"maksim_kovalev",
+				"igor_boreysha"
+			],
+			"tags": [
+				"amd",
+				"js",
+				"build",
+				"nodejs",
+				"requirejs",
+				"commonjs",
+				"lmd",
+				"module"
+			]
+		},
+
+
+		{
+			"_id": "17",
+			"date": "4\/24\/2013",
+			"title": "Chrome Extensions",
+			"lector": ["yauhen_karmyzau"],
+			"location": "K1\/3",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, non earum fugit facilis neque quasi natus error accusamus repellendus odio illum expedita consequuntur libero culpa at inventore voluptatibus placeat adipisci.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"kseniya_smirnova",
+				"aliaksandr_padabed",
+				"aleh_nadolskiy",
+				"stanislau_zubovich",
+				"aliaksei_patsiomkin",
+				"dzianis_ziankovich",
+				"yury_tarasevich",
+				"aliaksei_tryputsen",
+				"andrei_volkau1",
+				"dmitry_beynya",
+				"dmitry_scherbatykh",
+				"yauhen_tsikhan",
+				"olga_bedulina",
+				"kirill_malets",
+				"siarhei_mikulich",
+				"dzmitry_osipau",
+				"nikolay_zhgirovsky",
+				"volha_bainova",
+				"andrei_valuyev",
+				"anton_sharapa"
+			],
+			"tags": [
+				"chrome",
+				"extension",
+				"js"
+			]
+		},
+
+		{
+			"_id": "18",
+			"date": "4\/4\/2013",
+			"title": "Chrome Extensions",
+			"lector": ["yauhen_karmyzau"],
+			"location": "K1+K10",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, repellat natus dolor autem ullam consequuntur odit suscipit odio est ex! Quo, accusamus recusandae veritatis maxime numquam alias expedita at. Et.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"aliaksandr_arlou",
+				"khrystsina_tsikhanovich",
+				"nadzeya_shedava",
+				"dmitry_beynya",
+				"dzianis_kryvashei",
+				"uladzimir_hartsau",
+				"siarhei_mikhailau"
+			],
+			"tags": [
+				"chrome",
+				"extension",
+				"js"
+			]
+		},
+
+		{
+			"_id": "19",
+			"date": "4\/26\/2013",
+			"title": "Chrome Extensions",
+			"lector": ["yauhen_karmyzau"],
+			"location": "N58",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, praesentium, quas aliquam laudantium eum vero perferendis quam voluptatibus labore maxime neque totam nemo laborum accusantium sapiente asperiores error dolorum rerum?",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"andrey_demchenko",
+				"mikita_khatsimtsou",
+				"nadzeya_pratasava"
+			],
+			"tags": [
+				"chrome",
+				"extension",
+				"js"
+			]
+		},
+
+
+		{
+			"_id": "20",
+			"date": "4\/10\/2013",
+			"title": "Javascript Animation",
+			"lector": ["mikita_khatsimtsou"],
+			"location": "K1\/3",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, nihil, aspernatur, veritatis eveniet deleniti vero dolores iste porro earum officiis quis numquam eligendi nemo libero voluptas dolor voluptates mollitia culpa.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"aliaksandr_kurash",
+				"aliaksandr_padabed",
+				"aliaksei_patsiomkin",
+				"aliaksei_tryputsen",
+				"andrei_volkau1",
+				"andrew_krook",
+				"maksim_kovalev",
+				"dmitry_scherbatykh",
+				"kseniya_smirnova",
+				"dzianis_skliar",
+				"dzmitry_osipau",
+				"ivan_straltsou",
+				"siarhei_mikulich",
+				"volha_bainova",
+				"yury_tarasevich",
+				"dmitry_beynya",
+				"aleh_nadolskiy",
+				"maxim_malets",
+				"dzianis_ziankovich",
+				"nikolay_zhgirovsky",
+				"stanislau_zubovich",
+				"olga_bedulina",
+				"aliaksandr_arlou",
+				"khrystsina_tsikhanovich",
+				"nadzeya_shedava",
+				"dzianis_kryvashei"
+			],
+			"tags": [
+				"js",
+				"timeout",
+				"interval",
+				"keyframe",
+				"animation"
+			]
+		},
+
+
+		{
+			"_id": "21",
+			"date": "4\/5\/2013",
+			"title": "Javascript Animation",
+			"lector": ["mikita_khatsimtsou"],
+			"location": "N58",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, consequatur, porro, autem nam culpa odit id iste expedita dolor incidunt hic repudiandae illo ipsam non est libero facere! Molestiae, praesentium!",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"andrey_demchenko",
+				"veranika_mishurina",
+				"maryna_belavusava",
+				"nadzeya_pratasava",
+				"varely_zhurovich",
+				"siarhei_mikhailau"
+			],
+			"tags": [
+				"js",
+				"timeout",
+				"interval",
+				"keyframe",
+				"animation"
+			]
+		},
+
+
+
+		{
+			"_id": "22",
+			"date": "4\/11\/2013",
+			"title": "Sencha Intro",
+			"lector": ["uladzimir_hartsau"],
+			"location": "K1+K10",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis provident tempora ullam repellendus corrupti itaque corporis consectetur eius dignissimos sapiente. Corporis, recusandae illum molestias possimus pariatur eligendi magni architecto ipsum.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"aliaksandr_arlou",
+				"khrystsina_tsikhanovich",
+				"nadzeya_shedava",
+				"dmitry_beynya",
+				"dzianis_kryvashei",
+				"viktor_busko",
+				"aliaksei_yanachkin",
+				"anton_prokofyev",
+				"siarhei_mikhailau",
+				"dzianis_ziankovich"
+			],
+			"tags": [
+				"js",
+				"framework",
+				"mvc",
+				"todo"
+			]
+		},
+
+
+
+		{
+			"_id": "23",
+			"date": "4\/17\/2013",
+			"title": "10 CSS Secrets",
+			"lector": ["siarhei_mikhailau"],
+			"location": "K1\/3",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, corrupti, delectus distinctio dicta consectetur quod dolor soluta illo saepe obcaecati quo quas voluptate facere aliquam ea nulla aut omnis quisquam.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"dzianis_skliar",
+				"aliaksandr_kurash",
+				"siarhei_mikulich",
+				"kirill_malets",
+				"olga_bedulina",
+				"volha_bainova",
+				"dmitry_beynya",
+				"dmitry_scherbatykh",
+				"nikolay_zhgirovsky",
+				"anatoli_tsyporyn",
+				"aliaksei_tryputsen",
+				"aliaksei_patsiomkin",
+				"anton_sharapa",
+				"kseniya_smirnova",
+				"maria_prinus",
+				"yury_tarasevich",
+				"stanislau_zubovich",
+				"aleh_nadolskiy",
+				"aliaksandr_padabed",
+				"dzmitry_osipau",
+				"yulia_douha",
+				"andrei_valuyev",
+				"yauhen_tsikhan",
+				"andrew_krook",
+				"maxim_malets"
+			],
+			"tags": [
+				"css",
+				"leaverou",
+				"transform",
+				"transition",
+				"shadow"
+			]
+		},
+
+		{
+			"_id": "24",
+			"date": "4\/18\/2013",
+			"title": "10 CSS Secrets",
+			"lector": ["siarhei_mikhailau"],
+			"location": "K1+K10",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, aspernatur quis natus facilis ex corporis qui tempore sint obcaecati sed. Doloribus, temporibus assumenda ex animi porro at illo delectus tempora.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"aliaksandr_arlou",
+				"khrystsina_tsikhanovich",
+				"nadzeya_shedava",
+				"maria_putyrskaya",
+				"dzianis_kryvashei",
+				"viktor_busko",
+				"uladzimir_hartsau",
+				"aliaksei_yanachkin",
+				"anton_prokofyev"
+			],
+			"tags": [
+				"css",
+				"leaverou",
+				"transform",
+				"transition",
+				"shadow"
+			]
+		},
+
+
+
+
+		{
+			"_id": "25",
+			"date": "4\/23\/2013",
+			"title": "Widgets for Windows",
+			"lector": ["andrei_dzeuhuts"],
+			"location": "N186",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, velit, ratione, vel, ea debitis incidunt minus rem est nostrum aut impedit voluptates sed nesciunt aliquam assumenda placeat ducimus tenetur voluptatem.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"yauheni_pas",
+				"aliaksei_rubinau",
+				"fyodor_yakimchouk"
+			],
+			"tags": [
+				"css",
+				"html",
+				"js",
+				"widget",
+				"windows8",
+				"desktop"
+			]
+		},
+
+
+
+
+
+		{
+			"_id": "26",
+			"date": "4\/25\/2013",
+			"title": "Knockout.js",
+			"lector": ["khrystsina_tsikhanovich", "nadzeya_shedava"],
+			"location": "K1+K10",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, rerum, illo, repudiandae natus qui nostrum voluptates ex cupiditate eaque expedita ea ad accusamus rem ullam sequi. Commodi, sunt dolor recusandae!",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"aliaksandr_arlou",
+				"yauhen_karmyzau",
+				"maria_putyrskaya",
+				"dzianis_kryvashei",
+				"uladzimir_hartsau",
+				"aliaksei_yanachkin",
+				"anton_prokofyev",
+				"siarhei_mikhailau"
+			],
+			"tags": [
+				"js",
+				"knockout",
+				"mvvm",
+				"todo"
+			]
+		},
+
+
+
+		{
+			"_id": "27",
+			"date": "4\/30\/2013",
+			"title": "Hackaton",
+			"lector": ["siarhei_mikhailau"],
+			"location": "K1+K10",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, sed, earum explicabo quam voluptas nobis vero maiores deserunt nemo suscipit reprehenderit distinctio! Porro, ut nobis sed voluptate doloremque ad excepturi.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"yauhen_karmyzau",
+				"khrystsina_tsikhanovich",
+				"nadzeya_shedava",
+				"maria_putyrskaya",
+				"viktor_busko",
+				"uladzimir_hartsau",
+				"aliaksei_yanachkin"
+			],
+			"tags": [
+				"js",
+				"css",
+				"hackaton",
+				"html",
+				"transform",
+				"transition"
+			]
+		},
+
+
+		{
+			"_id": "28",
+			"date": "5\/2\/2013",
+			"title": "Semantic",
+			"lector": ["siarhei_mikhailau", "aliaksei_patsiomkin"],
+			"location": "K1\/3",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, enim, repellat, exercitationem harum velit atque explicabo sit dolorum ipsa praesentium vel cupiditate. Nam, esse, perferendis nemo voluptatem reiciendis sit officia.",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"siarhei_mikulich",
+				"dzmitry_osipau",
+				"dmitry_beynya",
+				"dzianis_skliar",
+				"aleh_nadolskiy",
+				"nikolay_zhgirovsky",
+				"yauhen_tsikhan",
+				"dmitry_scherbatykh",
+				"aliaksei_tryputsen",
+				"volha_bainova",
+				"maxim_malets",
+				"andrei_volkau1",
+				"stanislau_zubovich",
+				"dzianis_ziankovich",
+				"yury_tarasevich",
+				"anton_sharapa",
+				"raman_vysotski",
+				"kanstantsin_babichau"
+			],
+			"tags": [
+				"talk",
+				"semantic",
+				"accessibility",
+				"recomendation"
+			]
+		},
+
+
+		{
+			"_id": "29",
+			"date": "5\/22\/2013",
+			"title": "MVC Introduction",
+			"lector": ["dzianis_ziankovich"],
+			"location": "K1\/3",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, facilis, officiis voluptatibus velit doloremque est culpa similique veniam alias pariatur numquam beatae! Suscipit, necessitatibus id sit error nesciunt perferendis sunt!",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"yury_tarasevich",
+				"aliaksandr_kurash",
+				"kanstantsin_babichau",
+				"dzianis_skliar",
+				"yauhen_tsikhan",
+				"aliaksei_tryputsen",
+				"andrei_volkau1",
+				"andrew_krook",
+				"olga_bedulina",
+				"siarhei_mikhailau",
+				"volha_bainova"
+			],
+			"tags": [
+				"js",
+				"backend",
+				"mvc",
+				"php",
+				"oop"
+			]
+		},
+
+		{
+			"_id": "30",
+			"date": "5\/23\/2013",
+			"title": "Dev Process",
+			"lector": ["siarhei_mikhailau"],
+			"location": "K1+K10",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, facilis, officiis voluptatibus velit doloremque est culpa similique veniam alias pariatur numquam beatae! Suscipit, necessitatibus id sit error nesciunt perferendis sunt!",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"yauhen_karmyzau",
+				"khrystsina_tsikhanovich",
+				"nadzeya_shedava",
+				"maria_putyrskaya",
+				"dzianis_kryvashei",
+				"uladzimir_hartsau",
+				"anton_prokofyev",
+				"maryia_sinkevich"
+			],			
+			"tags": [
+				"process",
+				"agile",
+				"waterfall",
+				"microteams",
+				"developement",
+				"team"
+			]
+		},
+
+
+		{
+			"_id": "31",
+			"date": "5\/29\/2013",
+			"title": "CoffeeScript - Easy Access to the Good Parts of JavaScript",
+			"lector": ["ivan_straltsou"],
+			"location": "K1\/3",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, facilis, officiis voluptatibus velit doloremque est culpa similique veniam alias pariatur numquam beatae! Suscipit, necessitatibus id sit error nesciunt perferendis sunt!",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"siarhei_mikhailau",
+				"dzianis_skliar",
+				"aliaksandr_kurash",
+				"volha_bainova",
+				"nikolay_zhgirovsky",
+				"aliaksei_tryputsen",
+				"aliaksei_patsiomkin",
+				"anton_sharapa",
+				"maria_prinus",
+				"yury_tarasevich",
+				"dzmitry_osipau",
+				"yauhen_tsikhan",
+				"anton_prokofyev",
+				"kanstantsin_babichau",
+				"dzianis_ziankovich",
+				"andrei_volkau1",
+				"marina_kamayeva",
+				"igor_mishurin",
+				"khrystsina_tsikhanovich",
+				"nadzeya_shedava",
+				"viktor_busko"
+			],			
+			"tags": [
+				"js",
+				"coffee"
+			]
+		},
+
+		{
+			"_id": "32",
+			"date": "6\/20\/2013",
+			"title": "From Non-Intuitive JS Parts to JS OOP",
+			"lector": ["raman_vysotski"],
+			"location": "K1\/3",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, facilis, officiis voluptatibus velit doloremque est culpa similique veniam alias pariatur numquam beatae! Suscipit, necessitatibus id sit error nesciunt perferendis sunt!",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"siarhei_mikhailau",
+				"dzianis_skliar",
+				"aliaksandr_kurash",
+				"ivan_straltsou",
+				"aliaksei_patsiomkin",
+				"anton_sharapa",
+				"olga_bedulina",
+				"dzianis_ziankovich",
+				"siarhei_fedarovich",
+				"yauhen_tsikhan",
+				"siarhei_vaitehovich",
+				"kseniya_smirnova",
+				"dzmitry_osipau",
+				"marina_kamayeva",
+				"andrei_valuyev",
+				"maxim_malets",
+				"aleh_nadolskiy",
+				"yauhen_karmyzau",
+				"uladzimir_hartsau"
+			],			
+			"tags": [
+				"js",
+				"valilla",
+				"native",
+				"oop"
+			]
+		},
+
+		{
+			"_id": "32",
+			"date": "6\/20\/2013",
+			"title": "MongoDB + NodeJS",
+			"lector": ["dzianis_kryvashei"],
+			"location": "K1+K10",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, facilis, officiis voluptatibus velit doloremque est culpa similique veniam alias pariatur numquam beatae! Suscipit, necessitatibus id sit error nesciunt perferendis sunt!",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"siarhei_mikhailau",
+				"dzianis_ziankovich",
+				"aliaksandr_arlou",
+				"yauhen_karmyzau",
+				"khrystsina_tsikhanovich",
+				"uladzimir_hartsau",
+				"tatsiana_hlebik",
+				"alena_karaba",
+				"anton_prokofyev"
+			],			
+			"tags": [
+				"js",
+				"nodejs",
+				"mongodb"
+			]
+		},
+
+
+		{
+			"_id": "33",
+			"date": "7\/24\/2013",
+			"title": "NodeJS, npm, express",
+			"lector": ["andrei_volkau1"],
+			"location": "K1\/3",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, facilis, officiis voluptatibus velit doloremque est culpa similique veniam alias pariatur numquam beatae! Suscipit, necessitatibus id sit error nesciunt perferendis sunt!",
+			"level": "D1-D5",
+			"notes": "",
+			"attendees": [
+				"siarhei_mikhailau",
+				"dzianis_skliar",
+				"aliaksandr_kurash",
+				"nikolay_zhgirovsky",
+				"aliaksei_tryputsen",
+				"aliaksei_patsiomkin",
+				"raman_vysotski",
+				"ilya_valasiuk",
+				"aliaksandr_padabed",
+				"dzmitry_osipau",
+				"olga_bedulina",
+				"dzianis_ziankovich",
+				"marina_kamayeva",
+				"siarhei_simanovich",
+				"siarhei_vaitehovich",
+				"aliaksandr_hudkou",
+				"veranika_baradzina",
+				"katsiaryna_utlik",
+				"siarhei_fedarovich",
+				"maxim_malets",
+				"tatsiana_hlebik"
+			],			
+			"tags": [
+				"js",
+				"nodejs",
+				"backend",
+				"npm",
+				"express"
+			]
+		}
+	],
+
+	"users": {
+		"siarhei_mikhailau": {
+			"full_name": "Siarhei Mikhailau",
+			"email": ["siarhei_mikhailau@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"andrey_demchenko": {
+			"full_name": "Andrey Demchenko",
+			"email": ["andrey_demchenko@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"veranika_mishurina": {
+			"full_name": "Veranika Mishurina",
+			"email": ["veranika_mishurina@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"mikita_khatsimtsou": {
+			"full_name": "Mikita Khatsimtsou",
+			"email": ["mikita_khatsimtsou@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"maryna_belavusava": {
+			"full_name": "Maryna Belavusava",
+			"email": ["maryna_belavusava@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"nadzeya_pratasava": {
+			"full_name": "Nadzeya Pratasava",
+			"email": ["nadzeya_pratasava@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"varely_zhurovich": {
+			"full_name": "Varely Zhurovich",
+			"email": ["varely_zhurovich@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"aliaksandr_arlou": {
+			"full_name": "Aliaksandr Arlou",
+			"email": ["aliaksandr_arlou@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"khrystsina_tsikhanovich": {
+			"full_name": "Khrystsina Tsikhanovich",
+			"email": ["khrystsina_tsikhanovich@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"nadzeya_shedava": {
+			"full_name": "Nadzeya Shedava",
+			"email": ["nadzeya_shedava@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"dmitry_beynya": {
+			"full_name": "Dmitry Beynya",
+			"email": ["dmitry_beynya@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"maria_putyrskaya": {
+			"full_name": "Maria Putyrskaya",
+			"email": ["maria_putyrskaya@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"viktor_busko": {
+			"full_name": "Viktor Busko",
+			"email": ["viktor_busko@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"uladzimir_hartsau": {
+			"full_name": "Uladzimir Hartsau",
+			"email": ["uladzimir_hartsau@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"aliaksei_yanachkin": {
+			"full_name": "Aliaksei Yanachkin",
+			"email": ["aliaksei_yanachkin@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"tatsiana_hlebik": {
+			"full_name": "Tatsiana Hlebik",
+			"email": ["tatsiana_hlebik@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"alena_karaba": {
+			"full_name": "Alena Karaba",
+			"email": ["alena_karaba@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"anton_prokofyev": {
+			"full_name": "Anton Prokofyev",
+			"email": ["anton_prokofyev@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"dzmitry_osipau": {
+			"full_name": "Dzmitry Osipau",
+			"email": ["dzmitry_osipau@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"raman_vysotski": {
+			"full_name": "Raman Vysotski",
+			"email": ["raman_vysotski@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"aliaksandr_kurash": {
+			"full_name": "Aliaksandr Kurash",
+			"email": ["aliaksandr_kurash@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"ivan_straltsou": {
+			"full_name": "Ivan Straltsou",
+			"email": ["ivan_straltsou@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"andrei_valuyev": {
+			"full_name": "Andrei Valuyev",
+			"email": ["andrei_valuyev@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"nikolay_zhgirovsky": {
+			"full_name": "Nikolay Zhgirovsky",
+			"email": ["nikolay_zhgirovsky@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"kirill_malets": {
+			"full_name": "Kirill Malets",
+			"email": ["kirill_malets@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"siarhei_mikulich": {
+			"full_name": "Siarhei Mikulich",
+			"email": ["siarhei_mikulich@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"anton_sharapa": {
+			"full_name": "Anton Sharapa",
+			"email": ["anton_sharapa@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"aleh_nadolskiy": {
+			"full_name": "Aleh Nadolskiy",
+			"email": ["aleh_nadolskiy@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"aliaksei_tryputsen": {
+			"full_name": "Aliaksei Tryputsen",
+			"email": ["aliaksei_tryputsen@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"andrew_krook": {
+			"full_name": "Andrew Krook",
+			"email": ["andrew_krook@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"aliaksandr_padabed": {
+			"full_name": "Aliaksandr Padabed",
+			"email": ["aliaksandr_padabed@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"volha_bainova": {
+			"full_name": "Volha Bainova",
+			"email": ["volha_bainova@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"kseniya_smirnova": {
+			"full_name": "Kseniya Smirnova",
+			"email": ["kseniya_smirnova@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"yulia_douha": {
+			"full_name": "Yulia Douha",
+			"email": ["yulia_douha@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"yauhen_karmyzau": {
+			"full_name": "Yauhen Karmyzau",
+			"email": ["yauhen_karmyzau@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"ilya_kvachenko": {
+			"full_name": "Ilya Kvachenko",
+			"email": ["ilya_kvachenko@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"yauheni_pas": {
+			"full_name": "Yauheni Pas",
+			"email": ["yauheni_pas@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"aliaksei_rubinau": {
+			"full_name": "Aliaksei Rubinau",
+			"email": ["aliaksei_rubinau@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"tatsiana_petrushkevich": {
+			"full_name": "Tatsiana Petrushkevich",
+			"email": ["tatsiana_petrushkevich@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"anton_raby": {
+			"full_name": "Anton Raby",
+			"email": ["anton_raby@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"dzmitry_yurkavets": {
+			"full_name": "Dzmitry Yurkavets",
+			"email": ["dzmitry_yurkavets@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"dzianis_ziankovich": {
+			"full_name": "Dzianis Ziankovich",
+			"email": ["dzianis_ziankovich@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"yury_tarasevich": {
+			"full_name": "Yury Tarasevich",
+			"email": ["yury_tarasevich@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"dzianis_kryvashei": {
+			"full_name": "Dzianis Kryvashei",
+			"email": ["dzianis_kryvashei@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"andrei_barysiuk": {
+			"full_name": "Andrei Barysiuk",
+			"email": ["andrei_barysiuk@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"stanislau_zubovich": {
+			"full_name": "Stanislau Zubovich",
+			"email": ["stanislau_zubovich@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"maksim_kovalev": {
+			"full_name": "Maksim Kovalev",
+			"email": ["maksim_kovalev@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"siarhei_prudnikau": {
+			"full_name": "Siarhei Prudnikau",
+			"email": ["siarhei_prudnikau@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"andrei_dzeuhuts": {
+			"full_name": "Andrei Dzeuhuts",
+			"email": ["andrei_dzeuhuts@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"fyodor_yakimchouk": {
+			"full_name": "Fyodor Yakimchouk",
+			"email": ["fyodor_yakimchouk@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"andrei_akula": {
+			"full_name": "Andrei Akula",
+			"email": ["andrei_akula@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"iryna_dastanka": {
+			"full_name": "Iryna Dastanka",
+			"email": ["iryna_dastanka@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"andrei_volkau1": {
+			"full_name": "Andrei Volkau",
+			"email": ["andrei_volkau1@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"anatoli_tsyporyn": {
+			"full_name": "Anatoli Tsyporyn",
+			"email": ["anatoli_tsyporyn@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"dzianis_skliar": {
+			"full_name": "Dzianis Skliar",
+			"email": ["dzianis_skliar@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"yauhen_tsikhan": {
+			"full_name": "Yauhen Tsikhan",
+			"email": ["yauhen_tsikhan@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"aliaksandr_timbaliuc": {
+			"full_name": "Aliaksandr Timbaliuc",
+			"email": ["aliaksandr_timbaliuc@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"maryia_sinkevich": {
+			"full_name": "Maryia Sinkevich",
+			"email": ["maryia_sinkevich@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"pavel_valadzko": {
+			"full_name": "Pavel Valadzko",
+			"email": ["pavel_valadzko@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"igor_boreysha": {
+			"full_name": "Igor Boreysha",
+			"email": ["igor_boreysha@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"aliaksei_patsiomkin": {
+			"full_name": "Aliaksei Patsiomkin",
+			"email": ["aliaksei_patsiomkin@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"dmitry_scherbatykh": {
+			"full_name": "Dmitry Scherbatykh",
+			"email": ["dmitry_scherbatykh@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"olga_bedulina": {
+			"full_name": "Olga Bedulina",
+			"email": ["olga_bedulina@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"maxim_malets": {
+			"full_name": "Maxim Malets",
+			"email": ["maxim_malets@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"maria_prinus": {
+			"full_name": "Maria Prinus",
+			"email": ["maria_prinus@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"kanstantsin_babichau": {
+			"full_name": "Kanstantsin Babichau",
+			"email": ["kanstantsin_babichau@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"marina_kamayeva": {
+			"full_name": "Marina Kamayeva",
+			"email": ["marina_kamayeva@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"igor_mishurin": {
+			"full_name": "Igor Mishurin",
+			"email": ["igor_mishurin@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"siarhei_fedarovich": {
+			"full_name": "Siarhei Fedarovich",
+			"email": ["siarhei_fedarovich@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"siarhei_vaitehovich": {
+			"full_name": "Siarhei Vaitehovich",
+			"email": ["siarhei_vaitehovich@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"andrei_volkau": {
+			"full_name": "Andrei Volkau",
+			"email": ["andrei_volkau@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"ilya_valasiuk": {
+			"full_name": "Ilya Valasiuk",
+			"email": ["ilya_valasiuk@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"siarhei_simanovich": {
+			"full_name": "Siarhei Simanovich",
+			"email": ["siarhei_simanovich@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"aliaksandr_hudkou": {
+			"full_name": "Aliaksandr Hudkou",
+			"email": ["aliaksandr_hudkou@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"veranika_baradzina": {
+			"full_name": "Veranika Baradzina",
+			"email": ["veranika_baradzina@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		},
+
+		"katsiaryna_utlik": {
+			"full_name": "Katsiaryna Utlik",
+			"email": ["katsiaryna_utlik@epam.com"],
+			"photo_url": "photo-placeholder.png"
+		}
+	},
+	
+	"tags": [
+		"css",
+		"js",
+		"prefix",
+		"xbrowser",
+		"talk",
+		"algorithm",
+		"game",
+		"prototype",
+		"backbone",
+		"mvc",
+		"nodejs",
+		"server",
+		"build",
+		"minify",
+		"dom",
+		"transform",
+		"html",
+		"flex",
+		"amd",
+		"requirejs",
+		"commonjs",
+		"lmd",
+		"module",
+		"chrome",
+		"extension",
+		"timeout",
+		"interval",
+		"keyframe",
+		"animation",
+		"framework",
+		"todo",
+		"leaverou",
+		"transition",
+		"shadow",
+		"widget",
+		"windows8",
+		"desktop",
+		"knockout",
+		"mvvm",
+		"hackaton",
+		"semantic",
+		"accessibility",
+		"recomendation",
+		"backend",
+		"php",
+		"oop",
+		"process",
+		"agile",
+		"waterfall",
+		"microteams",
+		"developement",
+		"team",
+		"coffee",
+		"valilla",
+		"native",
+		"mongodb",
+		"npm",
+		"express"
+	]
+}
