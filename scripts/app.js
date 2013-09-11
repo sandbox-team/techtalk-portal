@@ -42,13 +42,13 @@
         $rootScope.global = {
           isAuthN: authService.isAuthN(),
           authService: authService,
-          users: {}
+          data: {}
         };
 
         $scope.auth = {};
 
-        dataProvider.getUser().then(function(data) {
-          $rootScope.global.users = data;
+        dataProvider.getAll().then(function(data) {
+          $rootScope.global.data = data.data;
         });
 
         $scope.signin = function() {

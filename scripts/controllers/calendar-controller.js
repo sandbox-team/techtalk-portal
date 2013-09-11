@@ -23,12 +23,7 @@
       };
 
       $scope.getUserDescription = function(id) {
-        var user;
-        dataProvider.getUser().then(function(data) {
-          user = data[id];
-        });
-
-        return user;
+        return $scope.global.data.users[id];
       };
 
       _update();
@@ -48,29 +43,31 @@
       }
 
       function _initPeriod(year, month) {
+        var i = 1;
 
-        dataProvider
-          .getSchedule(year, month)
-          .success(function(data) {
-            var i = 1;
-            console.log(data);
-            while(i <= daysNumber) {
-              var techtalkData = data[i],
-                dayDescription = {
-                  date: i
-                };
-
-              techtalkData && (dayDescription.data = techtalkData);  
-              periodDescription.dates.push(dayDescription);
-              i += 1;
-            }
-
-            //FETCH
-            $scope.schedule = periodDescription;
-          })
-          .error(function() {
-            console.log('ERROR: ', arguments);
+        while(i <= daysNumber) {
+          periodDescription.dates.push({
+            date: i,
+            data: []
           });
+          i += 1;
+        }
+
+        for (var key in $scope.global.data.talks) {
+          var talk = $scope.global.data.talks[key];
+          var talkDate = new Date(talk.date),
+            date = talkDate.getDate();
+
+          if(talkDate.getFullYear() == year && talkDate.getMonth() == month) {
+            periodDescription.dates[date].data.push({
+              _id: key,
+              description: talk
+            });
+          }
+        }
+
+        //FETCH
+        $scope.schedule = periodDescription;
       }
 
     }]);

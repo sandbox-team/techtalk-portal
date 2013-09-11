@@ -1,10 +1,17 @@
 <section>
-  <header contenteditable="true" class="header">
-    This is ZenPen
+  <header>
+    <!-- This is ZenPen -->
+    <h2 data-ng-bind="details.title" contenteditable="true" class="header"></h2>
   </header>
 
-  <article contenteditable="true" class="content">
+  <h3><span data-ng-repeat="user in details.lector"><a href="user/{{user}}" data-ng-bind="global.data.users[user].full_name"></a><i ng-if="!$last">, </i></span></h3>
+  <h4><span data-ng-repeat="tag in details.tags"><a href="tag/{{tag}}" data-ng-bind="tag"></a><i ng-if="!$last">, </i></span></h4>
 
+  <article data-ng-bind-html="details.description" contenteditable="true" class="content">
+
+
+
+<!--
     <p>
       A minimalist writing zone, where you can block out all distractions and get to what's important. The writing!
     </p>
@@ -26,7 +33,13 @@
     </p>
 
     <p>Happy Typing! ~ <b>Tim Holman (@twholman)</b></p>
-
+-->
   </article>
+
+<p>
+  <a href="/details/{{_id}}" class="btn btn-success">Save</a>
+  <a href="/details/{{_id}}" class="btn btn-link">Cancel</a>
+</p>
+
 
 </section>
