@@ -6,8 +6,14 @@
       function($scope, $routeParams, dataProvider) {
         var currentTalkId = $routeParams.talkId;
 
-        console.log(currentTalkId);
-        editor.init();
+        $scope.global.pageTitle = 'edit talk: ' + currentTalkId;
+        $scope._id = currentTalkId;
+
+        if (ng.isDefined(currentTalkId)) {
+          $scope.details = $scope.global.data.talks[currentTalkId];    
+        }
+
+        //editor.init();
         //ui.init();
       }]);
 })(angular);

@@ -7,16 +7,10 @@
         var currentTalkId = $routeParams.talkId;
 
         $scope.global.pageTitle = 'talk: ' + currentTalkId;
+        $scope._id = currentTalkId;
 
         if (ng.isDefined(currentTalkId)) {
-          dataProvider
-            .getTechtalkData(currentTalkId)
-            .success(function(data) {
-              $scope.details = data;    
-            })
-            .error(function() {
-
-            });  
+          $scope.details = $scope.global.data.talks[currentTalkId];    
         }
       }]);
 })(angular);

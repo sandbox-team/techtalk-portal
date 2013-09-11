@@ -1,7 +1,6 @@
 {
-	"talks": [
-		{
-			"_id": "1",
+	"talks": {
+		"1": {
 			"date": "2\/22\/2013",
 			"title": "CSS via JS",
 			"lector": ["siarhei_mikhailau"],
@@ -27,8 +26,7 @@
 
 
 
-		{
-			"_id": "2",
+		"2": {
 			"date": "2\/27\/2013",
 			"title": "CSS via JS",
 			"lector": ["siarhei_mikhailau"],
@@ -58,8 +56,7 @@
 		},
 
 
-		{
-			"_id": "3",
+		"3": {
 			"date": "2\/27\/2013",
 			"title": "CSS via JS",
 			"lector": ["siarhei_mikhailau"],
@@ -90,8 +87,7 @@
 		},
 
 
-		{
-			"_id": "4",
+		"4": {
 			"date": "2\/25\/2013",
 			"title": "Tetris",
 			"lector": ["siarhei_mikhailau"],
@@ -116,8 +112,7 @@
 
 
 
-		{
-			"_id": "7",
+		"7": {
 			"date": "4\/12\/2013",
 			"title": "noJS framework or \":checked\"",
 			"lector": ["siarhei_mikhailau"],
@@ -139,8 +134,7 @@
 		},
 
 
-		{
-			"_id": "5",
+		"5": {
 			"date": "3\/6\/2013",
 			"title": "Tetris",
 			"lector": ["siarhei_mikhailau"],
@@ -174,8 +168,7 @@
 		},
 
 
-		{
-			"_id": "6",
+		"6": {
 			"date": "3\/5\/2013",
 			"title": "Tetris",
 			"lector": ["siarhei_mikhailau"],
@@ -205,8 +198,7 @@
 
 
 
-		{
-			"_id": "8",
+		"8": {
 			"date": "4\/16\/2013",
 			"title": "Tetris",
 			"lector": ["siarhei_mikhailau"],
@@ -229,8 +221,7 @@
 		},
 
 
-		{
-			"_id": "9",
+		"9": {
 			"date": "3\/12\/2013",
 			"title": "Backbone",
 			"lector": ["aliaksandr_arlou"],
@@ -274,8 +265,7 @@
 		},
 
 
-		{
-			"_id": "10",
+		"10": {
 			"date": "3\/20\/2013",
 			"title": "NodeJS",
 			"lector": ["andrei_barysiuk"],
@@ -322,8 +312,7 @@
 
 
 
-		{
-			"_id": "11",
+		"11": {
 			"date": "3\/19\/2013",
 			"title": "Web Inspector",
 			"lector": ["siarhei_mikhailau"],
@@ -356,8 +345,7 @@
 		},
 
 
-		{
-			"_id": "12",
+		"12": {
 			"date": "3\/27\/2013",
 			"title": "Web Inspector",
 			"lector": ["siarhei_mikhailau"],
@@ -395,8 +383,7 @@
 			]
 		},
 
-		{
-			"_id": "13",
+		"13": {
 			"date": "4\/10\/2013",
 			"title": "Web Inspector",
 			"lector": ["siarhei_mikhailau"],
@@ -427,8 +414,7 @@
 			]
 		},
 
-		{
-			"_id": "14",
+		"14": {
 			"date": "4\/19\/2013",
 			"title": "Web Inspector",
 			"lector": ["siarhei_mikhailau"],
@@ -455,8 +441,7 @@
 		},
 
 
-		{
-			"_id": "15",
+		"15": {
 			"date": "3\/28\/2013",
 			"title": "CSS Flexbox",
 			"lector": ["maria_putyrskaya"],
@@ -482,8 +467,7 @@
 
 
 
-		{
-			"_id": "16",
+		"16": {
 			"date": "4\/3\/2013",
 			"title": "Javascript Modularity",
 			"lector": ["andrei_barysiuk"],
@@ -539,8 +523,7 @@
 		},
 
 
-		{
-			"_id": "17",
+		"17": {
 			"date": "4\/24\/2013",
 			"title": "Chrome Extensions",
 			"lector": ["yauhen_karmyzau"],
@@ -577,8 +560,7 @@
 			]
 		},
 
-		{
-			"_id": "18",
+		"18": {
 			"date": "4\/4\/2013",
 			"title": "Chrome Extensions",
 			"lector": ["yauhen_karmyzau"],
@@ -602,8 +584,7 @@
 			]
 		},
 
-		{
-			"_id": "19",
+		"19": {
 			"date": "4\/26\/2013",
 			"title": "Chrome Extensions",
 			"lector": ["yauhen_karmyzau"],
@@ -624,8 +605,7 @@
 		},
 
 
-		{
-			"_id": "20",
+		"20": {
 			"date": "4\/10\/2013",
 			"title": "Javascript Animation",
 			"lector": ["mikita_khatsimtsou"],
@@ -671,8 +651,7 @@
 		},
 
 
-		{
-			"_id": "21",
+		"21": {
 			"date": "4\/5\/2013",
 			"title": "Javascript Animation",
 			"lector": ["mikita_khatsimtsou"],
@@ -699,8 +678,7 @@
 
 
 
-		{
-			"_id": "22",
+		"22": {
 			"date": "4\/11\/2013",
 			"title": "Sencha Intro",
 			"lector": ["uladzimir_hartsau"],
@@ -730,8 +708,7 @@
 
 
 
-		{
-			"_id": "23",
+		"23": {
 			"date": "4\/17\/2013",
 			"title": "10 CSS Secrets",
 			"lector": ["siarhei_mikhailau"],
@@ -775,8 +752,7 @@
 			]
 		},
 
-		{
-			"_id": "24",
+		"24": {
 			"date": "4\/18\/2013",
 			"title": "10 CSS Secrets",
 			"lector": ["siarhei_mikhailau"],
@@ -807,8 +783,7 @@
 
 
 
-		{
-			"_id": "25",
+		"25": {
 			"date": "4\/23\/2013",
 			"title": "Widgets for Windows",
 			"lector": ["andrei_dzeuhuts"],
@@ -835,8 +810,7 @@
 
 
 
-		{
-			"_id": "26",
+		"26": {
 			"date": "4\/25\/2013",
 			"title": "Knockout.js",
 			"lector": ["khrystsina_tsikhanovich", "nadzeya_shedava"],
@@ -864,8 +838,7 @@
 
 
 
-		{
-			"_id": "27",
+		"27": {
 			"date": "4\/30\/2013",
 			"title": "Hackaton",
 			"lector": ["siarhei_mikhailau"],
@@ -893,8 +866,7 @@
 		},
 
 
-		{
-			"_id": "28",
+		"28": {
 			"date": "5\/2\/2013",
 			"title": "Semantic",
 			"lector": ["siarhei_mikhailau", "aliaksei_patsiomkin"],
@@ -931,8 +903,7 @@
 		},
 
 
-		{
-			"_id": "29",
+		"29": {
 			"date": "5\/22\/2013",
 			"title": "MVC Introduction",
 			"lector": ["dzianis_ziankovich"],
@@ -962,8 +933,7 @@
 			]
 		},
 
-		{
-			"_id": "30",
+		"30": {
 			"date": "5\/23\/2013",
 			"title": "Dev Process",
 			"lector": ["siarhei_mikhailau"],
@@ -992,8 +962,7 @@
 		},
 
 
-		{
-			"_id": "31",
+		"31": {
 			"date": "5\/29\/2013",
 			"title": "CoffeeScript - Easy Access to the Good Parts of JavaScript",
 			"lector": ["ivan_straltsou"],
@@ -1030,8 +999,7 @@
 			]
 		},
 
-		{
-			"_id": "32",
+		"34": {
 			"date": "6\/20\/2013",
 			"title": "From Non-Intuitive JS Parts to JS OOP",
 			"lector": ["raman_vysotski"],
@@ -1068,8 +1036,7 @@
 			]
 		},
 
-		{
-			"_id": "32",
+		"32": {
 			"date": "6\/20\/2013",
 			"title": "MongoDB + NodeJS",
 			"lector": ["dzianis_kryvashei"],
@@ -1096,8 +1063,7 @@
 		},
 
 
-		{
-			"_id": "33",
+		"33": {
 			"date": "7\/24\/2013",
 			"title": "NodeJS, npm, express",
 			"lector": ["andrei_volkau1"],
@@ -1136,7 +1102,7 @@
 				"express"
 			]
 		}
-	],
+	},
 
 	"users": {
 		"siarhei_mikhailau": {
@@ -1594,6 +1560,7 @@
 			"email": ["katsiaryna_utlik@epam.com"],
 			"photo_url": "photo-placeholder.png"
 		}
+
 	},
 	
 	"tags": [

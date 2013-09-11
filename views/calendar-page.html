@@ -8,12 +8,12 @@
     <li class="list-group-item" data-ng-repeat="date in schedule.dates">
       <b data-ng-bind="date.date"></b>
       <div class="well" data-ng-repeat="talk in date.data">
-        <h5><a href="" data-ng-href="details/{{talk._id}}" data-ng-bind="talk.title"></a></h5>
+        <h5><a href="" data-ng-href="details/{{talk._id}}" data-ng-bind="talk.description.title"></a></h5>
         <dl>
           <dt>Location: </dt>
-          <dd data-ng-bind="talk.location"></dd>
+          <dd data-ng-bind="talk.description.location"></dd>
           <dt>Author: </dt>
-          <dd data-ng-repeat="user in talk.lector"><a href="" data-ng-bind="global.users[user].full_name"></a></dd>
+          <dd data-ng-repeat="user in talk.description.lector"><a href="user/{{user}}" data-ng-bind="global.data.users[user].full_name"></a></dd>
         </dl>
       </div>
     </li>
