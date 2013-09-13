@@ -1,0 +1,14 @@
+<section class="post">
+  <a href="/">Back</a>
+  <h1>{{post.title}}</h1>
+  <div class="post-author">
+    <div class="post-athor-avatar">
+      <img data-ng-href="{{post.author.avatar}}">
+    </div>
+    <div class="post-author-info">
+      <p class="post-author-name">{{post.author.firstName + ' ' + post.author.lastName}}</p>
+      <p class="post-author-date">on {{post.date|date:'medium'}}</p>
+    </div>
+  </div>
+  <div data-ng-bind-html="post.content"></div>
+</section>
