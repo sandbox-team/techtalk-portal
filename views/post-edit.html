@@ -1,0 +1,17 @@
+<section class="post">
+  <form class="form-horizontal">
+    <div class="form-control">
+      <label>Post Title:</label>
+      <input type="text" value="{{post.title}}">
+    </div>
+    <div class="form-control">
+      <label>Post Author:</label>
+      <input type="text" value="">
+    </div>
+    <div data-ng-bind-html="post.content"></div>
+    <div class="actions">
+      <button class="btn btn-success" data-ng-click="save()">Save</button>
+      <button class="btn" data-ng-click="cancel()">Cancel</button>
+    </div>
+  </form>
+</section>
