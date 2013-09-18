@@ -4,7 +4,7 @@ var fs = require('fs');
 
 // constant data from file
 // could be used for reset
-var RAW_DATA = fs.readFileSync('./data.json', {encoding: 'UTF-8'});
+var RAW_DATA = fs.readFileSync('./data.json', 'utf8');
 
 // parse raw data
 function parse() {
