@@ -24,9 +24,6 @@ app
   .use(express.cookieParser())
   .use(app.router);
 
-app.get('/', function(req, res){
-  res.render('index');
-});
 
 //stub routes
 app.get('/views/:templateName', function(req, res) {
@@ -54,6 +51,11 @@ app.post('/auth', function(req, res) {
 
 // REST API
 require('./server_rest.js')(app);
+
+// fix for direct urls like http://localhost:3000/details/28
+app.all('*', function(req, res){
+  res.render('index');
+});
 
 //server starts here
 app.listen(app.get('port'));
