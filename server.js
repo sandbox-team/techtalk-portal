@@ -24,7 +24,7 @@ app
   .use(express.cookieParser())
   .use(app.router);
 
-app.get('/', function(req, res){
+app.get(/^\/(:?(:?details|edit)?\/.+)?$/i, function(req, res){
   res.render('index');
 });
 
