@@ -1,45 +1,21 @@
-<section>
-  <header>
-    <!-- This is ZenPen -->
-    <h2 data-ng-bind="details.title" contenteditable="true" class="header"></h2>
-  </header>
-
-  <h3><span data-ng-repeat="user in details.lector"><a href="user/{{user}}" data-ng-bind="global.data.users[user].full_name"></a><i ng-if="!$last">, </i></span></h3>
-  <h4><span data-ng-repeat="tag in details.tags"><a href="tag/{{tag}}" data-ng-bind="tag"></a><i ng-if="!$last">, </i></span></h4>
-
-  <article data-ng-bind-html="details.description" contenteditable="true" class="content">
-
-
-
-<!--
-    <p>
-      A minimalist writing zone, where you can block out all distractions and get to what's important. The writing!
-    </p>
-
-    <p>
-      To get started, all you need to do is delete this text (seriously, just highlight it and hit delete), and fill the page with your own fantastic words.
-    </p>
-
-    <p>
-      You can use <b>bold</b>, <i>italics</i>, <b><i>both</i></b> and <a href="http://zenpen.io"> urls </a> just by highlighting the text and selecting them from the tiny options box that appears above it.
-    </p>
-
-    <blockquote>
-      Quotes are easy to add too!
-    </blockquote>
-
-    <p>
-      For <i>questions</i> and <b>open source info</b>, Click that little question mark at the bottom left of the screen.
-    </p>
-
-    <p>Happy Typing! ~ <b>Tim Holman (@twholman)</b></p>
--->
-  </article>
-
+<div class='container'>
+    <div class="row">
+        <div class=col-md-2>
+            <img src="http://placehold.it/100x133">
+        </div>
+        <div class=col-md-10>
+                <label for="title">Title:</label>
+                <input type="text" value="{{details.title}}" class="form-control input-lg" id="title" placeholder="Enter Title">
+                <!--<h2 data-ng-bind="details.title" contenteditable="true" class="header"></h2>-->
+            <h3>by <span data-ng-repeat="user in details.lector"><a href="user/{{user}}" data-ng-bind="global.data.users[user].full_name"></a><i ng-if="!$last">, </i></span></h3>
+			<h4><span data-ng-repeat="tag in details.tags"><a href="tag/{{tag}}" data-ng-bind="tag"></a><i ng-if="!$last">, </i></span></h4>
+        </div>
+    </div>
+    <div class="row">
+          <article data-ng-bind-html="details.description" contenteditable="true" class="content"></article>
+    </div>
+</div>
 <p>
   <a href="/details/{{_id}}" class="btn btn-success">Save</a>
-  <a href="/details/{{_id}}" class="btn btn-link">Cancel</a>
+  <a href="/details/{{_id}}" class="btn btn-default">Cancel</a>
 </p>
-
-
-</section>

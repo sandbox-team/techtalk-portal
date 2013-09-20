@@ -10,7 +10,9 @@
         $scope._id = currentTalkId;
 
         if (ng.isDefined(currentTalkId)) {
-          $scope.details = $scope.global.data.talks[currentTalkId];    
+          $scope.details = $scope.global.data.talks[currentTalkId]; 
+		  var dt=new Date($scope.details.date);
+          $scope.details.date=dt;		  
         }
       }]);
 })(angular);
