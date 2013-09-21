@@ -18,26 +18,30 @@
               .hashPrefix('!');
 
           $routeProvider.when('/', {
-            controller: 'CalendarCtrl',
-            templateUrl: 'views/calendar-page'
-          })
-              .when('/details/:talkId', {
-                controller: 'DetailsCtrl',
-                templateUrl: 'views/details-page'
-              })
-              .when('/edit/:talkId', {
-                controller: 'EditCtrl',
-                templateUrl: 'views/edit-page'
-              })
-              .when('/post/:slug', {
-                controller: 'PostCtrl',
-                templateUrl: 'views/post'
-              })
-              .when('/post/:slug/edit', {
-                controller: 'PostEditCtrl',
-                templateUrl: 'views/post-edit'
-              })
-              .otherwise({redirectTo: '/'});
+              controller: 'CalendarCtrl',
+              templateUrl: 'views/calendar-page'
+            })
+            .when('/calendar/:month/:year', {
+               controller: 'CalendarCtrl',
+               templateUrl: 'views/calendar-page'
+            })
+            .when('/details/:talkId', {
+              controller: 'DetailsCtrl',
+              templateUrl: 'views/details-page'
+            })
+            .when('/edit/:talkId', {
+              controller: 'EditCtrl',
+              templateUrl: 'views/edit-page'
+            })
+            .when('/post/:slug', {
+              controller: 'PostCtrl',
+              templateUrl: 'views/post'
+            })
+            .when('/post/:slug/edit', {
+              controller: 'PostEditCtrl',
+              templateUrl: 'views/post-edit'
+            })
+            .otherwise({redirectTo: '/'});
         }])
       .run(function() {
 
