@@ -70,7 +70,7 @@ module.exports = function(app) {
   app.get('/data/all', function(req, res) {res.send(getAll() || {});});
   app.get('/data/reset', function(req, res) {res.send(data = parse() || {});});
 
-  app.get('/data/talks', function(req, res) {console.log(getTalks()); res.send(getTalks() || {});});
+  app.get('/data/talks', function(req, res) {res.send(getTalks() || {});});
   app.get('/data/talk/:id', function(req, res) {res.send(getTalk(req.params.id) || {});});
 
   app.get('/data/users', function(req, res) {res.send(getUsers() || {});});
