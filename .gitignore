@@ -11,6 +11,9 @@ lib-cov
 *.pid
 *.gz
 
+.idea
+.project
+
 pids
 logs
 results
