@@ -2,7 +2,7 @@
   'use strict';
 
   ng.module('tp')
-    .controller('CalendarCtrl', ['$scope', 'helper', 'data', function($scope, helper, dataProvider) {
+    .controller('CalendarCtrl', ['$scope', 'helper', 'data', '$location', '$routeParams', function($scope, helper, dataProvider, $location, $routeParams) {
       var now = new Date(),
         activeDate = new Date(),
         monthIndex = now.getMonth(),
@@ -10,25 +10,44 @@
 
       $scope.global.pageTitle = 'Calendar view';
 
-      $scope.prevMonth = function() {
-        activeDate.setMonth((monthIndex -= 1));
-        _update();
-        return monthIndex % 12;
-      };
-
-      $scope.nextMonth = function() {
-        activeDate.setMonth((monthIndex += 1));
-        _update();
-        return monthIndex % 12;
-      };
-
       $scope.getUserDescription = function(id) {
         return $scope.global.data.users[id];
       };
 
-      _update();
+        _change();
+
+      function _change() {
+          if ($location.path() == '/'){
+
+          } else {
+              var path = $location.path().split('/');
+              if(helper.getMonthIndex(path[2]) == '-1' || path[3] > 2099 || path[3] < 2011 || isNaN(path[3]))
+                $location.path('/')
+
+              activeDate.setMonth(helper.getMonthIndex(path[2]));
+              activeDate.setYear(path[3]);
+          }
+
+          $scope.nextMonthUrl = helper.getMonthName(activeDate.getMonth() + 1, true);
+          $scope.prevMonthUrl = helper.getMonthName(activeDate.getMonth() - 1, true);
+
+          $scope.nextYearUrl = activeDate.getFullYear();
+          $scope.prevYearUrl = activeDate.getFullYear();
+          if (!$scope.prevMonthUrl){
+              $scope.prevMonthUrl = 'Dec';
+              $scope.prevYearUrl -= 1
+          }
+          if (!$scope.nextMonthUrl){
+              $scope.nextMonthUrl = 'Jan';
+              $scope.nextYearUrl += 1
+          }
+
+          _update();
+      }
+
 
       function _update() {
+
         monthIndex = activeDate.getMonth();
         year = activeDate.getFullYear();
         monthName = helper.getMonthName(monthIndex);
@@ -38,9 +57,11 @@
           year: year,
           dates: []
         };
-
         _initPeriod(year, monthIndex);
+
       }
+
+
 
       function _initPeriod(year, month) {
         var i = 1;
