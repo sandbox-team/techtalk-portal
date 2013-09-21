@@ -10,12 +10,12 @@ var express = require('express'),
 //config
 app
   .disable('x-powered-by')
-  .engine('html', require('ejs').renderFile)  
-  
+  .engine('html', require('ejs').renderFile)
+
   .set('view engine', 'html')
   .set('port', process.env.PORT || 3000)
   .set('views', 'views')
-  
+
   .use(express.favicon())
   .use(express.logger('tiny'))
   .use(express.static('public'))
