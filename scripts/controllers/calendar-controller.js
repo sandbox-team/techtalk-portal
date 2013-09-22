@@ -47,7 +47,6 @@
 
 
       function _update() {
-
         monthIndex = activeDate.getMonth();
         year = activeDate.getFullYear();
         monthName = helper.getMonthName(monthIndex);
@@ -58,10 +57,7 @@
           dates: []
         };
         _initPeriod(year, monthIndex);
-
       }
-
-
 
       function _initPeriod(year, month) {
         var i = 1;
@@ -74,9 +70,9 @@
           i += 1;
         }
 
-        for (var key in $scope.global.data.talks) {
-          var talk = $scope.global.data.talks[key];
-          var talkDate = new Date(talk.date),
+        for (var key in $scope.global.talks) {
+          var talk = $scope.global.talks[key],
+            talkDate = new Date(talk.date),
             date = talkDate.getDate();
 
           if(talkDate.getFullYear() == year && talkDate.getMonth() == month) {

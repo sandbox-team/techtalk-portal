@@ -64,6 +64,7 @@ module.exports = function(grunt) {
             'bower_components/angular-resource/angular-resource.js',
             'bower_components/angular-cookies/angular-cookies.js',
             'bower_components/angular-sanitize/angular-sanitize.js',
+            'bower_components/angular-animate/angular-animate.js',
             'vendor/zenpen/js/libs/Blob.js',
             'vendor/zenpen/js/libs/FileSaver.js',
             'vendor/zenpen/js/libs/fullScreen.js',
