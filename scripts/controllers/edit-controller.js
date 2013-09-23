@@ -12,7 +12,7 @@
         $scope.loading = false;
 
         if (ng.isDefined(currentTalkId)) {
-          $scope.details = $scope.global.talks[currentTalkId];
+          $scope.details = ng.copy($scope.global.talks[currentTalkId]);
           $scope.attendees = $scope.details.attendees;
 
           editor.init();
@@ -28,6 +28,7 @@
           $scope.details.$save(function(data) {
             $scope.loading = false;
             $scope.global.pageTitle = title;
+            $scope.global.talks[currentTalkId] = data;
             ng.isFunction(callback) && callback(data);
           });
         };

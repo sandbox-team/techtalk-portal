@@ -33,7 +33,7 @@
         <label for="talkContent">Details: </label>
         <div class="well">
           <h2 contenteditable="true" class="header" data-ng-bind="details.title" style="display: none">Talk title</h2>
-          <article id="talkContent" class="content" contenteditable="true" data-ng-bind-html="details.description"></article>
+          <article id="talkContent" class="content" contenteditable="true" data-ng-model="details.description" data-ng-bind-html="details.description"></article>
         </div>
       </div>
       <div class="row">
