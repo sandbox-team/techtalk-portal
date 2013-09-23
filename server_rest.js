@@ -81,11 +81,9 @@ module.exports = function(app) {
 
   // post
   /*could be buggy*/app.post('/data/talk/', function(req, res) {createTalk(req.body); res.send('ok');});
+  /*could be buggy*/app.post('/data/talk/:id', function(req, res) {updateTalk(req.params.id, req.body); res.send('ok');});
   /*could be buggy*/app.post('/data/user/', function(req, res) {createUser(req.body); res.send('ok');});
-
-  // put
-  /*could be buggy*/app.put('/data/talk/:id', function(req, res) {updateTalk(req.params.id, req.body); res.send('ok');});
-  /*could be buggy*/app.put('/data/user/:id', function(req, res) {updateUser(req.params.id, req.body); res.send('ok');});
+  /*could be buggy*/app.post('/data/user/:id', function(req, res) {updateUser(req.params.id, req.body); res.send('ok');});
 
   // delete
   /*could be buggy*/app.delete('/data/talk/:id', function(req, res) {deleteTalk(req.params.id); res.send('ok');});

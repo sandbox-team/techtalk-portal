@@ -4,9 +4,18 @@
   ng.module('tp.services')
     .provider('data', function() {
 
-      this.$get = ['$http', '$q', 'helper',
-        function($http, $q, helper) {
+      this.$get = ['$http', '$q', 'helper', '$resource',
+        function($http, $q, helper, $resource) {
           return {
+            talksResource: $resource('/data/talks/:id', {
+                cardId:'@id'
+              }, {
+                charge: {
+                  method:'POST',
+                  params:{charge:true}
+                }
+              }
+            ),
             getTalks: function() {
               return $http({
                 method: 'GET',

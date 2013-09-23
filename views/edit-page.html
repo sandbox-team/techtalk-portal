@@ -4,14 +4,18 @@
       <div class="col-md-2">
           <img src="http://placehold.it/100x133">
       </div>
-          <div class="col-md-10">
-              <label for="title">Title:</label>
-              <input type="text" value="{{details.title}}" class="form-control input-lg" id="title" placeholder="Enter Title">
-              <h3>by <span data-ng-repeat="user in details.lector"><a href="user/{{user}}" data-ng-bind="global.users[user].full_name"></a><i ng-if="!$last">, </i></span></h3>
-              <h4><span data-ng-repeat="tag in details.tags"><a href="tag/{{tag}}" data-ng-bind="tag"></a><i ng-if="!$last">, </i></span></h4>
-          </div>
+      <div class="col-md-10">
+        <div>
+          <label for="title">Title:</label>
+          <input type="text" value="{{details.title}}" class="form-control input-lg" id="title" placeholder="Enter Title">
+        </div>
+        <div>
+          <h4>Lectors: </h4>
+          <div data-tp-attendees-search="global.users" data-selected="details.lector"></div>
+        </div>
+      </div>
     </div>
-    <div class="row contentEditArea">
+    <div class="row">
       <h2 contenteditable="true" class="header" data-ng-bind="details.title">Talk title</h2>
       <article data-ng-bind-html="details.description" contenteditable="true" class="content">
       </article>
