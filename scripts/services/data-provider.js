@@ -4,13 +4,16 @@
   ng.module('tp.services')
     .provider('data', function() {
 
-      this.$get = ['$http', '$q', 'helper',
-        function($http, $q, helper) {
+      this.$get = ['$http', '$q', 'helper', '$resource',
+        function($http, $q, helper, $resource) {
           return {
+            talksResource: $resource('/data/talk/:id', {
+              id: '@_id'
+            }),
             getTalks: function() {
               return $http({
                 method: 'GET',
-                url: '/data/talks'
+                url: '/data/talk'
               });
             },
             getUsers: function() {

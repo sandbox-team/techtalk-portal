@@ -68,8 +68,8 @@
 
       $scope.auth = {};
 
-      dataProvider.getTalks().then(function(data) {
-        $rootScope.global.talks = data.data;
+      dataProvider.talksResource.query(function(data) {
+        $rootScope.global.talks = data;
       });
 
       dataProvider.getUsers().then(function(users) {
