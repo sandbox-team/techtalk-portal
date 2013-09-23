@@ -1,0 +1,30 @@
+.userSearch {
+  .selectedUsers {
+    margin-bottom: @spacing;
+    .badge {
+      margin-right: @padding-small-horizontal;
+    }
+  }
+
+  .searchWrap {
+    position: relative;
+    z-index: 0;
+    width: 200px;
+
+    .searchInput {
+      width: 100%;
+      height: 26px;
+    }
+
+    .variants {
+      position: absolute;
+      z-index: 5;
+      left: 0;
+      top: 26px;
+      right: 0;
+      display: block;
+      max-height: 350px;
+      overflow-y: auto;
+    }
+  }
+}
