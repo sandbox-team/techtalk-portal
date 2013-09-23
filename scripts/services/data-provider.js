@@ -7,19 +7,13 @@
       this.$get = ['$http', '$q', 'helper', '$resource',
         function($http, $q, helper, $resource) {
           return {
-            talksResource: $resource('/data/talks/:id', {
-                cardId:'@id'
-              }, {
-                charge: {
-                  method:'POST',
-                  params:{charge:true}
-                }
-              }
-            ),
+            talksResource: $resource('/data/talk/:id', {
+              id: '@_id'
+            }),
             getTalks: function() {
               return $http({
                 method: 'GET',
-                url: '/data/talks'
+                url: '/data/talk'
               });
             },
             getUsers: function() {
