@@ -75,10 +75,6 @@ function createUser(user) {
 }
 
 
-
-
-
-
 module.exports = function(app) {
   // get
   app.get('/data/all', function(req, res) {res.send(getAll() || {});});
@@ -95,7 +91,15 @@ module.exports = function(app) {
 
   // post
   /*could be buggy*/app.post('/data/talk/', function(req, res) {res.send(createTalk(req.body));});
-  /*could be buggy*/app.post('/data/talk/:id', function(req, res) {res.send(updateTalk(req.params.id, req.body));});
+  /*could be buggy*/app.post('/data/talk/:id', function(req, res) {
+    console.log(req.session)
+    if (req.session.user) {
+      res.send(updateTalk(req.params.id, req.body));
+    }
+    else {
+      res.status(403).send('Error. Unauthorized.');
+    }
+  });
   /*could be buggy*/app.post('/data/user/', function(req, res) {createUser(req.body); res.send('ok');});
   /*could be buggy*/app.post('/data/user/:id', function(req, res) {updateUser(req.params.id, req.body); res.send('ok');});
 
