@@ -48,7 +48,9 @@
             controller: 'PostEditCtrl',
             templateUrl: 'views/post-edit'
           })
-          .otherwise({redirectTo: '/'});
+          .otherwise({
+            templateUrl: 'views/404'
+          });
       }
     ])
     .run(function() {

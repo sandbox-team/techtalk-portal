@@ -23,7 +23,7 @@ var editor = (function() {
 
 		// Load state if storage is supported
 		if ( supportsHtmlStorage() ) {
-			loadState();
+			//loadState();
 		}
 	}
 
