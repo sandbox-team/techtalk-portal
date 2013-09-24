@@ -26,6 +26,7 @@
             available: '=available',
             selected: '=selected'
           },
+          require: '?ngModel',
           compile: function(element, attr, linker) {
             return function($scope, $element, $attrs) {
               var selectedUsers = $scope.selected,
