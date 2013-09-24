@@ -6,6 +6,7 @@
 
   ng.module('tp', [
       'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngAnimate',
+      'ui.bootstrap.collapse',
       'tp.services', 'tp.directives'
     ])
     //
@@ -63,9 +64,10 @@
     function($rootScope, $scope, authService, dataProvider) {
       $rootScope.global = {
         isAuthN: authService.isAuthN(),
-        authService: authService,
+        currentUser: authService.getUserData(),
         data: {},
-        selected: []
+        selected: [],
+        errorStack: []
       };
 
       $scope.auth = {};
@@ -87,8 +89,9 @@
           })
           .then(function() {
 
-          }, function(msg) {
-            alert(msg);
+          }, function(error) {
+            $rootScope.global.errorStack.push(error);
+            console.error(error.errorCode, error.message);
           })
           ['finally'](function() {
             $scope.authInProgress = false;
