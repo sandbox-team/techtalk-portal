@@ -3,9 +3,8 @@
 require('colors');
 
 var express = require('express'),
-  app = express();
-
-
+  app = express(),
+  pmcApi = require('pmc-api');
 
 //config
 app
@@ -22,8 +21,8 @@ app
   .use(express.bodyParser())
   .use(express.methodOverride())
   .use(express.cookieParser())
+  .use(express.session({secret: 'secret_realno'}))
   .use(app.router);
-
 
 //stub routes
 app.get('/views/:templateName', function(req, res) {
@@ -94,22 +93,34 @@ app.get('/new/:slug', function(req, res) {
 });
 
 app.post('/auth', function(req, res) {
-  console.log(req.body.green);
   var login = req.body.login,
     password = req.body.password;
 
-  if (login === 'test' && password === '123') {
-    res.send({
-      status: 'success'
-    });
-  }
-  else {
-    res.send({
-      status: 'error',
-      message: 'Not valid login or password'
-    })
-  }
-})
+  pmcApi.authentication(function(err, response) {
+      if (err) {
+        console.log(err);
+        res.send({
+          status: 'error',
+          message: err.message || 'Not valid login or password',
+          errorCode: err.code
+        })
+      }
+      else {
+        res.send({
+          status: 'success',
+          user: response
+        });
+        req.session.user = response;
+      }
+    }, login, password);
+});
+
+app.post('/logout', function(req, res) {
+  req.session.user = null;
+  res.send({
+    status: 'success'
+  })
+});
 
 // REST API
 require('./server_rest.js')(app);
