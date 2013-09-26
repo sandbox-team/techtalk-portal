@@ -4,7 +4,13 @@ require('colors');
 
 var express = require('express'),
   app = express(),
-  pmcApi = require('pmc-api');
+  pmcApi = require('pmc-api'),
+  mg = require("mongoose");
+
+mg.connect('mongodb://localhost/tt-portal-dev');
+
+var TechTalk = require("./models/TechTalk.js").TechTalk;
+var User     = require("./models/User.js").User;
 
 //config
 app
@@ -18,6 +24,7 @@ app
   .use(express.favicon())
   .use(express.logger('tiny'))
   .use(express.static('public'))
+  .use(express.query())
   .use(express.bodyParser())
   .use(express.methodOverride())
   .use(express.cookieParser())
@@ -124,6 +131,63 @@ app.post('/logout', function(req, res) {
 
 // REST API
 require('./server_rest.js')(app);
+// NEW REST WITH MONGO
+
+app.get("/api/techtalks/reset", function(req, res){
+  TechTalk.remove({},function(){
+
+    var tt = new TechTalk({
+      "_id": "1",
+      "date": "2\/22\/2013",
+      "title": "CSS via JS",
+      "lector": ["siarhei_mikhailau"],
+      "location": "N58",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore, consequuntur suscipit harum omnis neque vitae id voluptatem assumenda quam eos saepe nulla aliquid voluptas ut modi in minima debitis!",
+      "level": "D1-D5",
+      "notes": "",
+      "attendees": [
+        "andrey_demchenko",
+        "veranika_mishurina",
+        "mikita_khatsimtsou",
+        "maryna_belavusava",
+        "nadzeya_pratasava",
+        "varely_zhurovich"
+      ],
+      "tags": [
+        "css",
+        "js",
+        "prefix",
+        "xbrowser"
+      ]
+    });
+
+    tt.save(function(err, results){
+        console.log(err, results);
+        res.json(results);
+    });
+  });
+});
+
+app.get("/api/techtalks", function(req, res){
+  console.log("/api/techtalks".cyan,req.query);
+  TechTalk.find({}).exec(function(err, results){
+    console.log("\t>> resulrs".grey, results)
+    res.json(results);
+  });
+});
+
+app.post("/api/techtalks", function(req, res){
+  
+});
+
+app.put("/api/techtalks", function(req, res){
+  
+});
+
+app.delete("/api/techtalks", function(req, res){
+  
+});
+
 
 // fix for direct urls like http://localhost:3000/details/28
 app.all('*', function(req, res){
