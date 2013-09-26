@@ -7,7 +7,7 @@ var express = require('express'),
   pmcApi = require('pmc-api'),
   mg = require("mongoose");
 
-mg.connect('mongodb://localhost/tt-portal-dev');
+mg.connect('mongodb://localhost:27018/tt-portal-dev');
 
 var TechTalk = require("./models/TechTalk.js").TechTalk;
 var User     = require("./models/User.js").User;
