@@ -13,7 +13,7 @@
           $scope.details = $scope.global.data.talks[currentTalkId]; 
 		  var dt=new Date($scope.details.date);
           $scope.details.date=dt;
-          $scope.locationReturn = '/calendar/' + helper.getMonthName($scope.details.date.getMonth(), true) + '/' + $scope.details.date.getFullYear();
+          $scope.locationReturn = '/calendar/' + $scope.details.date.getDate() + '/' + helper.getMonthName($scope.details.date.getMonth(), true) + '/' + $scope.details.date.getFullYear();
         }
       }]);
 })(angular);

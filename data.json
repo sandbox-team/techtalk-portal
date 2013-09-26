@@ -1140,7 +1140,45 @@
 				"express",
 				"rest"
 			]
-		}
+		},
+        "37": {
+            "date": "9\/1\/2013",
+            "title": "Creating blog using Node.js. Template engines and REST",
+            "lector": ["andrei_volkau1"],
+            "location": "K1\/3",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, facilis, officiis voluptatibus velit doloremque est culpa similique veniam alias pariatur numquam beatae! Suscipit, necessitatibus id sit error nesciunt perferendis sunt!",
+            "level": "D1-D5",
+            "notes": "",
+            "attendees": [
+                "siarhei_mikhailau",
+                "volha_bainova",
+                "uladzimir_hartsau",
+                "kanstantsin_babichau",
+                "alena_karaba",
+                "aliaksei_tryputsen",
+                "ilya_valasiuk",
+                "raman_vysotski",
+                "khrystsina_tsikhanovich",
+                "nadzeya_shedava",
+                "viktor_busko",
+                "siarhei_vaitehovich",
+                "dzmitry_osipau",
+                "anton_sharapa",
+                "nikolay_zhgirovsky",
+                "veranika_baradzina",
+                "katsiaryna_utlik",
+                "marina_kamayeva",
+                "ivan_straltsou"
+            ],
+            "tags": [
+                "js",
+                "nodejs",
+                "backend",
+                "npm",
+                "express",
+                "rest"
+            ]
+        }
 
 
 

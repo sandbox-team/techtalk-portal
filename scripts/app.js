@@ -21,7 +21,7 @@
               controller: 'CalendarCtrl',
               templateUrl: 'views/calendar-page'
             })
-            .when('/calendar/:month/:year', {
+            .when('/calendar/:day/:month/:year', {
                controller: 'CalendarCtrl',
                templateUrl: 'views/calendar-page'
             })
