@@ -1,33 +1,23 @@
 <div class="container">
+    <h1>Calendar</h1>
   <h3>
     <a href="" class="btn btn-primary"  data-ng-href="calendar/1/{{prevMonthUrl}}/{{prevYearUrl}}">&lt;</a>
     <span data-ng-bind="schedule.month"></span>, <b data-ng-bind="schedule.year"></b>
     <a href="" class="btn btn-primary" data-ng-href="calendar/1/{{nextMonthUrl}}/{{nextYearUrl}}">&gt;</a>
   </h3>
-  <!--<ul class="list-group">-->
-    <!--<li class="list-group-item" data-ng-repeat="date in schedule.dates">-->
-      <!--<b data-ng-bind="date.date"></b>-->
-      <!--<div class="well" data-ng-repeat="talk in date.data">-->
-        <!--<h5><a href="" data-ng-href="details/{{talk._id}}" data-ng-bind="talk.description.title"></a></h5>-->
-        <!--<dl>-->
-          <!--<dt>Location: </dt>-->
-          <!--<dd data-ng-bind="talk.description.location"></dd>-->
-        <!--</dl>-->
-      <!--</div>-->
-    <!--</li>-->
-  <!--</ul>-->
+    <h3>
+        <a href="" class="btn btn-default btn-lg" data-ng-href="calendar/{{prevIndexWeek}}/{{month}}/{{year}}">&lt;</a>
+        <span>Week</span> <b data-ng-bind="weekNumber"></b>
+        <a href="" class="btn btn-default btn-lg" data-ng-href="calendar/{{nextIndexWeek}}/{{month}}/{{year}}">&gt;</a>
+    </h3>
 
-        <h3>
-            <a href="" class="btn btn-default btn-lg" data-ng-href="calendar/{{prevIndexWeek}}/{{month}}/{{year}}">&lt;</a>
-            <span>Week</span> <b data-ng-bind="weekNumber"></b>
-            <a href="" class="btn btn-default btn-lg" data-ng-href="calendar/{{nextIndexWeek}}/{{month}}/{{year}}">&gt;</a>
-        </h3>
     <ul class="list-group">
         <li class="list-group-item" data-ng-repeat="date in currentWeek">
             <div data-ng-if="date.date == '-'" style="background-color: black;">
                 <b data-ng-bind="date.day"></b>
             </div>
             <div data-ng-if="date.date != '-'" class="disabled">
+
                 <b data-ng-bind="date.day"></b>
                 <b data-ng-bind="date.date" style="float: right"></b>
                 <div class="well" data-ng-repeat="talk in date.data">
