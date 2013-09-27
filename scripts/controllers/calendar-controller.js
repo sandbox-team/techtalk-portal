@@ -84,8 +84,8 @@
 
             delete periodDescription.dates[0];
 
-            for (var key in $scope.global.data.talks) {
-              var talk = $scope.global.data.talks[key];
+            for (var key in $scope.global.talks) {
+              var talk = $scope.global.talks[key];
               var talkDate = new Date(talk.date),
                 date = talkDate.getDate();
 
