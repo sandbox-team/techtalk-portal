@@ -1,21 +1,28 @@
 ;(function(ng) {
   'use strict';
 
-  ng.module('tp', ['ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'tp.services'])
-    //
-      .config(['$routeProvider', '$locationProvider', '$provide',
-        function($routeProvider, $locationProvider, $provide) {
-          $provide.constant('appConfig', {
-            userCookie: 'user_settings',
-            responseStatus: {
-              SUCCESS: 'success',
-              ERROR: 'error'
-            }
-          });
+  ng.module('tp.services', []);
+  ng.module('tp.directives', []);
 
-          $locationProvider
-              .html5Mode(true)
-              .hashPrefix('!');
+  ng.module('tp', [
+      'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngAnimate',
+      'ui.bootstrap.collapse',
+      'tp.services', 'tp.directives'
+    ])
+    //
+    .config(['$routeProvider', '$locationProvider', '$provide',
+      function($routeProvider, $locationProvider, $provide) {
+        $provide.constant('appConfig', {
+          userCookie: 'user_settings',
+          responseStatus: {
+            SUCCESS: 'success',
+            ERROR: 'error'
+          }
+        });
+
+        $locationProvider
+          .html5Mode(true)
+          .hashPrefix('!');
 
           $routeProvider.when('/', {
               controller: 'CalendarCtrl',
@@ -45,45 +52,50 @@
         }])
       .run(function() {
 
-      })
+    })
   /**
    *
    */
-      .controller('AppCtrl', ['$rootScope', '$scope', 'authService', 'data',
-        function($rootScope, $scope, authService, dataProvider) {
-          $rootScope.global = {
-            isAuthN: authService.isAuthN(),
-            authService: authService,
-            data: {}
-          };
+   .controller('AppCtrl', ['$rootScope', '$scope', 'authService', 'data',
+    function($rootScope, $scope, authService, dataProvider) {
+      $rootScope.global = {
+        isAuthN: authService.isAuthN(),
+        currentUser: authService.getUserData(),
+        data: {},
+        selected: [],
+        errorStack: []
+      };
 
-          $scope.auth = {};
+      $scope.auth = {};
 
-          dataProvider.getAll().then(function(data) {
-            $rootScope.global.data = data.data;
+      dataProvider.talksResource.query(function(data) {
+        $rootScope.global.talks = data;
+      });
+
+      dataProvider.getUsers().then(function(users) {
+        $rootScope.global.users = users;
+      });
+
+      $scope.signin = function() {
+        $scope.authInProgress = true;
+
+        authService.login({
+            login: $scope.auth.login,
+            password: $scope.auth.password
+          })
+          .then(function() {
+
+          }, function(error) {
+            $rootScope.global.errorStack.push(error);
+            console.error(error.errorCode, error.message);
+          })
+          ['finally'](function() {
+            $scope.authInProgress = false;
           });
+      };
 
-          $scope.signin = function() {
-            $scope.authInProgress = true;
-
-            authService.login({
-              login: $scope.auth.login,
-              password: $scope.auth.password
-            })
-                .then(function() {
-
-                }, function(msg) {
-                  alert(msg);
-                })
-                ['finally'](function() {
-              $scope.authInProgress = false;
-            });
-          };
-
-          $scope.logout = function() {
-            authService.logout();
-          }
-        }]);
-
-
-})(angular);
+      $scope.logout = function() {
+        authService.logout();
+      };
+    }]);
+ })(angular);

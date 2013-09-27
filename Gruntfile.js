@@ -49,7 +49,7 @@ module.exports = function(grunt) {
           yuicompress: true
         },
         files: {
-          'public/css/styles.css': 'styles/base.less',
+          'public/css/styles.css': 'styles/base.less'
         }
       }
     },
@@ -64,6 +64,9 @@ module.exports = function(grunt) {
             'bower_components/angular-resource/angular-resource.js',
             'bower_components/angular-cookies/angular-cookies.js',
             'bower_components/angular-sanitize/angular-sanitize.js',
+            'bower_components/angular-animate/angular-animate.js',
+            'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+            'bower_components/angular-bootstrap/ui-bootstrap.js',
             'vendor/zenpen/js/libs/Blob.js',
             'vendor/zenpen/js/libs/FileSaver.js',
             'vendor/zenpen/js/libs/fullScreen.js',

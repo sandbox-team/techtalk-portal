@@ -1,6 +1,8 @@
 <nav class="navbar navbar-default" role="navigation">
     <a href="" class="btn btn-default navbar-btn pull-left" data-ng-href="{{locationReturn}}">Back to Calendar</a>
-    <a href="/edit/{{_id}}" class="btn navbar-btn btn-success pull-right">Edit</a>
+    <a class="btn navbar-btn btn-success pull-right" 
+        data-ng-href="/edit/{{_id}}"
+        data-ng-if="global.isAuthN">Edit</a>
 </nav>
 <div class="container">
     <div class="row">
@@ -13,7 +15,7 @@
                     <span data-ng-bind="details.level" class="btn btn-info btn-xs"></span>
                 </h2>
             </header>
-            <h3>by <span data-ng-repeat="user in details.lector"><a href="user/{{user}}" data-ng-bind="global.data.users[user].full_name"></a><i ng-if="!$last">, </i></span></h3>
+            <h3>by <span data-ng-repeat="user in details.lector"><a href="user/{{user}}" data-ng-bind="global.users[user].full_name"></a><i ng-if="!$last">, </i></span></h3>
             <h4><span>{{details.date | date:'mediumDate'}}</span></h4>
             <h4><span data-ng-bind="details.location"></span></h4>
         </div>
@@ -29,10 +31,7 @@
     <div class="row">
        <label class="col-lg-2 control-label">Attendees ({{details.attendees.length}}):</label>
        <div class="col-lg-10 well">
-            <span data-ng-repeat="user in details.attendees"><a href="user/{{user}}">{{global.data.users[user].full_name}} </a><i ng-if="!$last">, </i></span>
+            <span data-ng-repeat="user in details.attendees"><a href="user/{{user}}">{{global.users[user].full_name}} </a><i ng-if="!$last">, </i></span>
         </div>
     </div>
-
-    <!--<h4><span data-ng-repeat="tag in details.tags"><a href="tag/{{tag}}" data-ng-bind="tag"></a><i ng-if="!$last">, </i></span></h4>-->
-
 </div>

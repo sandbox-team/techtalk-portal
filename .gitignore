@@ -18,4 +18,6 @@ pids
 logs
 results
 
+service-config.json
+
 npm-debug.log

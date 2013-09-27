@@ -1,21 +1,52 @@
-<div class='container'>
-    <div class="row">
-        <div class=col-md-2>
-            <img src="http://placehold.it/100x133">
+<div class='editView container'>
+  <a href="" class="btn btn-default" data-ng-click="goBack();">Back</a>
+  <hr />
+  <form name="editTalkForm" novalidate data-ng-submit="saveAndClose();">
+    <header class="titleBlock row">
+      <div class="col-md-2">
+          <img src="http://placehold.it/100x133">
+      </div>
+      <div class="col-md-10">
+        <div>
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" class="form-control input-lg" placeholder="Enter Title"
+            data-ng-model="details.title"/>
         </div>
-        <div class=col-md-10>
-                <label for="title">Title:</label>
-                <input type="text" value="{{details.title}}" class="form-control input-lg" id="title" placeholder="Enter Title">
-                <!--<h2 data-ng-bind="details.title" contenteditable="true" class="header"></h2>-->
-            <h3>by <span data-ng-repeat="user in details.lector"><a href="user/{{user}}" data-ng-bind="global.data.users[user].full_name"></a><i ng-if="!$last">, </i></span></h3>
-			<h4><span data-ng-repeat="tag in details.tags"><a href="tag/{{tag}}" data-ng-bind="tag"></a><i ng-if="!$last">, </i></span></h4>
+        <div>
+          <label for="lectors">Lectors: </label>
+          <div data-tp-user-search="lectors" data-selected="details.lector" data-available="global.users"></div>
         </div>
-    </div>
-    <div class="row">
-          <article data-ng-bind-html="details.description" contenteditable="true" class="content"></article>
-    </div>
+      </div>
+    </header>
+    <section>
+      <div class="row">
+        <label for="Date">Date:</label>
+        <input type="text" id="Date" name="Date" class="form-control input-lg" placeholder="Enter date and time"
+               data-ng-model="details.date"/>
+      </div>
+      <div class="row">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" class="form-control input-lg" placeholder="Enter Title"
+               data-ng-model="details.location"/>
+      </div>
+      <div>
+        <label for="talkContent">Details: </label>
+        <div class="well">
+          <h2 contenteditable="true" class="header" data-ng-bind="details.title" style="display: none">Talk title</h2>
+          <article id="talkContent" class="content" contenteditable="true" data-ng-model="details.description" data-ng-bind-html="details.description"></article>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Attendees list: </h4>
+        <div data-tp-user-search="global.users" data-selected="attendees"></div>
+      </div>
+      <hr />
+      <div class="buttonBar">
+        <button type="submit" class="btn btn-success">Save and close</button>
+        <button type="button" class="btn btn-info" data-ng-click="save();">Save</button>
+        <button type="button" class="btn btn-primary" data-ng-click="goBack();">Back</button>
+        <button type="reset" class="btn btn-warning pull-right">Reset</button>
+      </div>
+    </section>
+  </form>
 </div>
-<p>
-  <a href="/details/{{_id}}" class="btn btn-success">Save</a>
-  <a href="/details/{{_id}}" class="btn btn-default">Cancel</a>
-</p>
