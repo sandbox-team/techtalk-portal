@@ -185,11 +185,10 @@ app.get('/api/techtalk', function(req, res) {
 // post
 app.post("/api/techtalk", function(req, res) {
   console.log("/api/techtalk".cyan,req.body);
-  var tt = new TechTalk(req.body);
-  tt.save(function (err) {
+  TechTalk.create(req.body, function (err, result) {
     if (err) return res.send(err);
-    console.log("\t>> results".grey, tt);
-    res.send(tt);
+    console.log("\t>> results".grey, result);
+    res.json(result);
   });
 });
 
@@ -197,7 +196,13 @@ app.post("/api/techtalk", function(req, res) {
 app.put("/api/techtalk", function(req, res){
   console.log("/api/techtalk".cyan,req.query);
   console.log("/api/techtalk".cyan,req.body);
-  TechTalk.findByIdAndUpdate(req.query.id, { $set: req.body}, function (err, result) {
+
+  var updatedData = req.body;
+  delete updatedData._id;
+  updatedData.updated = new Date();
+
+  TechTalk.findByIdAndUpdate(req.query.id, { $set: updatedData }, function (err, result) {
+    console.log(err);
     if (err) return res.send(err);
     console.log("\t>> results".grey, result);
     res.json(result);
