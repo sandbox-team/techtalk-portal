@@ -104,22 +104,22 @@ app.post('/auth', function(req, res) {
     password = req.body.password;
 
   pmcApi.authentication(function(err, response) {
-      if (err) {
-        console.log(err);
-        res.send({
-          status: 'error',
-          message: err.message || 'Not valid login or password',
-          errorCode: err.code
-        })
-      }
-      else {
-        res.send({
-          status: 'success',
-          user: response
-        });
-        req.session.user = response;
-      }
-    }, login, password);
+    if (err) {
+      console.log(err);
+      res.send({
+        status: 'error',
+        message: err.message || 'Not valid login or password',
+        errorCode: err.code
+      })
+    }
+    else {
+      res.send({
+        status: 'success',
+        user: response
+      });
+      req.session.user = response;
+    }
+  }, login, password);
 });
 
 app.post('/logout', function(req, res) {
@@ -129,65 +129,97 @@ app.post('/logout', function(req, res) {
   })
 });
 
-// REST API
-require('./server_rest.js')(app);
 // NEW REST WITH MONGO
 
+function stringToDate(value) {
+  var dateParts, date;
+
+  if (value instanceof String || typeof value == "string") {
+    dateParts = value.split("/");
+    if (dateParts[0].length === 4){
+      date = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+    } else {
+      date = new Date(dateParts[2], dateParts[0] - 1, dateParts[1]);
+    }
+  }
+  return date || value;
+}
+function dateToString(value) {
+  var dateParts = [value.getMonth() + 1, value.getDate(), value.getFullYear()];
+  return dateParts.join("/");
+}
+
+//get
 app.get("/api/techtalks/reset", function(req, res){
   TechTalk.remove({},function(){
-
-    var tt = new TechTalk({
-      "_id": "1",
-      "date": "2\/22\/2013",
-      "title": "CSS via JS",
-      "lector": ["siarhei_mikhailau"],
-      "location": "N58",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore, consequuntur suscipit harum omnis neque vitae id voluptatem assumenda quam eos saepe nulla aliquid voluptas ut modi in minima debitis!",
-      "level": "D1-D5",
-      "notes": "",
-      "attendees": [
-        "andrey_demchenko",
-        "veranika_mishurina",
-        "mikita_khatsimtsou",
-        "maryna_belavusava",
-        "nadzeya_pratasava",
-        "varely_zhurovich"
-      ],
-      "tags": [
-        "css",
-        "js",
-        "prefix",
-        "xbrowser"
-      ]
-    });
-
-    tt.save(function(err, results){
-        console.log(err, results);
-        res.json(results);
+    for (var i=0; i<data.talks.length; i++){
+      data.talks[i].date = stringToDate(data.talks[i].date);
+    }
+    TechTalk.create(data.talks, function(err, result){
+      if (err) return res.send(err);
+      res.send(result);
     });
   });
 });
-
 app.get("/api/techtalks", function(req, res){
-  console.log("/api/techtalks".cyan,req.query);
+  console.log("/api/techtalks?from=2013/9/1&to=2013/9/30".cyan,req.query);
+  TechTalk.find({})
+    .where("date").gte(stringToDate(req.query.from))
+    .where("date").lt(stringToDate(req.query.to))
+    .exec(function(err, results){
+      console.log("\t>> results".grey, results);
+      res.json(results);
+    });
+});
+app.get('/data/talk', function(req, res) {
   TechTalk.find({}).exec(function(err, results){
-    console.log("\t>> resulrs".grey, results)
+    if (err) return res.send(err);
+    console.log("\t>> results".grey, results);
     res.json(results);
   });
 });
-
-app.post("/api/techtalks", function(req, res){
-  
+app.get('/data/talk/:id', function(req, res) {
+  TechTalk.findById(req.params.id, function(err, result){
+    if (err) return res.send(err);
+    console.log("\t>> result".grey, result);
+    res.json(result);
+  });
 });
 
-app.put("/api/techtalks", function(req, res){
-  
+// post
+//app.post("/api/techtalks", function(req, res){
+app.post("/data/talk/", function(req, res) {
+  console.log("/data/talk/".cyan,req.body);
+  var tt = new TechTalk(req.body);
+  tt.save(function (err) {
+    if (err) return res.send(err);
+    console.log("\t>> results".grey, tt);
+    res.send(tt);
+  });
 });
 
-app.delete("/api/techtalks", function(req, res){
-  
+// put
+//app.put("/api/techtalks", function(req, res){
+app.post("/data/talk/:id", function(req, res) {
+  console.log("/data/talk/:id".cyan,req.body);
+  TechTalk.findByIdAndUpdate(req.params.id, { $set: req.body}, function (err, result) {
+    if (err) return res.send(err);
+    console.log("\t>> results".grey, result);
+    res.json(result);
+  });
 });
 
+// delete
+//app.delete("/api/techtalks", function(req, res){
+app.delete('/data/talk/:id', function(req, res) {
+  TechTalk.remove({_id: req.params.id}).exec(function(err){
+    if (err) return res.send(err);
+    res.send('ok');
+  });
+});
+
+// REST API
+var data = require('./server_rest.js')(app);
 
 // fix for direct urls like http://localhost:3000/details/28
 app.all('*', function(req, res){
