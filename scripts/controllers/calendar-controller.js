@@ -183,7 +183,6 @@
                   _resetSelected();
                   $scope.currentMonth[$scope.indexWeek+1].selected = true;
               }
-              console.log($scope.currentMonth)
           }
 
           $scope.$watch('indexWeek', _setWeek)
