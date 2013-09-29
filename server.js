@@ -129,6 +129,9 @@ app.post('/logout', function(req, res) {
   })
 });
 
+// REST API
+var data = require('./server_rest.js')(app);
+
 // NEW REST WITH MONGO
 
 function stringToDate(value) {
@@ -171,15 +174,8 @@ app.get("/api/techtalks", function(req, res){
       res.json(results);
     });
 });
-app.get('/data/talk', function(req, res) {
-  TechTalk.find({}).exec(function(err, results){
-    if (err) return res.send(err);
-    console.log("\t>> results".grey, results);
-    res.json(results);
-  });
-});
-app.get('/data/talk/:id', function(req, res) {
-  TechTalk.findById(req.params.id, function(err, result){
+app.get('/api/techtalk', function(req, res) {
+  TechTalk.findById(req.query.id, function(err, result){
     if (err) return res.send(err);
     console.log("\t>> result".grey, result);
     res.json(result);
@@ -187,9 +183,8 @@ app.get('/data/talk/:id', function(req, res) {
 });
 
 // post
-//app.post("/api/techtalks", function(req, res){
-app.post("/data/talk/", function(req, res) {
-  console.log("/data/talk/".cyan,req.body);
+app.post("/api/techtalk", function(req, res) {
+  console.log("/api/techtalk".cyan,req.body);
   var tt = new TechTalk(req.body);
   tt.save(function (err) {
     if (err) return res.send(err);
@@ -199,10 +194,10 @@ app.post("/data/talk/", function(req, res) {
 });
 
 // put
-//app.put("/api/techtalks", function(req, res){
-app.post("/data/talk/:id", function(req, res) {
-  console.log("/data/talk/:id".cyan,req.body);
-  TechTalk.findByIdAndUpdate(req.params.id, { $set: req.body}, function (err, result) {
+app.put("/api/techtalk", function(req, res){
+  console.log("/api/techtalk".cyan,req.query);
+  console.log("/api/techtalk".cyan,req.body);
+  TechTalk.findByIdAndUpdate(req.query.id, { $set: req.body}, function (err, result) {
     if (err) return res.send(err);
     console.log("\t>> results".grey, result);
     res.json(result);
@@ -210,16 +205,13 @@ app.post("/data/talk/:id", function(req, res) {
 });
 
 // delete
-//app.delete("/api/techtalks", function(req, res){
-app.delete('/data/talk/:id', function(req, res) {
-  TechTalk.remove({_id: req.params.id}).exec(function(err){
+app.delete('/api/techtalk', function(req, res) {
+  console.log("/api/techtalk".cyan,req.query);
+  TechTalk.remove({_id: req.query.id}).exec(function(err){
     if (err) return res.send(err);
     res.send('ok');
   });
 });
-
-// REST API
-var data = require('./server_rest.js')(app);
 
 // fix for direct urls like http://localhost:3000/details/28
 app.all('*', function(req, res){
