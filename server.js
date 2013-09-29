@@ -4,7 +4,7 @@ require('colors');
 
 var express = require('express'),
   app = express(),
-  pmcApi = require('pmc-api'),
+  pmcApi = require('./pmc-api.js'),
   mg = require("mongoose");
 
 mg.connect('mongodb://localhost:27018/tt-portal-dev');
@@ -129,6 +129,34 @@ app.post('/logout', function(req, res) {
   })
 });
 
+app.get('/user/:name', function(req, res) {
+  var userName = req.params.name;
+  User.find({email: userName}, function(err, users) {
+    console.log(users);
+    if (err || !users.length) {
+      console.log(err);
+      pmcApi.findUser(function(err, data) {
+        if (err) {
+          var response = [];
+          response.error = err;
+          res.send(response);
+        }
+        else {
+          data.forEach(function(userData, i) {
+            (new User(userData)).save(function(err) {
+              console.log(!err);
+            });
+          });
+          res.send(data);
+        }
+      }, userName);
+    }
+    else {
+      res.send(users);
+    }
+  });
+});
+
 // REST API
 require('./server_rest.js')(app);
 // NEW REST WITH MONGO
@@ -168,7 +196,7 @@ app.get("/api/techtalks/reset", function(req, res){
   });
 });
 
-app.get("/api/techtalks", function(req, res){
+app.get("/api/techtalks", function(req, res) {
   console.log("/api/techtalks".cyan,req.query);
   TechTalk.find({}).exec(function(err, results){
     console.log("\t>> resulrs".grey, results)
