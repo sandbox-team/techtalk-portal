@@ -177,7 +177,7 @@ function dateToString(value) {
 }
 
 //get
-app.get("/api/techtalks/reset", function(req, res){
+app.get("/api/techtalk/reset", function(req, res){
   TechTalk.remove({},function(){
     for (var i=0; i<data.talks.length; i++){
       data.talks[i].date = stringToDate(data.talks[i].date);

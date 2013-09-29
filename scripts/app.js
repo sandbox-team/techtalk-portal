@@ -61,7 +61,8 @@
       $rootScope.global = {
         isAuthN: authService.isAuthN(),
         currentUser: authService.getUserData(),
-        data: {},
+        users: [],
+        talks: [],
         selected: [],
         errorStack: []
       };
