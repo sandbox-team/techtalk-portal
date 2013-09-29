@@ -5,11 +5,15 @@
     <span data-ng-bind="schedule.month"></span>, <b data-ng-bind="schedule.year"></b>
     <a href="" class="btn btn-primary" data-ng-href="calendar/1/{{nextMonthUrl}}/{{nextYearUrl}}">&gt;</a>
   </h3>
-    <h3>
-        <a href="" class="btn btn-default btn-lg" data-ng-href="calendar/{{prevIndexWeek}}/{{month}}/{{year}}">&lt;</a>
-        <span>Week</span> <b data-ng-bind="weekNumber"></b>
-        <a href="" class="btn btn-default btn-lg" data-ng-href="calendar/{{nextIndexWeek}}/{{month}}/{{year}}">&gt;</a>
-    </h3>
+
+    <ul class="pagination">
+        <li><a href="" data-ng-href="calendar/{{prevIndexWeek}}/{{month}}/{{year}}">&laquo;</a></li>
+          <li data-ng-repeat="index in currentMonth" >
+              <a href="" data-ng-href="calendar/{{index.link}}/{{month}}/{{year}}" data-ng-if="index.selected == true" style="background: bisque">{{index.ind}}</a>
+              <a href="" data-ng-href="calendar/{{index.link}}/{{month}}/{{year}}" data-ng-if="index.selected == false">{{index.ind}}</a>
+        </li>
+        <li><a href="" data-ng-href="calendar/{{nextIndexWeek}}/{{month}}/{{year}}">&raquo;</a></li>
+    </ul>
 
     <ul class="list-group">
         <li class="list-group-item" data-ng-repeat="date in currentWeek">

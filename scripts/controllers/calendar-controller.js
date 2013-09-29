@@ -13,12 +13,7 @@
       $scope.getUserDescription = function(id) {
         return $scope.global.data.users[id];
       };
-          $scope.next= function () {
-              $scope.indexWeek++;
-          }
-          $scope.prev = function () {
-              $scope.indexWeek--;
-          }
+
         _change();
 
           function _change() {
@@ -31,6 +26,7 @@
                     $location.path('/')
                   }
                   $scope.indexDay = path[2];
+                  activeDate.setDate(1);
                   activeDate.setMonth(helper.getMonthIndex(path[3]));
                   activeDate.setYear(path[4]);
               }
@@ -53,7 +49,6 @@
               _update();
           }
 
-
           function _update() {
             monthIndex = activeDate.getMonth();
             year = activeDate.getFullYear();
@@ -66,8 +61,6 @@
             };
             _initPeriod(year, monthIndex);
           }
-
-
 
           function _initPeriod(year, month) {
             var i = 0;
@@ -138,17 +131,17 @@
               if ($scope.week[$scope.indexWeek+1]){
                   $scope.nextIndexWeek = $scope.week[$scope.indexWeek+1][0].date;
               } else {
-                  $scope.nextIndexWeek = 31;
+                  $scope.nextIndexWeek = $scope.week[$scope.week.length-1][0].date;
               }
               if ($scope.week[$scope.indexWeek-1]){
                   $scope.prevIndexWeek = $scope.week[$scope.indexWeek-1][6].date;
               } else {
                   $scope.prevIndexWeek = 1;
               }
+              _initObjForPagination();
           }
 
           function _getWeekNumber (k) {
-              console.log($scope.week[2][0]);
               for (var i = 0; i < $scope.week.length; i ++){
                   for (var j = 0; j < 7; j ++){
                     if($scope.week[i][j].date == k){
@@ -158,9 +151,41 @@
               }
           }
 
+          function _initObjForPagination () {
+            $scope.currentMonth = {};
+              var url;
+              for (var i = 1; i < $scope.week.length + 1; i++){
+                  if(i == 1) {
+                      url = $scope.week[0][6].date;
+                  } else if ( i == $scope.week.length){
+                      url = $scope.week[i-1][0].date;
+                  } else {
+                      url = $scope.week[i-1][0].date;
+                  }
+                  $scope.currentMonth[i] = {
+                      ind: i,
+                      link: url,
+                      selected: false
+                  }
+              }
+          }
+
+          function _resetSelected () {
+              for (var i = 1; i < $scope.currentMonth.length + 1; i++){
+                  $scope.currentMonth[i].selected = false;
+              }
+          }
+
+
           function _setWeek () {
             $scope.currentWeek = $scope.week[$scope.indexWeek];
+              if(!$scope.currentMonth[$scope.indexWeek+1].selected){
+                  _resetSelected();
+                  $scope.currentMonth[$scope.indexWeek+1].selected = true;
+              }
+              console.log($scope.currentMonth)
           }
+
           $scope.$watch('indexWeek', _setWeek)
 
 
