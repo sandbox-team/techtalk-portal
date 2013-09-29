@@ -12,6 +12,7 @@ mg.connect('mongodb://localhost:27018/tt-portal-dev');
 var TechTalk = require("./models/TechTalk.js").TechTalk;
 var Tag = require("./models/Tag.js").Tag;
 var User     = require("./models/User.js").User;
+var News = require("./models/News.js").News;
 
 //config
 app
@@ -177,6 +178,11 @@ app.get("/api/tags/reset", function(req, res){
     });
   });
 });
+app.get("/api/news/reset", function(req, res){
+  News.remove({},function(){
+    res.send({});
+  });
+});
 
 //get
 app.get("/api/techtalks", function(req, res){
@@ -185,6 +191,7 @@ app.get("/api/techtalks", function(req, res){
     .where("date").gte(stringToDate(req.query.from))
     .where("date").lt(stringToDate(req.query.to))
     .exec(function(err, results){
+      if (err) return res.send(err);
       console.log("\t>> results".grey, results);
       res.json(results);
     });
@@ -192,12 +199,37 @@ app.get("/api/techtalks", function(req, res){
 app.get("/api/tags", function(req, res){
   var tags = [];
   Tag.find({}).exec(function(err, results){
+    if (err) return res.send(err);
     console.log("\t>> results".grey, results);
     for (var i=0; i<results.length; i++){
       tags.push(results[i]._id);
     }
     res.json(tags);
   });
+});
+app.get("/api/news", function(req, res){
+  console.log("/api/news?page=1|id=1".cyan,req.query);
+  var page = req.query.page,
+    countOnPage = 2;
+
+  if (req.query.id) {
+    News.findById(req.query.id, function(err, result){
+      if (err) return res.send(err);
+      console.log("\t>> result".grey, result);
+      res.json(result);
+    });
+  } else {
+    News.find({}).exec(function(err, results){
+      if (err) return res.send(err);
+      if (page) {
+        var from = (page - 1) * countOnPage,
+          to = from + countOnPage;
+        res.json(results.slice(from, to));
+      } else {
+        res.json(results);
+      }
+    });
+  }
 });
 app.get('/api/techtalk', function(req, res) {
   TechTalk.findById(req.query.id, function(err, result){
@@ -217,12 +249,20 @@ app.post("/api/techtalk", function(req, res) {
   });
 });
 app.post("/api/tag", function(req, res) {
-    console.log("/api/tag".cyan,req.body);
-    Tag.create({_id: req.body.tag}, function (err, result) {
-        if (err) return res.send(err);
-        console.log("\t>> results".grey, result);
-        res.send("ok");
-    });
+  console.log("/api/tag".cyan,req.body);
+  Tag.create({_id: req.body.tag}, function (err, result) {
+    if (err) return res.send(err);
+    console.log("\t>> results".grey, result);
+    res.send("ok");
+  });
+});
+app.post("/api/news", function(req, res) {
+  console.log("/api/news".cyan,req.body);
+  News.create(req.body, function (err, result) {
+    if (err) return res.send(err);
+    console.log("\t>> results".grey, result);
+    res.json(result);
+  });
 });
 
 // put
@@ -235,7 +275,20 @@ app.put("/api/techtalk", function(req, res){
   updatedData.updated = new Date();
 
   TechTalk.findByIdAndUpdate(req.query.id, { $set: updatedData }, function (err, result) {
-    console.log(err);
+    if (err) return res.send(err);
+    console.log("\t>> results".grey, result);
+    res.json(result);
+  });
+});
+app.put("/api/news", function(req, res) {
+  console.log("/api/news".cyan,req.query);
+  console.log("/api/news".cyan,req.body);
+
+  var updatedData = req.body;
+  delete updatedData._id;
+  updatedData.updated = new Date();
+
+  News.findByIdAndUpdate(req.query.id, { $set: updatedData }, function (err, result) {
     if (err) return res.send(err);
     console.log("\t>> results".grey, result);
     res.json(result);
@@ -246,6 +299,13 @@ app.put("/api/techtalk", function(req, res){
 app.delete('/api/techtalk', function(req, res) {
   console.log("/api/techtalk".cyan,req.query);
   TechTalk.remove({_id: req.query.id}).exec(function(err){
+    if (err) return res.send(err);
+    res.send('ok');
+  });
+});
+app.delete('/api/news', function(req, res) {
+  console.log("/api/news".cyan,req.query);
+  News.remove({_id: req.query.id}).exec(function(err){
     if (err) return res.send(err);
     res.send('ok');
   });
