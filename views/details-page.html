@@ -1,37 +1,39 @@
 <nav class="navbar navbar-default" role="navigation">
-    <a href="" class="btn btn-default navbar-btn pull-left" data-ng-href="{{locationReturn}}">Back to Calendar</a>
-    <a class="btn navbar-btn btn-success pull-right" 
-        data-ng-href="/edit/{{_id}}"
-        data-ng-if="global.isAuthN">Edit</a>
+  <a href="" class="btn btn-default navbar-btn pull-left" data-ng-href="{{locationReturn}}">Back to Calendar</a>
+  <a class="btn navbar-btn btn-success pull-right"
+     data-ng-href="/edit/{{_id}}"
+     data-ng-if="global.isAuthN">Edit</a>
 </nav>
 <div class="container">
-    <div class="row">
-        <div class="col-md-2">
-            <img src="http://placehold.it/100x133">
-        </div>
-        <div class="col-md-10">
-            <header class="header">
-                <h2><span data-ng-bind="details.title"></span>
-                    <span data-ng-bind="details.level" class="btn btn-info btn-xs"></span>
-                </h2>
-            </header>
-            <h3>by <span data-ng-repeat="user in details.lector"><a href="user/{{user}}" data-ng-bind="global.users[user].full_name"></a><i ng-if="!$last">, </i></span></h3>
-            <h4><span>{{details.date | date:'mediumDate'}}</span></h4>
-            <h4><span data-ng-bind="details.location"></span></h4>
-        </div>
+  <div class="row">
+    <div class="col-md-2">
+      <img src="http://placehold.it/100x133" data-ng-repeat="user in details.lector | userData" data-ng-src="{{user.photo}}" />
     </div>
-    <div class="row">
-        <label class="col-lg-2 control-label">Description:</label>
-        <div class="col-md-10" data-ng-bind-html="details.description"></div>
+    <div class="col-md-10">
+      <header class="header">
+        <h2>
+          <span data-ng-bind="details.title"></span>
+          <span data-ng-bind="details.level" class="btn btn-info btn-xs"></span>
+        </h2>
+      </header>
+      <h3>by <span data-ng-repeat="user in details.lector | userData"><a href="user/{{user.id}}" data-ng-bind="user.name"></a><i ng-if="!$last">, </i></span>
+      </h3>
+      <h4><span>{{details.date | date: 'mediumDate'}}</span></h4>
+      <h4><span data-ng-bind="details.location"></span></h4>
     </div>
-    <div class="row">
-        <label class="col-lg-2 control-label">Notes:</label>
-        <div class="col-lg-10" data-ng-bind-html="details.notes"></div>
+  </div>
+  <div class="row">
+    <label class="col-lg-2 control-label">Description:</label>
+    <div class="col-md-10" data-ng-bind-html="details.description"></div>
+  </div>
+  <div class="row">
+    <label class="col-lg-2 control-label">Notes:</label>
+    <div class="col-lg-10" data-ng-bind-html="details.notes"></div>
+  </div>
+  <div class="row">
+    <label class="col-lg-2 control-label">Attendees ({{details.attendees.length}}):</label>
+    <div class="col-lg-10 well">
+      <span data-ng-repeat="user in details.attendees | userData"><a href="user/{{user.id}}">{{user.name}} </a><i ng-if="!$last">, </i></span>
     </div>
-    <div class="row">
-       <label class="col-lg-2 control-label">Attendees ({{details.attendees.length}}):</label>
-       <div class="col-lg-10 well">
-            <span data-ng-repeat="user in details.attendees"><a href="user/{{user}}">{{global.users[user].full_name}} </a><i ng-if="!$last">, </i></span>
-        </div>
-    </div>
+  </div>
 </div>

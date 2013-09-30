@@ -104,9 +104,9 @@ var editor = (function() {
 
 		var selection = window.getSelection();
 
-		if ( (event.target.className === "url-input" ||
-		     event.target.classList.contains( "url" ) ||
-		     event.target.parentNode.classList.contains( "ui-inputs")) ) {
+		if (event.target.className === "url-input" ||
+		    event.target.classList.contains( "url" ) ||
+        (event.target.parentNode && event.target.parentNode.classList.contains( "ui-inputs")) ) {
 
 			currentNodeList = findNodes( selection.focusNode );
 			updateBubbleStates();

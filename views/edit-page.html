@@ -4,13 +4,18 @@
   <form name="editTalkForm" novalidate data-ng-submit="saveAndClose();">
     <header class="titleBlock row">
       <div class="col-md-2">
-          <img src="http://placehold.it/100x133">
+        <img src="http://placehold.it/100x133" data-ng-repeat="user in details.lector | userData" data-ng-src="{{user.photo}}" />
       </div>
       <div class="col-md-10">
         <div>
           <label for="title">Title:</label>
           <input type="text" id="title" name="title" class="form-control input-lg" placeholder="Enter Title"
             data-ng-model="details.title"/>
+        </div>
+        <div>
+          <label for="title">Level:</label>
+          <input type="text" id="level" name="level" class="form-control input-lg" placeholder="Enter attendees level"
+                 data-ng-model="details.level"/>
         </div>
         <div>
           <label for="lectors">Lectors: </label>
@@ -37,8 +42,8 @@
         </div>
       </div>
       <div class="row">
-        <h4>Attendees list: </h4>
-        <div data-tp-user-search="global.users" data-selected="attendees"></div>
+        <label for="attendees">Attendees list: </label>
+        <div data-tp-user-search="attendees" data-selected="details.attendees" data-available="global.users"></div>
       </div>
       <hr />
       <div class="buttonBar">
