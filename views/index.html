@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-ng-bind="global.pageTitle">TechTalk portal</title>
   <link rel="stylesheet" href="/css/vendor.css">
   <link rel="stylesheet" href="/css/styles.css">
-  <title data-ng-bind="global.pageTitle">TechTalk portal</title>
+  <script src="/js/pace.js"></script>
   <!-- we probably need more control here -->
   <base href="/"></base>
 </head>
@@ -23,7 +24,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">UI techtalks</a>
+              <a class="navbar-brand" href="/">UI techtalks</a>
+              <a href="/new" class="btn btn-primary" data-ng-if="global.isAuthN">Add Talk</a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -98,6 +100,7 @@
   <script src="/js/controllers/calendar-controller.js"></script>
   <script src="/js/controllers/edit-controller.js"></script>
   <script src="/js/controllers/post-controller.js"></script>
+  <script src="/js/controllers/create-controller.js"></script>
   <!-- endbuild -->
 </body>
 </html>
