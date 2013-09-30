@@ -5,10 +5,11 @@
       <input type="text" value="{{post.title}}">
     </div>
     <div class="form-control">
-      <label>Post Author:</label>
-      <input type="text" value="">
+      <label for="author">Author:</label>
+      <div data-tp-user-search="author" data-selected="creator" data-available="global.users"></div>
     </div>
-    <div data-ng-bind-html="post.content"></div>
+    <h2 contenteditable="true" class="header" data-ng-bind="details.title" style="display: none">Talk title</h2>
+    <div contenteditable="true" class="content" data-ng-model="post.content" data-ng-bind-html="post.content"></div>
     <div class="actions">
       <button class="btn btn-success" data-ng-click="save()">Save</button>
       <button class="btn" data-ng-click="cancel()">Cancel</button>
