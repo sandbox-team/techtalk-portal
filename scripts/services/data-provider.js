@@ -7,8 +7,8 @@
       this.$get = ['$http', '$q', 'helper', '$resource',
         function($http, $q, helper, $resource) {
           return {
-            Talk: $resource('/api/techtalk/:id', {
-              id: '@id'
+            Talk: $resource('/api/techtalk/:id', {id: '@id'}, {
+              update: {method: 'PUT'}
             }),
             User: $resource('/api/user/:email', {
               email: '@email'

@@ -1,5 +1,5 @@
 ;(function(ng) {
-  ng.module('tp.services', [])
+  ng.module('tp.services')
     .factory('helper', ['$rootScope', 'appConfig',
       function($rootScope, appConfig) {
         var monthNames = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
@@ -53,6 +53,11 @@
             },
             getDayIndex: function (day) {
                 return dayName.indexOf(day);
+            },
+            parseUrl: function(url) {
+              var parser = document.createElement('a');
+              parser.href = url;
+              return parser;
             },
             getUser: (function() {
               var _memory = {};

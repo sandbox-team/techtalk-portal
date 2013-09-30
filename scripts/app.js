@@ -12,12 +12,19 @@
     //
     .config(['$routeProvider', '$locationProvider', '$provide',
       function($routeProvider, $locationProvider, $provide) {
+        var checkAuth = ['authService', '$location', function(authService, $location) {
+            if (!authService.isAuthN()) {
+              $location.path('/')
+            } 
+          }];
+
         $provide.constant('appConfig', {
           userCookie: 'user_settings',
           responseStatus: {
             SUCCESS: 'success',
             ERROR: 'error'
           },
+          BASE_PATH: '/',
           EMAIL_SUFFIX: '@epam.com'
         });
 
@@ -25,35 +32,47 @@
           .html5Mode(true)
           .hashPrefix('!');
 
-          $routeProvider.when('/', {
-              controller: 'CalendarCtrl',
-              templateUrl: 'views/calendar-page'
-            })
-            .when('/calendar/:day/:month/:year', {
-               controller: 'CalendarCtrl',
-               templateUrl: 'views/calendar-page'
-            })
-            .when('/details/:talkId', {
-              controller: 'DetailsCtrl',
-              templateUrl: 'views/details-page'
-            })
-            .when('/edit/:talkId', {
-              controller: 'EditCtrl',
-              templateUrl: 'views/edit-page'
-            })
-            .when('/post/:slug', {
-              controller: 'PostCtrl',
-              templateUrl: 'views/post'
-            })
-            .when('/post/:slug/edit', {
-              controller: 'PostEditCtrl',
-              templateUrl: 'views/post-edit'
-            })
-            .otherwise({redirectTo: '/'});
-        }])
-      .run(function() {
-
-    })
+        $routeProvider.when('/', {
+            controller: 'CalendarCtrl',
+            templateUrl: 'views/calendar-page'
+          })
+          .when('/calendar/:day/:month/:year', {
+             controller: 'CalendarCtrl',
+             templateUrl: 'views/calendar-page'
+          })
+          .when('/details/:talkId', {
+            controller: 'DetailsCtrl',
+            templateUrl: 'views/details-page'
+          })
+          .when('/edit/:talkId', {
+            controller: 'EditCtrl',
+            templateUrl: 'views/edit-page',
+            resolve: {
+              checkAuth: checkAuth
+            }
+          })
+          .when('/new', {
+            controller: 'CreateCtrl',
+            templateUrl: 'views/edit-page',
+            resolve: {
+              checkAuth: checkAuth
+            }
+          })
+          .when('/post/:slug', {
+            controller: 'PostCtrl',
+            templateUrl: 'views/post'
+          })
+          .when('/post/:slug/edit', {
+            controller: 'PostEditCtrl',
+            templateUrl: 'views/post-edit'
+          })
+          .otherwise({redirectTo: '/'});
+      }])
+      .run(['$rootScope', 'helper', function($rootScope, helper) {
+        $rootScope.$on('$locationChangeStart', function(event, newLocation, oldLocation) {
+          $rootScope.previousUrl = oldLocation;
+        });
+      }])
   /**
    *
    */

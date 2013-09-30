@@ -2,6 +2,54 @@
   'use strict';
 
   ng.module('tp')
+    .controller('EditCtrl', ['$scope', '$routeParams', '$location', '$q', 'data', 'appConfig',
+        function($scope, $routeParams, $location, $q, dataProvider, appConfig) {
+        var currentTalkId = $routeParams.talkId,
+            LOADING_MSG = '(Saving your data...)';
+
+        $scope.global.pageTitle = 'edit talk: ' + currentTalkId;
+        $scope._id = currentTalkId;
+        $scope.loading = false;
+
+        if (ng.isDefined(currentTalkId)) {
+          $scope.global.appPromise.then(function() {
+            $scope.details = ng.copy($scope.global.talks[currentTalkId]);
+            editor.init();
+          });
+        }
+
+        $scope.save = function(callback) {
+          var title = $scope.global.pageTitle;
+          $scope.global.pageTitle = title + LOADING_MSG;
+          $scope.loading = true;
+
+          $scope.details.$update(function() {
+            $scope.loading = false;
+            $scope.global.pageTitle = title;
+            $scope.global.talks[currentTalkId] = $scope.details;
+            ng.isFunction(callback) && callback($scope.details);
+          });
+        };
+
+        $scope.saveAndClose = function() {
+          $scope.loading = true;
+          $scope.save($scope.goBack);
+        };
+
+        $scope.delete = function() {
+          $scope.loading = true;
+          $scope.details.$delete(function() {
+            $scope.loading = false;
+            $scope.global.talks.splice(currentTalkId, 1);
+            $location.path(appConfig.BASE_PATH)
+          }); 
+        };
+
+        $scope.goBack = function() {
+          $location.path('/details/' + currentTalkId);
+        };
+      }
+    ])
     .directive('contenteditable', ['$timeout',
       function($timeout) {
         return {
@@ -37,43 +85,5 @@
           }
         }
       }
-    ])
-    .controller('EditCtrl', ['$scope', '$routeParams', '$location', '$q', 'data',
-        function($scope, $routeParams, $location, $q) {
-        var currentTalkId = $routeParams.talkId,
-            LOADING_MSG = '(Saving your data...)';
-
-        $scope.global.pageTitle = 'edit talk: ' + currentTalkId;
-        $scope._id = currentTalkId;
-        $scope.loading = false;
-
-        if (ng.isDefined(currentTalkId)) {
-          $scope.global.appPromise.then(function() {
-            $scope.details = ng.copy($scope.global.talks[currentTalkId]);
-            editor.init();
-          });
-        }
-
-        $scope.save = function(callback) {
-          var title = $scope.global.pageTitle;
-          $scope.global.pageTitle = title + LOADING_MSG;
-          $scope.loading = true;
-          $scope.details.$save(function(data) {
-            $scope.loading = false;
-            $scope.global.pageTitle = title;
-            $scope.global.talks[currentTalkId] = data;
-            ng.isFunction(callback) && callback(data);
-          });
-        };
-
-        $scope.saveAndClose = function() {
-          $scope.loading = true;
-
-          $scope.save($scope.goBack);
-        };
-
-        $scope.goBack = function() {
-          $location.path('/details/' + currentTalkId);
-        };
-      }]);
+    ]);
 })(angular);
