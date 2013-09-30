@@ -9,7 +9,7 @@ var express = require('express'),
     mg = require('mongoose'),
     data = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
 
-mg.connect('mongodb://localhost:27018/tt-portal-dev');
+//mg.connect('mongodb://localhost:27018/tt-portal-dev');
 
 var TechTalk = require('./models/TechTalk.js').TechTalk;
 var Tag = require('./models/Tag.js').Tag;

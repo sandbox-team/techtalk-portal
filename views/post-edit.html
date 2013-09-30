@@ -1,18 +1,28 @@
-<section class="post">
-  <form class="form-horizontal">
-    <div class="form-control">
-      <label>Post Title:</label>
-      <input type="text" value="{{post.title}}">
+<section class="container post">
+  <div class="row">
+    <div class="col-md-2 control-label"><label>Post Title:</label></div>
+    <div class="col-md-10"><input class="title" type="text" value="{{post.title}}"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2 control-label"><label>Author:</label></div>
+    <div class="col-md-10">{{post.author.firstName + ' ' + post.author.lastName}}</div>
+    <!--
+    <div class="col-md-10" data-tp-user-search="author" data-selected="creator" data-available="global.users"></div>
+    -->
+  </div>
+  <div class="row">
+    <div class="col-md-2 control-label"><label>Date:</label></div>
+    <div class="col-md-10 post-author-date">{{post.date|date:'medium'}}</div>
+  </div>
+  <div class="row">
+    <div class="col-md-2 control-label"><label>Post Body:</label></div>
+    <div class="col-md-10">
+      <h2 contenteditable="true" class="header" data-ng-bind="details.title" style="display: none">Talk title</h2>
+      <div contenteditable="true" class="content" data-ng-model="post.content" data-ng-bind-html="post.content"></div>
     </div>
-    <div class="form-control">
-      <label for="author">Author:</label>
-      <div data-tp-user-search="author" data-selected="creator" data-available="global.users"></div>
-    </div>
-    <h2 contenteditable="true" class="header" data-ng-bind="details.title" style="display: none">Talk title</h2>
-    <div contenteditable="true" class="content" data-ng-model="post.content" data-ng-bind-html="post.content"></div>
-    <div class="actions">
-      <button class="btn btn-success" data-ng-click="save()">Save</button>
-      <button class="btn" data-ng-click="cancel()">Cancel</button>
-    </div>
-  </form>
+  </div>
+  <div class="actions col-md-offset-2">
+    <button class="btn btn-success" data-ng-click="save()">Save</button>
+    <button class="btn" data-ng-click="cancel()">Cancel</button>
+  </div>
 </section>

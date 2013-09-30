@@ -61,15 +61,16 @@
           .success(function(data) {
             $scope.global.pageTitle = data.title;
             $scope.post = data;
-            debugger;
 
             window.setTimeout(function(){
               editor.init();
-            }, 0)
+            }, 0);
           });
 
         $scope.save = function(){
-          console.log('save form');
+
+
+
         };
         $scope.cancel = function(){
           $location.path('/');
