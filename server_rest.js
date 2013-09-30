@@ -106,4 +106,5 @@ module.exports = function(app) {
   // delete
   /*could be buggy*/app.delete('/data/talk/:id', function(req, res) {deleteTalk(req.params.id); res.send('ok');});
 
-}
+  return data;
+};
