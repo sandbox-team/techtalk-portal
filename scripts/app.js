@@ -56,26 +56,29 @@
   /**
    *
    */
-   .controller('AppCtrl', ['$rootScope', '$scope', 'authService', 'data',
-    function($rootScope, $scope, authService, dataProvider) {
-      $rootScope.global = {
-        isAuthN: authService.isAuthN(),
-        currentUser: authService.getUserData(),
-        users: [],
-        talks: [],
-        selected: [],
-        errorStack: []
-      };
+   .controller('AppCtrl', ['$rootScope', '$scope', '$q', 'authService', 'data',
+    function($rootScope, $scope, $q, authService, dataProvider) {
+      var appDefer = $q.defer(),
+        global = {
+          isAuthN: authService.isAuthN(),
+          currentUser: authService.getUserData(),
+          appPromise: appDefer.promise,
+          users: [],
+          talks: dataProvider.talksResource.query(),
+          selected: [],
+          errorStack: []
+        };
 
+      $q.all([dataProvider.getUsers(function(users) {
+            $rootScope.global.users = users;
+          }), 
+          global.talks.$promise])
+        .then(function() {
+          appDefer.resolve();
+        });
+
+      $rootScope.global = global;
       $scope.auth = {};
-
-      dataProvider.talksResource.query(function(data) {
-        $rootScope.global.talks = data;
-      });
-
-      dataProvider.getUsers().then(function(users) {
-        $rootScope.global.users = users;
-      });
 
       $scope.signin = function() {
         $scope.authInProgress = true;
