@@ -7,15 +7,9 @@
       this.$get = ['$http', '$q', 'helper', '$resource',
         function($http, $q, helper, $resource) {
           return {
-            talksResource: $resource('/data/talk/:id', {
-              id: '@_id'
+            talksResource: $resource('/api/techtalk/:id', {
+              id: '@id'
             }),
-            getTalks: function() {
-              return $http({
-                method: 'GET',
-                url: '/data/talk'
-              });
-            },
             getUsers: function() {
               var defer = $q.defer(),
                 cachedUsers = helper.storage.get('users');
@@ -23,7 +17,7 @@
               if (!cachedUsers) {
                 $http({
                     method: 'GET',
-                    url: '/data/users'
+                    url: '/api/user'
                   })
                   .then(function(response) {
                     helper.storage.set('users', response.data);

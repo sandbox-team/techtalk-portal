@@ -48,10 +48,12 @@
         $scope.loading = false;
 
         if (ng.isDefined(currentTalkId)) {
-          $scope.details = ng.copy($scope.global.talks[currentTalkId]);
-          $scope.attendees = $scope.details.attendees;
+          $scope.global.appPromise.then(function() {
+            $scope.details = ng.copy($scope.global.talks[currentTalkId]);
+            $scope.attendees = $scope.details.attendees;
 
-          editor.init();
+            editor.init();
+          });
         }
 
         $scope.save = function(callback) {

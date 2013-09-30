@@ -2,8 +2,8 @@
   'use strict';
 
   ng.module('tp.directives')
-    .directive('tpUserSearch', ['$filter', '$rootScope', '$document', '$timeout',
-      function($filter, $rootScope, $document, $timeout) {
+    .directive('tpUserSearch', ['$filter', '$rootScope', '$document', '$timeout', '$http',
+      function($filter, $rootScope, $document, $timeout, $http) {
         return {
           replace: true,
           template: [
@@ -54,6 +54,9 @@
               $scope.fieldId = $attrs['tpUserSearch'];
 
               $scope.search = function() {
+                $http.get('/user/' + $scope.searchInput).then(function(response) {
+                  console.log(response.data)
+                })
                 $scope.filtered = $scope.searchInput ? $filter('filter')(availableUsers, {id: $scope.searchInput}) : [];
               };
 
