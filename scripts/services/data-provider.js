@@ -7,26 +7,12 @@
       this.$get = ['$http', '$q', 'helper', '$resource',
         function($http, $q, helper, $resource) {
           return {
-            talksResource: $resource('/api/techtalk/:id', {
+            Talk: $resource('/api/techtalk/:id', {
               id: '@id'
             }),
-            getUsers: function() {
-              var defer = $q.defer(),
-                cachedUsers = helper.storage.get('users');
-
-              if (!cachedUsers) {
-                $http({
-                    method: 'GET',
-                    url: '/api/user'
-                  })
-                  .then(function(response) {
-                    helper.storage.set('users', response.data);
-                    defer.resolve(response.data);
-                  });
-              }
-
-              return cachedUsers ? $q.when(cachedUsers) : defer.promise;
-            },
+            User: $resource('/api/user/:email', {
+              email: '@email'
+            }),
             getNewsPage: function(page) {
               return $http({
                 method: 'GET',
