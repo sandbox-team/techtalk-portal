@@ -118,7 +118,6 @@ app.get('/api/user/:id?', function(req, res) {
         }, id);
       }
       else {
-        console.log(users);
         res.json(users);
       }
   });
@@ -138,11 +137,11 @@ app.get('/api/techtalk/reset', function(req, res) {
 });
 
 app.get('/api/techtalk/:id?', function(req, res) {
-  var _id = req.param.id,
+  var id = req.params.id,
       query = req.query;
 
-  if (typeof _id !== 'undefined') {
-    TechTalk.findById(req.query.id, function(err, result) {
+  if (typeof id !== 'undefined') {
+    TechTalk.findOne(id, function(err, result) {
       if (err) return res.send(err);
       //console.log('\t>> result'.grey, result);
       res.json(result);
@@ -176,24 +175,20 @@ app.post('/api/techtalk', function(req, res) {
   });
 });
 
-app.put('/api/techtalk', function(req, res) {
-  console.log('/api/techtalk'.cyan, req.query);
-  console.log('/api/techtalk'.cyan, req.body);
-
+app.put('/api/techtalk/:id', function(req, res) {
   var updatedData = req.body;
   delete updatedData._id;
   updatedData.updated = new Date();
 
-  TechTalk.findByIdAndUpdate(req.query.id, { $set: updatedData }, function(err, result) {
+  TechTalk.findOneAndUpdate({id: req.params.id}, { $set: updatedData }, function(err, result) {
     if (err) return res.send(err);
-    console.log('\t>> results'.grey, result);
-    res.json(result);
+    //console.log('\t>> results'.grey, result);
+    res.json({status: 'success', result: result});
   });
 });
 
-app.delete('/api/techtalk', function(req, res) {
-  console.log('/api/techtalk'.cyan, req.query);
-  TechTalk.remove({_id: req.query.id}).exec(function(err) {
+app.delete('/api/techtalk/:id', function(req, res) {
+  TechTalk.remove({id: req.params.id}).exec(function(err) {
     if (err) return res.send(err);
     res.send('ok');
   });

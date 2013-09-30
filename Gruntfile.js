@@ -74,7 +74,9 @@ module.exports = function(grunt) {
             //'vendor/zenpen/js/ui.js',
             'vendor/zenpen/js/editor.js'
           ],
+          'public/js/pace.js': ['bower_components/pace/pace.js'],
           'public/css/vendor.css': [
+            'bower_components/pace/themes/pace-theme-minimal.css',
             'vendor/zenpen/css/fonts.css',
             'vendor/zenpen/css/style.css'
           ]
