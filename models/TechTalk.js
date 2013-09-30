@@ -9,7 +9,7 @@ var mg = require("mongoose")
   description: { type: String },
   level:       { type: String, validate: validate('len', 1, 20) },
   notes:       { type: String },
-  lector:      { type: String },
+  lector:      [ { type: String } ],
   attendees:   [ { type: String } ],
   tags:        [ { type: String } ],
   created:     { type: Date, "default": Date.now },

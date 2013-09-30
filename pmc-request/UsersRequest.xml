@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Body>
+        <getPersonList xmlns="http://www.epam.com/wsapi/types">
+            <sessionHash></sessionHash>
+            <personFilter>
+                <ns1:OrderBy xsi:nil="true" xmlns:ns1="java:com.epam.api.common" />
+                <ns2:StartDate xsi:nil="true" xmlns:ns2="java:com.epam.api.common" />
+                <ns3:EndDate xsi:nil="true" xmlns:ns3="java:com.epam.api.common" />
+                <ns4:KeywordSearch xsi:nil="true" xmlns:ns4="java:com.epam.api.common" />
+                <ns5:PortionSize xmlns:ns5="java:com.epam.api.common">0</ns5:PortionSize>
+                <ns6:GroupBy xsi:nil="true" xmlns:ns6="java:com.epam.api.common" />
+                <ns7:PageNo xmlns:ns7="java:com.epam.api.common">0</ns7:PageNo>
+                <ns8:Project xsi:nil="true" xmlns:ns8="java:com.epam.api.common" />
+                <ns9:KeywordRegExpSearch xsi:nil="true" xmlns:ns9="java:com.epam.api.common" />
+                <ns10:Filter xsi:nil="true" xmlns:ns10="java:com.epam.api.common" />
+                <ns11:LocationTreeExpanded xsi:nil="true" xmlns:ns11="java:com.epam.api.common" />
+                <ns12:MultipleOrderBy xmlns:ns12="java:com.epam.api.common">false</ns12:MultipleOrderBy>
+                <ns13:FullName xsi:nil="true" xmlns:ns13="java:com.epam.api.common" />
+                <ns14:Location xsi:nil="true" xmlns:ns14="java:com.epam.api.common" />
+                <ns15:NativeName xsi:nil="true" xmlns:ns15="java:com.epam.api.common" />
+                <ns16:Office xsi:nil="true" xmlns:ns16="java:com.epam.api.common" />
+                <ns17:Position xsi:nil="true" xmlns:ns17="java:com.epam.api.common" />
+                <ns18:Empty xsi:nil="true" xmlns:ns18="java:com.epam.api.common" />
+                <ns19:Email xmlns:ns19="java:com.epam.api.common"></ns19:Email>
+                <ns20:HasEmail xsi:nil="true" xmlns:ns20="java:com.epam.api.common" />
+                <ns21:NotFired xsi:nil="true" xmlns:ns21="java:com.epam.api.common" />
+                <ns22:ShowCustomers xmlns:ns22="java:com.epam.api.common">false</ns22:ShowCustomers>
+                <ns23:SupervisorId xsi:nil="true" xmlns:ns23="java:com.epam.api.common" />
+                <ns24:LocationRoot xsi:nil="true" xmlns:ns24="java:com.epam.api.common" />
+                <ns25:Recursive xmlns:ns25="java:com.epam.api.common">false</ns25:Recursive>
+                <ns26:OrgId xsi:nil="true" xmlns:ns26="java:com.epam.api.common" />
+                <ns27:GeoLocationId xsi:nil="true" xmlns:ns27="java:com.epam.api.common" />
+                <ns28:LastName xsi:nil="true" xmlns:ns28="java:com.epam.api.common" />
+            </personFilter>
+        </getPersonList>
+    </soapenv:Body>
+</soapenv:Envelope>

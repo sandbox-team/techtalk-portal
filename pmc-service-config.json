@@ -1,0 +1,8 @@
+{
+ "serviceUrl": "http://pmcmsqstag.epam.com:7070/WebServices",
+ "postfixUrl": "?wsdl",
+ "authSerice": "/AuthenticationService",
+ "userSerice": "/PersonService",
+ "login" : "test_user",
+ "password" : "12345678"
+}

@@ -77,22 +77,24 @@
 
             delete periodDescription.dates[0];
 
-            for (var key in $scope.global.talks) {
-              var talk = $scope.global.talks[key];
-              var talkDate = new Date(talk.date),
-                date = talkDate.getDate();
+            $scope.global.appPromise.then(function() {
+              for (var key in $scope.global.talks) {
+                var talk = $scope.global.talks[key];
+                var talkDate = new Date(talk.date),
+                  date = talkDate.getDate();
 
-              if(talkDate.getFullYear() == year && talkDate.getMonth() == month) {
-                periodDescription.dates[date].data.push({
-                  _id: key,
-                  description: talk
-                });
+                if(talkDate.getFullYear() == year && talkDate.getMonth() == month) {
+                  periodDescription.dates[date].data.push({
+                    _id: key,
+                    description: talk
+                  });
+                }
               }
-            }
 
-            //FETCH
-            $scope.schedule = periodDescription;
-             _initWeeks();
+              //FETCH
+              $scope.schedule = periodDescription;
+               _initWeeks();    
+            });
           }
 
           function _initWeeks () {
