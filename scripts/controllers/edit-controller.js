@@ -38,10 +38,10 @@
         }
       }
     ])
-    .controller('EditCtrl', ['$scope', '$routeParams', 'data', '$location', 
-      function($scope, $routeParams, dataProvider, $location) {
+    .controller('EditCtrl', ['$scope', '$routeParams', '$location', '$q', 'data',
+        function($scope, $routeParams, $location, $q) {
         var currentTalkId = $routeParams.talkId,
-          LOADING_MSG = '(Saving your data...)';
+            LOADING_MSG = '(Saving your data...)';
 
         $scope.global.pageTitle = 'edit talk: ' + currentTalkId;
         $scope._id = currentTalkId;
@@ -50,8 +50,6 @@
         if (ng.isDefined(currentTalkId)) {
           $scope.global.appPromise.then(function() {
             $scope.details = ng.copy($scope.global.talks[currentTalkId]);
-            $scope.attendees = $scope.details.attendees;
-
             editor.init();
           });
         }
@@ -60,7 +58,6 @@
           var title = $scope.global.pageTitle;
           $scope.global.pageTitle = title + LOADING_MSG;
           $scope.loading = true;
-
           $scope.details.$save(function(data) {
             $scope.loading = false;
             $scope.global.pageTitle = title;

@@ -8,20 +8,14 @@ var fs = require('fs'),
 
 /* Create XML requests to PMC */
 var authXML, userXML, photoXML, usersXML;
-fs.readFile(__dirname + '/pmc-request/AuthRequest.xml', 'utf8', function(err, data) {
-	authXML = parser.parseFromString(data, 'text/xml');
-	authXML.getElementsByTagName('wsse:Username')[0].textContent = serviceConfig.login;
-	authXML.getElementsByTagName('wsse:Password')[0].textContent = serviceConfig.password;
-});
-fs.readFile(__dirname + '/pmc-request/UserRequest.xml', 'utf8', function(err, data) {
-	userXML = parser.parseFromString(data, 'text/xml');	
-});
-fs.readFile(__dirname + '/pmc-request/PhotoRequest.xml', 'utf8', function(err, data) {
-	photoXML = parser.parseFromString(data, 'text/xml');	
-});
-fs.readFile(__dirname + '/pmc-request/UsersRequest.xml', 'utf8', function(err, data) {
-	usersXML = parser.parseFromString(data, 'text/xml');	
-});
+
+authXML = parser.parseFromString(fs.readFileSync(__dirname + '/pmc-request/AuthRequest.xml', 'utf8'));
+authXML.getElementsByTagName('wsse:Username')[0].textContent = serviceConfig.login;
+authXML.getElementsByTagName('wsse:Password')[0].textContent = serviceConfig.password;
+
+userXML = parser.parseFromString(fs.readFileSync(__dirname + '/pmc-request/UserRequest.xml', 'utf8'));
+photoXML = parser.parseFromString(fs.readFileSync(__dirname + '/pmc-request/PhotoRequest.xml', 'utf8'));
+usersXML = parser.parseFromString(fs.readFileSync(__dirname + '/pmc-request/UsersRequest.xml', 'utf8'));
 
 /* Create requests */
 request = request.defaults({
@@ -54,14 +48,19 @@ var pmc = function() {
 			if (error) {
 				callback(error);
 			} else {
-				var responseXML = parser.parseFromString(body, 'text/xml'),
-					returnValue = responseXML.getElementsByTagName('m:return')[0],
-					attach;
-				
-				attach = returnValue.getElementsByTagName('java:AttachBody')[0].textContent;
-				user.photo = "data:image/gif;base64," + attach;
-				
-				callback(null, user);
+        try {
+          var responseXML = parser.parseFromString(body, 'text/xml'),
+            returnValue = responseXML.getElementsByTagName('m:return')[0],
+            attach;
+
+          attach = returnValue.getElementsByTagName('java:AttachBody')[0].textContent;
+          user.photo = "data:image/gif;base64," + attach;
+          callback(null, user);
+        }
+        catch(e) {
+          console.log(e);
+          callback(e);
+        }
 			}
 		});
 	}
@@ -72,6 +71,7 @@ var pmc = function() {
 		async.waterfall([
 			/* Request to authentification service */
 			function(callback) {
+        console.log(authXML)
 				authXML.getElementsByTagName('login')[0].textContent = login;
 				authXML.getElementsByTagName('password')[0].textContent = password;
 		
