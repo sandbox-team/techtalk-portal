@@ -58,6 +58,10 @@
               checkAuth: checkAuth
             }
           })
+          .when('/post/', {
+            controller: 'PostNewCtrl',
+            templateUrl: 'views/post-edit'
+          })
           .when('/post/:slug', {
             controller: 'PostCtrl',
             templateUrl: 'views/post'

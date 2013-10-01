@@ -13,16 +13,17 @@
             User: $resource('/api/user/:email', {
               email: '@email'
             }),
+            Post: $resource('/api/news', {id: '@id'}, {
+              update: {method: 'PUT'}
+            }),
+
             getNewsPage: function(page) {
               return $http({
                 method: 'GET',
-                url: '/news/' + parseInt(page)
-              });
-            },
-            getPost: function(slug){
-              return $http({
-                method: 'GET',
-                url: '/new/' + encodeURI(slug)
+                url: '/api/news/',
+                params: {
+                  page: page
+                }
               });
             }
           };

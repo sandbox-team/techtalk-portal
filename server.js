@@ -9,7 +9,7 @@ var express = require('express'),
     mg = require('mongoose'),
     data = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
 
-//mg.connect('mongodb://localhost:27018/tt-portal-dev');
+mg.connect('mongodb://localhost:27018/tt-portal-dev');
 
 var TechTalk = require('./models/TechTalk.js').TechTalk;
 var Tag = require('./models/Tag.js').Tag;
@@ -229,7 +229,9 @@ app.post('/api/tag', function(req, res) {
   });
 });
 
-//News
+/**
+ * News
+ */
 app.get('/api/news/reset', function(req, res) {
   News.remove({}, function() {
     res.send({});
@@ -239,7 +241,7 @@ app.get('/api/news/reset', function(req, res) {
 app.get('/api/news', function(req, res) {
   console.log('/api/news?page=1|id=1'.cyan, req.query);
   var page = req.query.page,
-      countOnPage = 2;
+      countOnPage = 5;
 
   if (req.query.id) {
     News.findById(req.query.id, function(err, result) {
@@ -274,11 +276,12 @@ app.put('/api/news', function(req, res) {
   console.log('/api/news'.cyan, req.query);
   console.log('/api/news'.cyan, req.body);
 
+  var id = req.body._id;
   var updatedData = req.body;
   delete updatedData._id;
   updatedData.updated = new Date();
 
-  News.findByIdAndUpdate(req.query.id, { $set: updatedData }, function(err, result) {
+  News.findByIdAndUpdate(id, { $set: updatedData }, function(err, result) {
     if (err) return res.send(err);
     console.log('\t>> results'.grey, result);
     res.json(result);
@@ -293,6 +296,7 @@ app.delete('/api/news', function(req, res) {
   });
 });
 
+/*
 app.get('/news/:page', function(req, res) {
   res.send([
     {
@@ -354,6 +358,7 @@ app.get('/new/:slug', function(req, res) {
     });
   }
 });
+*/
 
 //handling routes on client
 app.all('*', function(req, res) {

@@ -42,36 +42,51 @@
       function($scope, $routeParams, dataProvider){
         var slug = $routeParams.slug;
 
-        dataProvider
-          .getPost(slug)
-          .success(function(data) {
-            $scope.global.pageTitle = data.title;
-            $scope.post = data;
-          });
+        var post = dataProvider.Post.get({id: slug}, function(){
+          $scope.global.pageTitle = post.title;
+          $scope.post = post;
+        });
       }
     ])
     .controller('PostEditCtrl', ['$scope', '$routeParams', 'data', '$location' ,
       function($scope, $routeParams, dataProvider, $location){
         var slug = $routeParams.slug;
 
-        $scope.creator = [];
-
-        dataProvider
-          .getPost(slug)
-          .success(function(data) {
-            $scope.global.pageTitle = data.title;
-            $scope.post = data;
-
-            window.setTimeout(function(){
-              editor.init();
-            }, 0);
-          });
+        var post = dataProvider.Post.get({id: slug}, function(){
+          $scope.global.pageTitle = post.title;
+          $scope.post = post;
+        });
 
         $scope.save = function(){
-
-
-
+          $scope.post.$update();
+          $location.path('/');
         };
+
+        $scope.cancel = function(){
+          $location.path('/');
+        };
+      }
+    ])
+    .controller('PostNewCtrl', ['$scope', '$routeParams', 'data', '$location', 'authService',
+      function($scope, $routeParams, dataProvider, $location, authService){
+        var slug = $routeParams.slug;
+
+        var user = authService.getUserData();
+        var now = Date.now();
+        var post = new dataProvider.Post({
+          title: '',
+          author: user,
+          date: now,
+          content: ''
+        });
+        $scope.global.pageTitle = 'Add new post';
+        $scope.post = post;
+
+        $scope.save = function(){
+          $scope.post.$save();
+          $location.path('/');
+        };
+
         $scope.cancel = function(){
           $location.path('/');
         };

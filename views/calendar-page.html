@@ -34,11 +34,14 @@
 
   <section class="news-section" data-ng-controller="NewsCtrl" style="clear: both;">
     <h3>Latest Department News</h3>
+    <div>
+        <a href="/post/" class="btn btn-primary" data-ng-if="global.isAuthN">Add a Post</a>
+    </div>
     <ul class="news">
       <li class="news-item" data-ng-repeat="new in news">
         <h4 class="news-item-title">
-          <a data-ng-href="post/{{new.slug}}">{{new.title}}</a>
-          <a data-ng-href="post/{{new.slug}}/edit">Edit</a>
+          <a data-ng-href="post/{{new._id}}">{{new.title}}</a>
+          <a class="btn btn-primary" data-ng-href="post/{{new._id}}/edit" data-ng-if="global.isAuthN">Edit</a>
         </h4>
         <p class="news-item-author">by {{new.author.firstName + ' ' + new.author.lastName}} on {{new.date|date:'d-MMM-yyyy'}}</p>
         <div class="news-item-content" data-ng-bind-html="new.content"></div>
