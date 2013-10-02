@@ -250,7 +250,7 @@ app.get('/api/news', function(req, res) {
       res.json(result);
     });
   } else {
-    News.find({}).exec(function(err, results) {
+    News.find({}).sort('-date').exec(function(err, results) {
       if (err) return res.send(err);
       if (page) {
         var from = (page - 1) * countOnPage,
