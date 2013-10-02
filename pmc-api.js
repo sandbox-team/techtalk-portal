@@ -39,7 +39,7 @@ var pmc = function() {
 	}
 	function findPhoto(user, callback) {
 		photoXML.getElementsByTagName('sessionHash')[0].textContent = token;
-		photoXML.getElementsByTagName('personId')[0].textContent = user.id;
+		photoXML.getElementsByTagName('personId')[0].textContent = user._id;
 			
 		request.post({
 			uri: getUserService(),
@@ -118,7 +118,7 @@ var pmc = function() {
 				for (var i=0; i < returnValue.childNodes.length; i++) {
 					switch (returnValue.childNodes[i].nodeName) {
 						case 'java:Id':
-							user.id = returnValue.childNodes[i].textContent;
+							user._id = returnValue.childNodes[i].textContent;
 							break;
 						case 'java:FullName':
 							user.name = returnValue.childNodes[i].textContent;
@@ -171,7 +171,7 @@ var pmc = function() {
 					for (var j=0; j < userValue.childNodes.length; j++) {
 						switch (userValue.childNodes[j].nodeName) {
 							case 'java:Id':
-								user.id = userValue.childNodes[j].textContent;
+								user._id = userValue.childNodes[j].textContent;
 								break;
 							case 'java:FullName':
 								user.name = userValue.childNodes[j].textContent;

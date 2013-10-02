@@ -1,7 +1,7 @@
 var mg = require("mongoose"),
   Schema = mg.Schema,
   UserSchema = new Schema({
-    id:          { type: String },
+    _id:          { type: String },
     name:        { type: String },
     email:       { type: String },
     photo:       { type: String },

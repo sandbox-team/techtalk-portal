@@ -244,22 +244,29 @@ app.get('/api/news', function(req, res) {
       countOnPage = 5;
 
   if (req.query.id) {
-    News.findById(req.query.id, function(err, result) {
-      if (err) return res.send(err);
-      console.log('\t>> result'.grey, result);
-      res.json(result);
-    });
+    News
+      .findById(req.query.id)
+      .populate('author')
+      .exec(function(err, result) {
+        if (err) return res.send(err);
+        console.log('\t>> result'.grey, result);
+        res.json(result);
+      });
   } else {
-    News.find({}).sort('-date').exec(function(err, results) {
-      if (err) return res.send(err);
-      if (page) {
-        var from = (page - 1) * countOnPage,
+    News
+      .find({})
+      .sort('-date')
+      .populate('author')
+      .exec(function(err, results) {
+        if (err) return res.send(err);
+        if (page) {
+          var from = (page - 1) * countOnPage,
             to = from + countOnPage;
-        res.json(results.slice(from, to));
-      } else {
-        res.json(results);
-      }
-    });
+          res.json(results.slice(from, to));
+        } else {
+          res.json(results);
+        }
+      });
   }
 });
 
@@ -267,8 +274,11 @@ app.post('/api/news', function(req, res) {
   console.log('/api/news'.cyan, req.body);
   News.create(req.body, function(err, result) {
     if (err) return res.send(err);
-    console.log('\t>> results'.grey, result);
-    res.json(result);
+    result.populate('author', function(err, result){
+      if (err) return res.send(err);
+      console.log('\t>> results'.grey, result);
+      res.json(result);
+    });
   });
 });
 
@@ -283,8 +293,11 @@ app.put('/api/news', function(req, res) {
 
   News.findByIdAndUpdate(id, { $set: updatedData }, function(err, result) {
     if (err) return res.send(err);
-    console.log('\t>> results'.grey, result);
-    res.json(result);
+    result.populate('author', function(err, result){
+      if (err) return res.send(err);
+      console.log('\t>> results'.grey, result);
+      res.json(result);
+    });
   });
 });
 
