@@ -41,25 +41,6 @@ app.get('/views/:templateName', function(req, res) {
   res.render(req.params.templateName);
 });
 
-function stringToDate(value) {
-  var dateParts, date;
-
-  if (value instanceof String || typeof value == 'string') {
-    dateParts = value.split('/');
-    if (dateParts[0].length === 4) {
-      date = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
-    } else {
-      date = new Date(dateParts[2], dateParts[0] - 1, dateParts[1]);
-    }
-  }
-  return date || value;
-}
-
-function dateToString(value) {
-  var dateParts = [value.getMonth() + 1, value.getDate(), value.getFullYear()];
-  return dateParts.join('/');
-}
-
 //Authentication
 app.post('/auth', function(req, res) {
   var login = req.body.login,
@@ -125,11 +106,11 @@ app.get('/api/user/:id?', function(req, res) {
 
 //Techtalks
 app.get('/api/techtalk/reset', function(req, res) {
+  console.log(data.talks[0].date);
   TechTalk.remove(function() {
-    data.talks.forEach(function(talk, i) {
-      talk.date = stringToDate(talk.date);
-    });
     TechTalk.create(data.talks, function(err, result) {
+      console.log(result);
+      console.log(error);
       if (err) return res.send(err);
       res.send(result);
     });
@@ -149,8 +130,8 @@ app.get('/api/techtalk/:id?', function(req, res) {
   }
   else if (query.from && query.to) {
     TechTalk.find()
-        .where('date').gte(stringToDate(req.query.from))
-        .where('date').lt(stringToDate(req.query.to))
+        .where('date').gte(new Date(req.query.from))
+        .where('date').lt(new Date(req.query.to))
         .exec(function(err, results) {
           if (err) return res.send(err);
           console.log('\t>> results'.grey, results);
