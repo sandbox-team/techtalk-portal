@@ -274,11 +274,8 @@ app.post('/api/news', function(req, res) {
   console.log('/api/news'.cyan, req.body);
   News.create(req.body, function(err, result) {
     if (err) return res.send(err);
-    result.populate('author', function(err, result){
-      if (err) return res.send(err);
-      console.log('\t>> results'.grey, result);
-      res.json(result);
-    });
+    console.log('\t>> results'.grey, result);
+    res.json(result);
   });
 });
 
@@ -287,19 +284,19 @@ app.put('/api/news', function(req, res) {
   console.log('/api/news'.cyan, req.body);
 
   var id = req.query.id;
-  var updatedData = req.body;
-  delete updatedData._id;
-  updatedData.updated = new Date();
+  var updatedData = {
+      title: req.body.title,
+      content: req.body.content,
+      updated: new Date()
+  };
 
   News.findByIdAndUpdate(id, { $set: updatedData }, function(err, result) {
     if (err) return res.send(err);
-    /*
     result.populate('author', function(err, result){
       if (err) return res.send(err);
       console.log('\t>> results'.grey, result);
       res.json(result);
     });
-    */
   });
 });
 
