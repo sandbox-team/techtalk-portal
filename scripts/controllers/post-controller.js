@@ -38,14 +38,27 @@
         }
       }
     ])
-    .controller('PostCtrl', ['$scope', '$routeParams', 'data',
-      function($scope, $routeParams, dataProvider){
+    .controller('PostCtrl', ['$scope', '$routeParams', 'data', '$location',
+      function($scope, $routeParams, dataProvider, $location){
         var slug = $routeParams.slug;
 
         var post = dataProvider.Post.get({id: slug}, function(){
           $scope.global.pageTitle = post.title;
           $scope.post = post;
         });
+
+        $scope.edit = function(){
+          if($scope.post && $scope.global.isAuthN){
+            $location.path('/post/' + $scope.post._id + '/edit');
+          }
+        };
+
+        $scope.delete = function(){
+          if($scope.post && $scope.global.isAuthN && confirm('Sure you want to delete this post?')){
+            $scope.post.$delete({id: $scope.post._id});
+            $location.path('/');
+          }
+        };
       }
     ])
     .controller('PostEditCtrl', ['$scope', '$routeParams', 'data', '$location' ,
@@ -58,12 +71,19 @@
         });
 
         $scope.save = function(){
-          $scope.post.$update();
+          $scope.post.$update({id: $scope.post._id});
           $location.path('/');
         };
 
         $scope.cancel = function(){
           $location.path('/');
+        };
+
+        $scope.delete = function(){
+          if($scope.post && $scope.global.isAuthN && confirm('Sure you want to delete this post?')){
+            $scope.post.$delete({id: $scope.post._id});
+            $location.path('/');
+          }
         };
       }
     ])

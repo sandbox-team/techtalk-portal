@@ -1,5 +1,5 @@
 {
- "serviceUrl": "http://pmcmsqstag.epam.com:7070/WebServices",
+ "serviceUrl": "http://pmcmsqstag.epam.com:7071/WebServices",
  "postfixUrl": "?wsdl",
  "authSerice": "/AuthenticationService",
  "userSerice": "/PersonService",

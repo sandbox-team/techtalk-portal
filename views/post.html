@@ -1,12 +1,16 @@
 <section class="post">
-  <a href="/">Back</a>
-  <div class="post-author">
-    <div class="post-athor-avatar">
-      <img data-ng-href="{{post.author.avatar}}">
+  <div class="actions" data-ng-if="global.isAuthN">
+    <a href="/">Back</a>
+    <button class="btn btn-danger pull-right" data-ng-click="delete()">Delete</button>
+    <button class="btn pull-right" data-ng-click="edit()">Edit</button>
+  </div>
+  <div class="row post-author">
+    <div class="col-md-2">
+      <img src="http://placehold.it/100x133" data-ng-src="{{post.author.photo}}" />
     </div>
-    <div class="post-author-info">
-      <p class="post-author-name">{{post.author.firstName + ' ' + post.author.lastName}}</p>
-      <p class="post-author-date">on {{post.date|date:'medium'}}</p>
+    <div class="col-md-10">
+      <h3>{{post.author.name}}</h3>
+      <p class="post-author-date"><i>on <b>{{post.date|date:'medium'}}</b></i></p>
     </div>
   </div>
   <div data-ng-bind-html="post.content"></div>

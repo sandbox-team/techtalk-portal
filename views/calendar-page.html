@@ -43,8 +43,8 @@
           <a data-ng-href="post/{{new._id}}">{{new.title}}</a>
           <a class="btn btn-primary" data-ng-href="post/{{new._id}}/edit" data-ng-if="global.isAuthN">Edit</a>
         </h4>
-        <p class="news-item-author">by {{new.author.firstName + ' ' + new.author.lastName}} on {{new.date|date:'d-MMM-yyyy'}}</p>
-        <div class="news-item-content" data-ng-bind-html="new.content"></div>
+        <p class="news-item-author">by {{new.author.name}} on {{new.date|date:'d-MMM-yyyy'}}</p>
+        <div class="news-item-content">{{new.content|htmlToPlaintext|limitTo:200}}</div>
       </li>
     </ul>
     <div>

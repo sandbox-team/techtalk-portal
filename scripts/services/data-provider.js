@@ -13,7 +13,7 @@
             User: $resource('/api/user/:email', {
               email: '@email'
             }),
-            Post: $resource('/api/news', {id: '@id'}, {
+            Post: $resource('/api/news?id=:id', {id: '@id'}, {
               update: {method: 'PUT'}
             }),
 
