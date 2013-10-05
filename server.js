@@ -46,7 +46,7 @@ app.post('/auth', function(req, res) {
   var login = req.body.login,
       password = req.body.password;
 
-  pmcApi.authentication(function(err, response) {
+  pmcApi.authentication(function(err, user) {
     if (err) {
       console.log(err);
       res.send({
@@ -56,52 +56,78 @@ app.post('/auth', function(req, res) {
       })
     }
     else {
-      res.send({
-        status: 'success',
-        user: response
-      });
-      req.session.user = response;
+      req.session.user = user;
+      findUser(function(err, users){
+        res.send({
+          status: 'success',
+          user: err ? null : users[0]
+        });
+      }, user.email, req.session);
     }
   }, login, password);
 });
 
 app.post('/logout', function(req, res) {
+  console.log('logout');
   req.session.user = null;
   res.send({
     status: 'success'
   })
 });
 
-//User API
-app.get('/api/user/:id?', function(req, res) {
-  var id = req.params.id;
+// Check authentication
+app.all('*', function(req, res, next){
+  if (req.method !== 'GET'){
+    if (req.session && req.session.user) {
+      next();
+    } else {
+      console.log('session expired');
+      res.status(401).send({code: "NOPERMISSION", error: "Session expired"});
+    }
+  } else {
+    next();
+  }
+});
 
-  User.find(id ?
-    (~id.indexOf('@') || ~id.indexOf('_') ?  {email: id} : {name: id}) :
-    {},
-    function(err, users) {
-      if ((err || !users.length) && id) {
-        console.log(err);
-        pmcApi.findUser(function(err, data) {
-          if (err) {
-            var response = [];
-            response.error = err;
-            res.send(response);
-          }
-          else {
-            data.forEach(function(user) {
-              (new User(user)).save(function(err) {
-                console.log(!err);
-              });
-            })
-            res.json(data);
-          }
-        }, id);
-      }
-      else {
-        res.json(users);
-      }
+//User API
+function findUser(callback, name, session){
+  var regExp = { $regex: new RegExp(name, "i") },
+    findCondition = name ? (
+      (~name.indexOf('@') || ~name.indexOf('_')) ? { email: regExp } : { name: regExp }
+    ) : {};
+
+  User.find(findCondition, function(err, users) {
+    if ((err || !users.length) && name && ~name.indexOf('@epam.com') && session.user) {
+      console.log(err);
+      pmcApi.findUser(function(err, data) {
+        console.log('pmc');
+        if (err) {
+          callback(err);
+        } else {
+          data.forEach(function(user) {
+            (new User(user)).save(function(err) {
+              console.log(!err);
+            });
+          });
+          callback(null, data);
+        }
+      }, session.user.token, name);
+    } else {
+      callback(null, users);
+    }
   });
+}
+
+app.get('/api/user/:name', function(req, res) {
+  var name = req.params.name;
+
+  findUser(function(err, users){
+    if (err) {
+      res.send({ error: err });
+    } else{
+      res.json(users);
+    }
+  }, name, req.session);
 });
 
 //Techtalks
@@ -282,7 +308,6 @@ app.put('/api/news', function(req, res) {
 });
 
 app.delete('/api/news', function(req, res) {
-
   var id = req.query.id;
   console.log('delete news id '.cyan, id);
 
