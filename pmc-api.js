@@ -54,7 +54,7 @@ var pmc = function() {
             attach;
 
           attach = returnValue.getElementsByTagName('java:AttachBody')[0].textContent;
-          user.photo = "data:image/gif;base64," + attach;
+          user.photo = attach;
           callback(null, user);
         }
         catch(e) {
@@ -71,7 +71,6 @@ var pmc = function() {
 		async.waterfall([
 			/* Request to authentification service */
 			function(callback) {
-        console.log(authXML)
 				authXML.getElementsByTagName('login')[0].textContent = login;
 				authXML.getElementsByTagName('password')[0].textContent = password;
 		
