@@ -68,10 +68,25 @@ app.post('/auth', function(req, res) {
 });
 
 app.post('/logout', function(req, res) {
+  console.log('logout');
   req.session.user = null;
   res.send({
     status: 'success'
   })
+});
+
+// Check authentication
+app.all('*', function(req, res, next){
+  if (req.method !== 'GET'){
+    if (req.session && req.session.user) {
+      next();
+    } else {
+      console.log('session expired');
+      res.status(401).send({code: "NOPERMISSION", error: "Session expired"});
+    }
+  } else {
+    next();
+  }
 });
 
 //User API
@@ -293,7 +308,6 @@ app.put('/api/news', function(req, res) {
 });
 
 app.delete('/api/news', function(req, res) {
-
   var id = req.query.id;
   console.log('delete news id '.cyan, id);
 
