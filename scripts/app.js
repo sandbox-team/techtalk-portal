@@ -82,21 +82,16 @@
    */
    .controller('AppCtrl', ['$rootScope', '$scope', '$q', 'authService', 'data',
     function($rootScope, $scope, $q, authService, dataProvider) {
-      var appDefer = $q.defer(),
-        global = {
+      var global = {
           isAuthN: authService.isAuthN(),
           currentUser: authService.getUserData(),
-          appPromise: appDefer.promise,
           users: dataProvider.User.query(),
           talks: dataProvider.Talk.query(),
           selected: [],
           errorStack: []
         };
 
-      $q.all([global.users.$promise, global.talks.$promise])
-        .then(function() {
-          appDefer.resolve();
-        });
+      global.appPromise = $q.all([global.users.$promise, global.talks.$promise]);
 
       $rootScope.global = global;
       $scope.auth = {};

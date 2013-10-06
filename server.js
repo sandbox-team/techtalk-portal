@@ -41,12 +41,24 @@ app.get('/views/:templateName', function(req, res) {
   res.render(req.params.templateName);
 });
 
+function checkAuth(req, res, next) {
+  if (req.session && req.session.user) {
+    next();
+  }
+  else {
+    //TODO: 401 or 403 ??
+    res
+      .status(401)
+      .send({code: "NOPERMISSION", error: "Session expired"});
+  }
+}
+
 //Authentication
 app.post('/auth', function(req, res) {
   var login = req.body.login,
       password = req.body.password;
 
-  pmcApi.authentication(function(err, user) {
+  pmcApi.authentication(login, password, function(err, user) {
     if (err) {
       console.log(err);
       res.send({
@@ -57,14 +69,14 @@ app.post('/auth', function(req, res) {
     }
     else {
       req.session.user = user;
-      findUser(function(err, users){
+      findUser(user.email, req.session, function(err, users){
         res.send({
           status: 'success',
           user: err ? null : users[0]
         });
-      }, user.email, req.session);
+      });
     }
-  }, login, password);
+  });
 });
 
 app.post('/logout', function(req, res) {
@@ -75,59 +87,73 @@ app.post('/logout', function(req, res) {
   })
 });
 
-// Check authentication
-app.all('*', function(req, res, next){
-  if (req.method !== 'GET'){
-    if (req.session && req.session.user) {
-      next();
-    } else {
-      console.log('session expired');
-      res.status(401).send({code: "NOPERMISSION", error: "Session expired"});
-    }
-  } else {
-    next();
-  }
-});
-
 //User API
-function findUser(callback, name, session){
+function findUser(name, session, callback) {
+  if (!name || !session || !session.user) return;
+
   var regExp = { $regex: new RegExp(name, "i") },
-    findCondition = name ? (
-      (~name.indexOf('@') || ~name.indexOf('_')) ? { email: regExp } : { name: regExp }
-    ) : {};
+    findCondition = (/[\@\_]/g.test(name)) ? { email: regExp } : { name: regExp };
 
   User.find(findCondition, function(err, users) {
-    if ((err || !users.length) && name && ~name.indexOf('@epam.com') && session.user) {
+    if (err || !users.length) {
       console.log(err);
-      pmcApi.findUser(function(err, data) {
-        console.log('pmc');
-        if (err) {
-          callback(err);
-        } else {
-          data.forEach(function(user) {
-            (new User(user)).save(function(err) {
-              console.log(!err);
+
+      try {
+        pmcApi.findUser(session.user.token, name, function(err, data) {
+          if (err) {
+            callback(err);
+          }
+          else {
+            data.forEach(function(user) {
+              (new User(user)).save(function(err) {
+                console.log(!err);
+              });
             });
-          });
-          callback(null, data);
-        }
-      }, session.user.token, name);
-    } else {
+            
+            callback(null, data);
+          }
+        });
+      }
+      catch(e) {
+        console.log('pmcApi exception', e);
+        callback(e, null);
+      }
+    }
+    else {
       callback(null, users);
     }
   });
 }
 
-app.get('/api/user/:name', function(req, res) {
+app.get('/api/user/:name?', function(req, res) {
   var name = req.params.name;
 
-  findUser(function(err, users){
-    if (err) {
-      res.send({ error: err });
-    } else{
-      res.json(users);
-    }
-  }, name, req.session);
+console.log(name)
+  if (name) {
+    checkAuth(req, res, function() {
+      findUser(name, req.session, function(err, users) {
+        if (err) {
+          res.send({ error: err });
+        }
+        else {
+          User.create(users, function(err, data) {
+            if (err) {
+              console.log(err)
+              res.json([]);
+            }
+
+            res.json(data);
+          })
+        }
+      });
+    });
+  }
+  else {
+    User.find(function(err, users) {
+      if (err) res.json({status: 'error', error: err});
+      else res.json(users);
+    });
+  }
 });
 
 //Techtalks
@@ -173,7 +199,7 @@ app.get('/api/techtalk/:id?', function(req, res) {
   }
 });
 
-app.post('/api/techtalk', function(req, res) {
+app.post('/api/techtalk', checkAuth, function(req, res) {
   console.log('/api/techtalk'.cyan, req.body);
   TechTalk.create(req.body, function(err, result) {
     if (err) return res.send(err);
@@ -182,7 +208,7 @@ app.post('/api/techtalk', function(req, res) {
   });
 });
 
-app.put('/api/techtalk/:id', function(req, res) {
+app.put('/api/techtalk/:id', checkAuth, function(req, res) {
   var updatedData = req.body;
   delete updatedData._id;
   updatedData.updated = new Date();
@@ -194,7 +220,7 @@ app.put('/api/techtalk/:id', function(req, res) {
   });
 });
 
-app.delete('/api/techtalk/:id', function(req, res) {
+app.delete('/api/techtalk/:id', checkAuth, function(req, res) {
   TechTalk.remove({id: req.params.id}).exec(function(err) {
     if (err) return res.send(err);
     res.send('ok');

@@ -76,7 +76,7 @@
                 else {
                   for (; i < usersNumber; i++) {
                     var user = users[i];
-                    if (user.email.toLowerCase() === id) {
+                    if (user.email === id) {
                       _memory[id] = user;
                       return user;
                     }
