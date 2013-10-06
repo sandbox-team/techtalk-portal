@@ -7,6 +7,7 @@ var express = require('express'),
     app = express(),
     pmcApi = require('./pmc-api.js'),
     mg = require('mongoose'),
+    async = require('async'),
     data = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
 
 mg.connect('mongodb://localhost:27018/tt-portal-dev');
@@ -96,21 +97,31 @@ function findUser(name, session, callback) {
 
   User.find(findCondition, function(err, users) {
     if (err || !users.length) {
-      console.log(err);
-
       try {
         pmcApi.findUser(session.user.token, name, function(err, data) {
           if (err) {
             callback(err);
           }
           else {
-            data.forEach(function(user) {
-              (new User(user)).save(function(err) {
-                console.log(!err);
+            async.map(data, function(user, next) {
+              console.log(user.name);
+              async.parallel({
+                image: function(callback) {
+                  fs.writeFile('./files/user-photo/' + user._id + '.gif', user.photo, 'base64', function() {
+                    callback(null);
+                  });
+                },
+                user: function(callback) {
+                  user.photo = user._id;
+                  User.create(user, function(err, user) {
+                    callback(err, user);
+                  })
+                }
+              },
+              function(err, results) {
+                next(err, results.user);
               });
-            });
-            
-            callback(null, data);
+            }, callback)
           }
         });
       }
@@ -128,23 +139,13 @@ function findUser(name, session, callback) {
 app.get('/api/user/:name?', function(req, res) {
   var name = req.params.name;
 
-console.log(name)
   if (name) {
     checkAuth(req, res, function() {
       findUser(name, req.session, function(err, users) {
-        if (err) {
-          res.send({ error: err });
-        }
-        else {
-          User.create(users, function(err, data) {
-            if (err) {
-              console.log(err)
-              res.json([]);
-            }
-
-            res.json(data);
-          })
-        }
+        res.json(err ? {
+            status: 'error',
+            error: err
+          } : users);
       });
     });
   }
