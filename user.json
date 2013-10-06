@@ -1,0 +1,460 @@
+{
+    "users": {
+        "siarhei_mikhailau": {
+            "full_name": "Siarhei Mikhailau",
+            "email": ["siarhei_mikhailau@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "andrey_demchenko": {
+            "full_name": "Andrey Demchenko",
+            "email": ["andrey_demchenko@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "veranika_mishurina": {
+            "full_name": "Veranika Mishurina",
+            "email": ["veranika_mishurina@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "mikita_khatsimtsou": {
+            "full_name": "Mikita Khatsimtsou",
+            "email": ["mikita_khatsimtsou@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "maryna_belavusava": {
+            "full_name": "Maryna Belavusava",
+            "email": ["maryna_belavusava@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "nadzeya_pratasava": {
+            "full_name": "Nadzeya Pratasava",
+            "email": ["nadzeya_pratasava@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "varely_zhurovich": {
+            "full_name": "Varely Zhurovich",
+            "email": ["varely_zhurovich@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "aliaksandr_arlou": {
+            "full_name": "Aliaksandr Arlou",
+            "email": ["aliaksandr_arlou@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "khrystsina_tsikhanovich": {
+            "full_name": "Khrystsina Tsikhanovich",
+            "email": ["khrystsina_tsikhanovich@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "nadzeya_shedava": {
+            "full_name": "Nadzeya Shedava",
+            "email": ["nadzeya_shedava@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "dmitry_beynya": {
+            "full_name": "Dmitry Beynya",
+            "email": ["dmitry_beynya@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "maria_putyrskaya": {
+            "full_name": "Maria Putyrskaya",
+            "email": ["maria_putyrskaya@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "viktor_busko": {
+            "full_name": "Viktor Busko",
+            "email": ["viktor_busko@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "uladzimir_hartsau": {
+            "full_name": "Uladzimir Hartsau",
+            "email": ["uladzimir_hartsau@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "aliaksei_yanachkin": {
+            "full_name": "Aliaksei Yanachkin",
+            "email": ["aliaksei_yanachkin@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "tatsiana_hlebik": {
+            "full_name": "Tatsiana Hlebik",
+            "email": ["tatsiana_hlebik@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "alena_karaba": {
+            "full_name": "Alena Karaba",
+            "email": ["alena_karaba@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "anton_prokofyev": {
+            "full_name": "Anton Prokofyev",
+            "email": ["anton_prokofyev@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "dzmitry_osipau": {
+            "full_name": "Dzmitry Osipau",
+            "email": ["dzmitry_osipau@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "raman_vysotski": {
+            "full_name": "Raman Vysotski",
+            "email": ["raman_vysotski@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "aliaksandr_kurash": {
+            "full_name": "Aliaksandr Kurash",
+            "email": ["aliaksandr_kurash@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "ivan_straltsou": {
+            "full_name": "Ivan Straltsou",
+            "email": ["ivan_straltsou@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "andrei_valuyev": {
+            "full_name": "Andrei Valuyev",
+            "email": ["andrei_valuyev@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "nikolay_zhgirovsky": {
+            "full_name": "Nikolay Zhgirovsky",
+            "email": ["nikolay_zhgirovsky@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "kirill_malets": {
+            "full_name": "Kirill Malets",
+            "email": ["kirill_malets@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "siarhei_mikulich": {
+            "full_name": "Siarhei Mikulich",
+            "email": ["siarhei_mikulich@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "anton_sharapa": {
+            "full_name": "Anton Sharapa",
+            "email": ["anton_sharapa@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "aleh_nadolskiy": {
+            "full_name": "Aleh Nadolskiy",
+            "email": ["aleh_nadolskiy@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "aliaksei_tryputsen": {
+            "full_name": "Aliaksei Tryputsen",
+            "email": ["aliaksei_tryputsen@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "andrew_krook": {
+            "full_name": "Andrew Krook",
+            "email": ["andrew_krook@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "aliaksandr_padabed": {
+            "full_name": "Aliaksandr Padabed",
+            "email": ["aliaksandr_padabed@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "volha_bainova": {
+            "full_name": "Volha Bainova",
+            "email": ["volha_bainova@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "kseniya_smirnova": {
+            "full_name": "Kseniya Smirnova",
+            "email": ["kseniya_smirnova@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "yulia_douha": {
+            "full_name": "Yulia Douha",
+            "email": ["yulia_douha@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "yauhen_karmyzau": {
+            "full_name": "Yauhen Karmyzau",
+            "email": ["yauhen_karmyzau@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "ilya_kvachenko": {
+            "full_name": "Ilya Kvachenko",
+            "email": ["ilya_kvachenko@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "yauheni_pas": {
+            "full_name": "Yauheni Pas",
+            "email": ["yauheni_pas@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "aliaksei_rubinau": {
+            "full_name": "Aliaksei Rubinau",
+            "email": ["aliaksei_rubinau@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "tatsiana_petrushkevich": {
+            "full_name": "Tatsiana Petrushkevich",
+            "email": ["tatsiana_petrushkevich@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "anton_raby": {
+            "full_name": "Anton Raby",
+            "email": ["anton_raby@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "dzmitry_yurkavets": {
+            "full_name": "Dzmitry Yurkavets",
+            "email": ["dzmitry_yurkavets@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "dzianis_ziankovich": {
+            "full_name": "Dzianis Ziankovich",
+            "email": ["dzianis_ziankovich@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "yury_tarasevich": {
+            "full_name": "Yury Tarasevich",
+            "email": ["yury_tarasevich@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "dzianis_kryvashei": {
+            "full_name": "Dzianis Kryvashei",
+            "email": ["dzianis_kryvashei@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "andrei_barysiuk": {
+            "full_name": "Andrei Barysiuk",
+            "email": ["andrei_barysiuk@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "stanislau_zubovich": {
+            "full_name": "Stanislau Zubovich",
+            "email": ["stanislau_zubovich@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "maksim_kovalev": {
+            "full_name": "Maksim Kovalev",
+            "email": ["maksim_kovalev@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "siarhei_prudnikau": {
+            "full_name": "Siarhei Prudnikau",
+            "email": ["siarhei_prudnikau@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "andrei_dzeuhuts": {
+            "full_name": "Andrei Dzeuhuts",
+            "email": ["andrei_dzeuhuts@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "fyodor_yakimchouk": {
+            "full_name": "Fyodor Yakimchouk",
+            "email": ["fyodor_yakimchouk@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "andrei_akula": {
+            "full_name": "Andrei Akula",
+            "email": ["andrei_akula@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "iryna_dastanka": {
+            "full_name": "Iryna Dastanka",
+            "email": ["iryna_dastanka@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "andrei_volkau1": {
+            "full_name": "Andrei Volkau",
+            "email": ["andrei_volkau1@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "anatoli_tsyporyn": {
+            "full_name": "Anatoli Tsyporyn",
+            "email": ["anatoli_tsyporyn@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "dzianis_skliar": {
+            "full_name": "Dzianis Skliar",
+            "email": ["dzianis_skliar@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "yauhen_tsikhan": {
+            "full_name": "Yauhen Tsikhan",
+            "email": ["yauhen_tsikhan@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "aliaksandr_timbaliuc": {
+            "full_name": "Aliaksandr Timbaliuc",
+            "email": ["aliaksandr_timbaliuc@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "maryia_sinkevich": {
+            "full_name": "Maryia Sinkevich",
+            "email": ["maryia_sinkevich@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "pavel_valadzko": {
+            "full_name": "Pavel Valadzko",
+            "email": ["pavel_valadzko@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "igor_boreysha": {
+            "full_name": "Igor Boreysha",
+            "email": ["igor_boreysha@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "aliaksei_patsiomkin": {
+            "full_name": "Aliaksei Patsiomkin",
+            "email": ["aliaksei_patsiomkin@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "dmitry_scherbatykh": {
+            "full_name": "Dmitry Scherbatykh",
+            "email": ["dmitry_scherbatykh@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "olga_bedulina": {
+            "full_name": "Olga Bedulina",
+            "email": ["olga_bedulina@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "maxim_malets": {
+            "full_name": "Maxim Malets",
+            "email": ["maxim_malets@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "maria_prinus": {
+            "full_name": "Maria Prinus",
+            "email": ["maria_prinus@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "kanstantsin_babichau": {
+            "full_name": "Kanstantsin Babichau",
+            "email": ["kanstantsin_babichau@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "marina_kamayeva": {
+            "full_name": "Marina Kamayeva",
+            "email": ["marina_kamayeva@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "igor_mishurin": {
+            "full_name": "Igor Mishurin",
+            "email": ["igor_mishurin@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "siarhei_fedarovich": {
+            "full_name": "Siarhei Fedarovich",
+            "email": ["siarhei_fedarovich@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "siarhei_vaitehovich": {
+            "full_name": "Siarhei Vaitehovich",
+            "email": ["siarhei_vaitehovich@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "andrei_volkau": {
+            "full_name": "Andrei Volkau",
+            "email": ["andrei_volkau@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "ilya_valasiuk": {
+            "full_name": "Ilya Valasiuk",
+            "email": ["ilya_valasiuk@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "siarhei_simanovich": {
+            "full_name": "Siarhei Simanovich",
+            "email": ["siarhei_simanovich@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "aliaksandr_hudkou": {
+            "full_name": "Aliaksandr Hudkou",
+            "email": ["aliaksandr_hudkou@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "veranika_baradzina": {
+            "full_name": "Veranika Baradzina",
+            "email": ["veranika_baradzina@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        },
+
+        "katsiaryna_utlik": {
+            "full_name": "Katsiaryna Utlik",
+            "email": ["katsiaryna_utlik@epam.com"],
+            "photo_url": "photo-placeholder.png"
+        }
+
+    }
+}

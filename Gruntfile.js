@@ -98,6 +98,12 @@ module.exports = function(grunt) {
           },
           {
             expand: true,
+            cwd: './files/user-photo/',
+            src: '*',
+            dest: './public/img/user/'
+          },
+          {
+            expand: true,
             cwd: './styles/fonts/',
             src: '**',
             dest: './public/css/fonts/'
