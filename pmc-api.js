@@ -135,16 +135,18 @@ var pmc = function() {
           }, function(error, response, body) {
             if (error) {
               callback(error);
-            } else {
+            } 
+            else {
               try {
                 var responseXML = parser.parseFromString(body, 'text/xml'),
                   returnValue = responseXML.getElementsByTagName('m:return')[0],
                   attach;
 
                 attach = returnValue.getElementsByTagName('java:AttachBody')[0].textContent;
-                user.photo = "data:image/gif;base64," + attach;
+                user.photo = attach;
                 callback(null, user);
-              } catch(e) {
+              }
+              catch(e) {
                 console.log(e);
                 callback(e);
               }
@@ -152,13 +154,7 @@ var pmc = function() {
           });
         }, callback);
       }
-    ], function(error, result) {
-      if (error) {
-        mainCallback(error);
-      } else {
-        mainCallback(null, result);
-      }
-    });
+    ], mainCallback);
   };
 };
 
