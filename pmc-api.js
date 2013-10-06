@@ -35,7 +35,7 @@ var pmc = function() {
     return serviceConfig.serviceUrl + serviceConfig.userSerice + serviceConfig.postfixUrl;
   }
 
-  this.authentication = function(mainCallback, login, password) {
+  this.authentication = function(login, password, mainCallback) {
     async.waterfall([
       /* Request to authentification service */
       function(callback) {
@@ -80,7 +80,7 @@ var pmc = function() {
       }
     });
   };
-  this.findUser = function(mainCallback, token, userName) {
+  this.findUser = function(token, userName, mainCallback) {
     var users = [];
 
     async.waterfall([
