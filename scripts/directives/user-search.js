@@ -11,21 +11,22 @@
               '<div class="$scope.selected">',
                 '<span class="badge badge-success"',
                   'data-ng-repeat="user in selected | userData"',
-                  'data-ng-click="unselect(user);"',
+                  'data-ng-click="unselect(user, $index);"',
                   'data-ng-bind="user.name"></span>',
               '</div>',
               '<div class="searchWrap">',
                 '<input type="text" id="{{fieldId}}" class="searchInput" data-ng-model="searchInput" data-ng-change="search();" />',
                 '<ul class="dropdown-menu variants" data-dropdown="true" data-ng-show="focused && filtered.length">',
-                  '<li href="" data-dropdown="true" data-ng-repeat="user in filtered | orderBy:\'name\'" data-ng-click="select(user);"><a href="" data-dropdown="true" data-ng-bind="user.name" ></a></li>',
+                  '<li href="" data-dropdown="true" data-ng-repeat="user in filtered | orderBy:\'name\'" data-ng-click="select(user, $index);">',
+                      '<a href="" data-dropdown="true" data-ng-bind="user.name" ></a>',
+                  '</li>',
                 '</ul>',
               '</div>',
             '</div>'
           ].join(''),
           scope: {
             available: '=available',
-            selected: '=selected',
-            promise: '=promise'
+            selected: '=selected'
           },
           require: '?ngModel',
           compile: function(element, attr, linker) {
@@ -72,7 +73,7 @@
                     return true;
                   });
 
-                $scope.filtered = $scope.searchInput ? 
+                $scope.filtered = $scope.searchInput ?
                     $filter('filter')(notSelected, {email: $scope.searchInput}) :
                     [];
 
@@ -83,20 +84,19 @@
                   var searchResults = dataProvider.User.query({
                       email: $scope.searchInput
                     }, function() {
-                      $scope.filtered = searchResults;
-                      $rootScope.global.users = $rootScope.global.users.concat(searchResults);
+                      Array.prototype.push.apply($rootScope.global.users, searchResults);
+                      $scope.search();
                     });
                 }
               };
 
               $scope.select = function(user) {
                 $scope.filtered.splice($scope.filtered.indexOf(user), 1);
-                $scope.available.splice($scope.available.indexOf(user), 1);
                 $scope.selected.push(user.email);
               };
 
-              $scope.unselect = function(user) {
-                $scope.available.push($scope.selected.splice($scope.selected.indexOf(user), 1)[0]);
+              $scope.unselect = function(user, index) {
+                $scope.selected.splice(index, 1)
                 $scope.search();
               };
             };
