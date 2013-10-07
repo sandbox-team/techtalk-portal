@@ -108,6 +108,9 @@ function findUser(name, session, callback) {
               async.parallel({
                 image: function(callback) {
                   fs.writeFile('./files/user-photo/' + user._id + '.gif', user.photo, 'base64', function() {
+                    //callback(null);
+                  });
+                  fs.writeFile('./public/img/user/' + user._id + '.gif', user.photo, 'base64', function() {
                     callback(null);
                   });
                 },
@@ -142,10 +145,7 @@ app.get('/api/user/:name?', function(req, res) {
   if (name) {
     checkAuth(req, res, function() {
       findUser(name, req.session, function(err, users) {
-        res.json(err ? {
-            status: 'error',
-            error: err
-          } : users);
+        res.json(err ? [] : users);
       });
     });
   }
