@@ -1,8 +1,8 @@
 {
- "serviceUrl": ""***"",
+ "serviceUrl": "***,
  "postfixUrl": "?wsdl",
  "authSerice": "/AuthenticationService",
  "userSerice": "/PersonService",
- "login" : ""***"",
+ "login" : "***,
  "password" : "***"
 }
