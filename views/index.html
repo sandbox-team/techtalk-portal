@@ -52,7 +52,7 @@
               </form>
               <span class="text-info pull-right signInLoader" data-ng-if="authInProgress">Please wait...</span>
               <div class="userMenu pull-right" data-ng-if="global.isAuthN">
-                <a href=""><img class="userAvatar" data-ng-src="img/user/{{global.currentUser.photo}}.gif"/><span data-ng-bind="global.currentUser.name"></span></a>
+                <a href=""><img class="userAvatar" data-ng-src="{{global.currentUser.photo}}"/><span data-ng-bind="global.currentUser.name"></span></a>
                 <a href="" class="btn btn-danger" data-ng-click="logout();">Log out</a>
               </div>
             </div>

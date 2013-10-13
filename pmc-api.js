@@ -80,7 +80,7 @@ var pmc = function() {
       }
     });
   };
-  this.findUser = function(token, userName, mainCallback) {
+  this.findUser = function(userName, token, mainCallback) {
     var users = [];
 
     async.waterfall([

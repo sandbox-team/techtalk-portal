@@ -4,7 +4,7 @@
   <form name="editTalkForm" novalidate data-ng-submit="saveAndClose();">
     <header class="titleBlock row">
       <div class="col-md-2">
-        <img src="http://placehold.it/100x133" data-ng-repeat="user in details.lector | userData" data-ng-src="img/user/{{user.photo}}.gif" />
+        <img src="http://placehold.it/100x133" data-ng-repeat="user in details.lector | userData" data-ng-src="{{user.photo}}" />
       </div>
       <div class="col-md-10">
         <div>

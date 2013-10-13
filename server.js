@@ -8,7 +8,8 @@ var express = require('express'),
     pmcApi = require('./pmc-api.js'),
     mg = require('mongoose'),
     async = require('async'),
-    data = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
+    data = JSON.parse(fs.readFileSync('./data.json', 'utf8')),
+    usersData = JSON.parse(fs.readFileSync('./user.json', 'utf8'));
 
 mg.connect('mongodb://localhost:27018/tt-portal-dev');
 
@@ -98,7 +99,7 @@ function findUser(name, session, callback) {
   User.find(findCondition, function(err, users) {
     if (err || !users.length) {
       try {
-        pmcApi.findUser(session.user.token, name, function(err, data) {
+        pmcApi.findUser(name, session.user.token, function(err, data) {
           if (err) {
             callback(err);
           }
@@ -115,7 +116,7 @@ function findUser(name, session, callback) {
                   });
                 },
                 user: function(callback) {
-                  user.photo = user._id;
+                  user.photo = 'img/user/' + user._id + '.gif';
                   User.create(user, function(err, user) {
                     callback(err, user);
                   })
@@ -139,6 +140,27 @@ function findUser(name, session, callback) {
   });
 }
 
+/*app.get('/api/user/reset', checkAuth, function(req, res) {
+  try {
+    User.remove({}, function() {
+      var userArr = [];
+      for (var ind in usersData.users){
+        userArr.push(usersData.users[ind]);
+      }
+      async.map(userArr, function(user, callback){
+        findUser(user.email[0], req.session, function(err, users) {
+          callback(err, users[0]);
+        });
+      }, function(err, users){
+        if (err) return res.send({ error: err });
+        res.json(users);
+      });
+    });
+  } catch (e) {
+    res.send({ error: e })
+  }
+});*/
+
 app.get('/api/user/:name?', function(req, res) {
   var name = req.params.name;
 
@@ -159,7 +181,6 @@ app.get('/api/user/:name?', function(req, res) {
 
 //Techtalks
 app.get('/api/techtalk/reset', function(req, res) {
-  console.log(data.talks[0].date);
   TechTalk.remove(function() {
     TechTalk.create(data.talks, function(err, result) {
       console.log(result);
@@ -266,11 +287,11 @@ app.post('/api/tag', function(req, res) {
 /**
  * News
  */
-app.get('/api/news/reset', function(req, res) {
+/*app.get('/api/news/reset', function(req, res) {
   News.remove({}, function() {
     res.send({});
   });
-});
+});*/
 
 app.get('/api/news', function(req, res) {
   console.log('/api/news?page=1|id=1'.cyan, req.query);
