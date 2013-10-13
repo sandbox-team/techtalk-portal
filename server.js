@@ -7,9 +7,7 @@ var express = require('express'),
     app = express(),
     pmcApi = require('./pmc-api.js'),
     mg = require('mongoose'),
-    async = require('async'),
-    dataTalks = JSON.parse(fs.readFileSync('./data.json', 'utf8')),
-    dataUsers = JSON.parse(fs.readFileSync('./user.json', 'utf8'));
+    async = require('async');
 
 mg.connect('mongodb://localhost:27018/tt-portal-dev');
 
@@ -141,6 +139,7 @@ function findUser(name, session, callback) {
 }
 
 /*app.get('/api/user/reset', checkAuth, function(req, res) {
+  var dataUsers = JSON.parse(fs.readFileSync('./user.json', 'utf8'));
   try {
     User.remove({}, function() {
       var userArr = [];
@@ -184,6 +183,7 @@ app.get('/api/user/:name?', function(req, res) {
  */
 
 /*app.get('/api/techtalk/reset', function(req, res) {
+  var dataTalks = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
   TechTalk.remove(function() {
     async.map(dataTalks.talks, function(talk, callback){
       var testTalk = {
@@ -244,28 +244,39 @@ app.get('/api/techtalk/:id?', function(req, res) {
       query = req.query;
 
   if (typeof id !== 'undefined') {
-    TechTalk.findOne(id, function(err, result) {
-      if (err) return res.send(err);
-      //console.log('\t>> result'.grey, result);
-      res.json(result);
-    });
+    TechTalk
+      .findOne(id)
+      .populate('lectors')
+      .populate('attendees')
+      .exec(function(err, result) {
+        if (err) return res.send(err);
+        //console.log('\t>> result'.grey, result);
+        res.json(result);
+      });
   }
   else if (query.from && query.to) {
-    TechTalk.find()
-        .where('date').gte(new Date(req.query.from))
-        .where('date').lt(new Date(req.query.to))
-        .exec(function(err, results) {
-          if (err) return res.send(err);
-          console.log('\t>> results'.grey, results);
-          res.json(results);
-        });
+    TechTalk
+      .find()
+      .where('date').gte(new Date(req.query.from))
+      .where('date').lt(new Date(req.query.to))
+      .populate('lectors')
+      .populate('attendees')
+      .exec(function(err, results) {
+        if (err) return res.send(err);
+        console.log('\t>> results'.grey, results);
+        res.json(results);
+      });
   }
   else {
-    TechTalk.find(function(err, results) {
-      if (err) return res.send(err);
-      //console.log('\t>> results'.grey, results);
-      res.json(results);
-    });
+    TechTalk
+      .find()
+      .populate('lectors')
+      .populate('attendees')
+      .exec(function(err, results) {
+        if (err) return res.send(err);
+        //console.log('\t>> results'.grey, results);
+        res.json(results);
+      });
   }
 });
 
