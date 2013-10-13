@@ -8,8 +8,8 @@ var express = require('express'),
     pmcApi = require('./pmc-api.js'),
     mg = require('mongoose'),
     async = require('async'),
-    data = JSON.parse(fs.readFileSync('./data.json', 'utf8')),
-    usersData = JSON.parse(fs.readFileSync('./user.json', 'utf8'));
+    dataTalks = JSON.parse(fs.readFileSync('./data.json', 'utf8')),
+    dataUsers = JSON.parse(fs.readFileSync('./user.json', 'utf8'));
 
 mg.connect('mongodb://localhost:27018/tt-portal-dev');
 
@@ -144,8 +144,8 @@ function findUser(name, session, callback) {
   try {
     User.remove({}, function() {
       var userArr = [];
-      for (var ind in usersData.users){
-        userArr.push(usersData.users[ind]);
+      for (var ind in dataUsers.users){
+        userArr.push(dataUsers.users[ind]);
       }
       async.map(userArr, function(user, callback){
         findUser(user.email[0], req.session, function(err, users) {
@@ -179,17 +179,65 @@ app.get('/api/user/:name?', function(req, res) {
   }
 });
 
-//Techtalks
-app.get('/api/techtalk/reset', function(req, res) {
+/**
+ * Techtalks
+ */
+
+/*app.get('/api/techtalk/reset', function(req, res) {
   TechTalk.remove(function() {
-    TechTalk.create(data.talks, function(err, result) {
-      console.log(result);
-      console.log(error);
-      if (err) return res.send(err);
-      res.send(result);
+    async.map(dataTalks.talks, function(talk, callback){
+      var testTalk = {
+        title: talk.title,
+        date: talk.date,
+        location: talk.location,
+        description: talk.description,
+        level: talk.level,
+        notes: talk.notes,
+        tags: talk.tags
+      };
+
+      async.parallel({
+        lectors: function(callback){
+          async.map(talk.lector, function(lector, callback){
+            User.find({email: { $regex: new RegExp(lector, "i") }}, function(err, users){
+              if (users && users.length) {
+                callback(err, users[0]._id);
+              } else {
+                console.log(testTalk);
+                callback(err);
+              }
+            });
+          }, function(err, lectors){
+            callback(err, lectors);
+          })
+        },
+        attendees: function(callback){
+          async.map(talk.attendees, function(attendee, callback){
+            User.find({email: { $regex: new RegExp(attendee, "i") }}, function(err, users){
+              if (users && users.length) {
+                callback(err, users[0]._id);
+              } else {
+                console.log(testTalk);
+                callback(err);
+              }
+            });
+          }, function(err, attendees){
+            callback(err, attendees);
+          })
+        }
+      }, function(err, result){
+        testTalk.lectors = result.lectors;
+        testTalk.attendees = result.attendees;
+        callback(err, testTalk);
+      })
+    }, function(err, talks){
+      TechTalk.create(talks, function(err, result) {
+        if (err) return res.send({ error: err });
+        res.json(result);
+      });
     });
   });
-});
+});*/
 
 app.get('/api/techtalk/:id?', function(req, res) {
   var id = req.params.id,
@@ -249,7 +297,10 @@ app.delete('/api/techtalk/:id', checkAuth, function(req, res) {
   });
 });
 
-//Tags
+/**
+ * Tags
+ */
+
 app.get('/api/tags/reset', function(req, res) {
   var tags = [];
   Tag.remove({}, function() {
@@ -287,6 +338,7 @@ app.post('/api/tag', function(req, res) {
 /**
  * News
  */
+
 /*app.get('/api/news/reset', function(req, res) {
   News.remove({}, function() {
     res.send({});
@@ -294,9 +346,9 @@ app.post('/api/tag', function(req, res) {
 });*/
 
 app.get('/api/news', function(req, res) {
-  console.log('/api/news?page=1|id=1'.cyan, req.query);
+  console.log('/api/news?page=1&amount=5|id=1'.cyan, req.query);
   var page = req.query.page,
-      countOnPage = 5;
+      countOnPage = req.query.amount || 5;
 
   if (req.query.id) {
     News
@@ -364,70 +416,6 @@ app.delete('/api/news', function(req, res) {
     res.send('ok');
   });
 });
-
-/*
-app.get('/news/:page', function(req, res) {
-  res.send([
-    {
-      id: '1',
-      slug: 'sample-news-1',
-      title: 'Sample news item 1',
-      content: '<p><b>rich</b> <i>text</i> news item contents</p>',
-      author: {
-        id: 'i_rule_uii@epam.com',
-        firstName: 'Maxim',
-        lastName: 'Mallets'
-      }
-    },
-    {
-      id: '2',
-      slug: 'sample-news-2',
-      title: 'Sample news item 2',
-      content: '<p><b>rich</b> <i>text</i> news item contents</p>',
-      author: {
-        id: 'i_rule_uii@epam.com',
-        firstName: 'Maxim',
-        lastName: 'Mallets'
-      }
-    }
-  ]);
-});
-
-app.get('/new/:slug', function(req, res) {
-  var slug = req.params.slug;
-
-  if (slug == 'sample-news-1') {
-    res.send({
-      id: '1',
-      date: '2013-09-04 21:45:40',
-      slug: 'sample-news-1',
-      title: 'Sample news item 1',
-      content: '<p><b>rich</b> <i>text</i> news item contents</p><p><b>rich</b> <i>text</i> news item contents</p>' +
-          '<p><b>rich</b> <i>text</i> news item contents</p><p><b>rich</b> <i>text</i> news item contents</p>',
-      author: {
-        id: 'i_rule_uii@epam.com',
-        firstName: 'Maxim',
-        lastName: 'Mallets'
-      }
-    });
-  }
-  if (slug == 'sample-news-2') {
-    res.send({
-      id: '2',
-      date: '2013-09-05 11:40:20',
-      slug: 'sample-news-2',
-      title: 'Sample news item 2',
-      content: '<p><b>rich</b> <i>text</i> news item contents</p><p><b>rich</b> <i>text</i> news item contents</p>' +
-          '<p><b>rich</b> <i>text</i> news item contents</p><p><b>rich</b> <i>text</i> news item contents</p>',
-      author: {
-        id: 'i_rule_uii@epam.com',
-        firstName: 'Maxim',
-        lastName: 'Mallets'
-      }
-    });
-  }
-});
-*/
 
 //handling routes on client
 app.all('*', function(req, res) {
