@@ -18,11 +18,12 @@
       _change();
 
       function _change() {
-        if ($location.path() == '/') {
+        if ($location.path() == '/portal') {
           $scope.indexDay = 1;
         }
         else {
-          var path = $location.path().split('/');
+          var path = $location.path().replace(/^\/portal/,"").split('/');
+
           if (helper.getMonthIndex(path[3]) == '-1' || path[4] > 2099 || path[4] < 2011 || isNaN(path[4]) ||
               isNaN(path[2]) || path[2] > 31 || path[2] < 1) {
             $location.path('/')

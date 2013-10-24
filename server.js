@@ -33,7 +33,7 @@ app
     .use(express.methodOverride())
     .use(express.cookieParser())
     .use(express.session({secret: 'secret_realno'}))
-    .use(app.router);
+    .use('/portal', app.router);
 
 //stub routes
 app.get('/views/:templateName', function(req, res) {

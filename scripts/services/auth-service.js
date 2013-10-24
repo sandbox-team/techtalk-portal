@@ -15,7 +15,7 @@
           login: function(data) {
             return $http({
                 method: 'POST',
-                url: 'auth',
+                url: '/portal/auth',
                 data: data
               }).then(function(response) {
                 var data = response.data;
@@ -46,7 +46,7 @@
 
             $http({
               method: 'POST',
-              url: 'logout'
+              url: '/portal/logout'
             });
           }
         };

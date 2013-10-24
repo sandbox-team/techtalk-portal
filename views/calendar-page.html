@@ -1,18 +1,18 @@
 <div class="container">
     <h1>Calendar</h1>
   <h3>
-    <a href="" class="btn btn-primary"  data-ng-href="calendar/1/{{prevMonthUrl}}/{{prevYearUrl}}">&lt;</a>
+    <a href="" class="btn btn-primary"  data-ng-href="/portal/calendar/1/{{prevMonthUrl}}/{{prevYearUrl}}">&lt;</a>
     <span data-ng-bind="schedule.month"></span>, <b data-ng-bind="schedule.year"></b>
-    <a href="" class="btn btn-primary" data-ng-href="calendar/1/{{nextMonthUrl}}/{{nextYearUrl}}">&gt;</a>
+    <a href="" class="btn btn-primary" data-ng-href="/portal/calendar/1/{{nextMonthUrl}}/{{nextYearUrl}}">&gt;</a>
   </h3>
 
     <ul class="pagination">
-        <li><a href="" data-ng-href="calendar/{{prevIndexWeek}}/{{month}}/{{year}}">&laquo;</a></li>
+        <li><a href="" data-ng-href="/portal/calendar/{{prevIndexWeek}}/{{month}}/{{year}}">&laquo;</a></li>
           <li data-ng-repeat="index in currentMonth" >
-              <a href="" data-ng-href="calendar/{{index.link}}/{{month}}/{{year}}" data-ng-if="index.selected == true" style="background: bisque">{{index.ind}}</a>
-              <a href="" data-ng-href="calendar/{{index.link}}/{{month}}/{{year}}" data-ng-if="index.selected == false">{{index.ind}}</a>
+              <a href="" data-ng-href="/portal/calendar/{{index.link}}/{{month}}/{{year}}" data-ng-if="index.selected == true" style="background: bisque">{{index.ind}}</a>
+              <a href="" data-ng-href="/portal/calendar/{{index.link}}/{{month}}/{{year}}" data-ng-if="index.selected == false">{{index.ind}}</a>
         </li>
-        <li><a href="" data-ng-href="calendar/{{nextIndexWeek}}/{{month}}/{{year}}">&raquo;</a></li>
+        <li><a href="" data-ng-href="/portal/calendar/{{nextIndexWeek}}/{{month}}/{{year}}">&raquo;</a></li>
     </ul>
 
     <ul class="list-group">
@@ -25,7 +25,7 @@
                 <b data-ng-bind="date.day"></b>
                 <b data-ng-bind="date.date" style="float: right"></b>
                 <div class="well" data-ng-repeat="talk in date.data">
-                    <h5><a href="" data-ng-href="details/{{talk._id}}" data-ng-bind="talk.description.title"></a></h5>
+                    <h5><a href="" data-ng-href="/portal/details/{{talk._id}}" data-ng-bind="talk.description.title"></a></h5>
                 </div>
             </div>
 
@@ -35,13 +35,13 @@
   <section class="news-section" data-ng-controller="NewsCtrl" style="clear: both;">
     <h3>Latest Department News</h3>
     <div>
-        <a href="/post/" class="btn btn-primary" data-ng-if="global.isAuthN">Add a Post</a>
+        <a href="/portal/post/" class="btn btn-primary" data-ng-if="global.isAuthN">Add a Post</a>
     </div>
     <ul class="news">
       <li class="news-item" data-ng-repeat="new in news">
         <h4 class="news-item-title">
-          <a data-ng-href="post/{{new._id}}">{{new.title}}</a>
-          <a class="btn btn-primary" data-ng-href="post/{{new._id}}/edit" data-ng-if="global.isAuthN">Edit</a>
+          <a data-ng-href="/portal/post/{{new._id}}">{{new.title}}</a>
+          <a class="btn btn-primary" data-ng-href="/portal/post/{{new._id}}/edit" data-ng-if="global.isAuthN">Edit</a>
         </h4>
         <p class="news-item-author">by {{new.author.name}} on {{new.date|date:'d-MMM-yyyy'}}</p>
         <div class="news-item-content">{{new.content|htmlToPlaintext|limitTo:200}}</div>

@@ -14,7 +14,7 @@
       function($routeProvider, $locationProvider, $provide) {
         var checkAuth = ['authService', '$location', function(authService, $location) {
             if (!authService.isAuthN()) {
-              $location.path('/')
+              $location.path('/portal')
             } 
           }];
 
@@ -24,7 +24,7 @@
             SUCCESS: 'success',
             ERROR: 'error'
           },
-          BASE_PATH: '/',
+          BASE_PATH: '/portal',
           EMAIL_SUFFIX: '@epam.com'
         });
 
@@ -32,45 +32,45 @@
           .html5Mode(true)
           .hashPrefix('!');
 
-        $routeProvider.when('/', {
+        $routeProvider.when('/portal', {
             controller: 'CalendarCtrl',
-            templateUrl: 'views/calendar-page'
+            templateUrl: '/portal/views/calendar-page'
           })
-          .when('/calendar/:day/:month/:year', {
+          .when('/portal/calendar/:day/:month/:year', {
              controller: 'CalendarCtrl',
-             templateUrl: 'views/calendar-page'
+             templateUrl: '/portal/views/calendar-page'
           })
-          .when('/details/:talkId', {
+          .when('/portal/details/:talkId', {
             controller: 'DetailsCtrl',
-            templateUrl: 'views/details-page'
+            templateUrl: '/portal/views/details-page'
           })
-          .when('/edit/:talkId', {
+          .when('/portal/edit/:talkId', {
             controller: 'EditCtrl',
-            templateUrl: 'views/edit-page',
+            templateUrl: '/portal/views/edit-page',
             resolve: {
               checkAuth: checkAuth
             }
           })
-          .when('/new', {
+          .when('/portal/new', {
             controller: 'CreateCtrl',
-            templateUrl: 'views/edit-page',
+            templateUrl: '/portal/views/edit-page',
             resolve: {
               checkAuth: checkAuth
             }
           })
-          .when('/post/', {
+          .when('/portal/post/', {
             controller: 'PostNewCtrl',
-            templateUrl: 'views/post-edit'
+            templateUrl: '/portal/views/post-edit'
           })
-          .when('/post/:slug', {
+          .when('/portal/post/:slug', {
             controller: 'PostCtrl',
-            templateUrl: 'views/post'
+            templateUrl: '/portal/views/post'
           })
-          .when('/post/:slug/edit', {
+          .when('/portal/post/:slug/edit', {
             controller: 'PostEditCtrl',
-            templateUrl: 'views/post-edit'
+            templateUrl: '/portal/views/post-edit'
           })
-          .otherwise({redirectTo: '/'});
+          .otherwise({redirectTo: '/portal'});
       }])
       .run(['$rootScope', 'helper', function($rootScope, helper) {
         $rootScope.$on('$locationChangeStart', function(event, newLocation, oldLocation) {
@@ -129,7 +129,7 @@
               userData;
 
           for (; i < length; i++) {
-            userData = helper.getUser(ids[i]);
+            userData = helper.getUser(ids[i].email);
             userData && out.push(userData);
           }
 

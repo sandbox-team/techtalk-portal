@@ -7,20 +7,20 @@
       this.$get = ['$http', '$q', 'helper', '$resource',
         function($http, $q, helper, $resource) {
           return {
-            Talk: $resource('/api/techtalk/:id', {id: '@id'}, {
+            Talk: $resource('/portal/api/techtalk/:id', {id: '@id'}, {
               update: {method: 'PUT'}
             }),
-            User: $resource('/api/user/:email', {
+            User: $resource('/portal/api/user/:email', {
               email: '@email'
             }),
-            Post: $resource('/api/news?id=:id', {id: '@id'}, {
+            Post: $resource('/portal/api/news?id=:id', {id: '@id'}, {
               update: {method: 'PUT'}
             }),
 
             getNewsPage: function(page) {
               return $http({
                 method: 'GET',
-                url: '/api/news/',
+                url: '/portal/api/news/',
                 params: {
                   page: page
                 }
