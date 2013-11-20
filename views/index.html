@@ -13,9 +13,31 @@
 <body>
   <!-- Wrap all page content here -->
   <div class="pageWrap">
+	  <div class="shadow">
+		  <header>
+			  <div class="container">
+				  <div class="col-xs-6 col-sm-6 col-lg-6">
+					  <a class="logo" href="#">&lt;epam&gt;TechTalks</a>
+				  </div>
+				  <div class="col-xs-6 col-sm-6 col-lg-6">
+					  <form class="form-inline pull-right" role="form">
+						  <div class="form-group">
+							  <label class="sr-only" for="exampleInputEmail2">Email address</label>
+							  <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+						  </div>
+						  <div class="form-group">
+							  <label class="sr-only" for="exampleInputPassword2">Password</label>
+							  <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+						  </div>
+						  <button type="submit" class="btn btn-default">Sign in</button>
+					  </form>
+				  </div>
+			  </div>
+		  </header>
+
     <!-- Begin page content -->
     <section class="container">
-      <header class="page-header">
+      <!--<header class="page-header">
         <div class="navbar navbar-inverse navbar-fixed-top">
           <div class="container">
             <div class="navbar-header">
@@ -29,7 +51,7 @@
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <!--<li class="active"><a href="#">Home</a></li>-->
+                &lt;!&ndash;<li class="active"><a href="#">Home</a></li>&ndash;&gt;
               </ul>
               <form class="navbar-form navbar-right"
                 novalidate
@@ -64,10 +86,12 @@
           </div>
         </div>
         <h1>{{global.pageTitle}}</h1>
-      </header>
+      </header>-->
       <!-- Main view comes here -->
       <div data-ng-view></div>
     </section>
+
+  </div>
   </div>
   <footer class="footer">
     <div class="container">
@@ -89,6 +113,7 @@
       </div>
     </div>
 
+
   <!-- build:js(public) /js/app.min.js -->
   <script src="/js/core.js"></script>
   <script src="/js/app.js"></script>
@@ -101,6 +126,7 @@
   <script src="/js/controllers/edit-controller.js"></script>
   <script src="/js/controllers/post-controller.js"></script>
   <script src="/js/controllers/create-controller.js"></script>
+  <script src="/js/utils.js"></script>
   <!-- endbuild -->
 </body>
 </html>

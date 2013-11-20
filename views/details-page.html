@@ -1,39 +1,61 @@
-<nav class="navbar navbar-default" role="navigation">
-  <a href="" class="btn btn-default navbar-btn pull-left" data-ng-href="{{locationReturn}}">Back to Calendar</a>
-  <a class="btn navbar-btn btn-success pull-right"
-     data-ng-href="/edit/{{_id}}"
-     data-ng-if="global.isAuthN">Edit</a>
-</nav>
-<div class="container">
-  <div class="row">
-    <div class="col-md-2">
-      <img src="http://placehold.it/100x133" data-ng-repeat="user in details.lector | userData" data-ng-src="{{user.photo}}" />
-    </div>
-    <div class="col-md-10">
-      <header class="header">
-        <h2>
-          <span data-ng-bind="details.title"></span>
-          <span data-ng-bind="details.level" class="btn btn-info btn-xs"></span>
-        </h2>
-      </header>
-      <h3>by <span data-ng-repeat="user in details.lector | userData"><a href="user/{{user.id}}" data-ng-bind="user.name"></a><i ng-if="!$last">, </i></span>
-      </h3>
-      <h4><span>{{details.date | date: 'mediumDate'}}</span></h4>
-      <h4><span data-ng-bind="details.location"></span></h4>
-    </div>
-  </div>
-  <div class="row">
-    <label class="col-lg-2 control-label">Description:</label>
-    <div class="col-md-10" data-ng-bind-html="details.description"></div>
-  </div>
-  <div class="row">
-    <label class="col-lg-2 control-label">Notes:</label>
-    <div class="col-lg-10" data-ng-bind-html="details.notes"></div>
-  </div>
-  <div class="row">
-    <label class="col-lg-2 control-label">Attendees ({{details.attendees.length}}):</label>
-    <div class="col-lg-10 well">
-      <span data-ng-repeat="user in details.attendees | userData"><a href="user/{{user.id}}">{{user.name}} </a><i ng-if="!$last">, </i></span>
-    </div>
-  </div>
-</div>
+<section class="container">
+	<div class="row tools">
+		<div class="col-md-offset-1 col-xs-10 col-sm-10 col-lg-10">
+			<a href="" class="btn btn-default navbar-btn pull-left" data-ng-href="{{locationReturn}}">Back to Calendar</a>
+			<a class="btn navbar-btn btn-success pull-right"
+			   data-ng-href="/edit/{{_id}}"
+			   data-ng-if="global.isAuthN">Edit</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-offset-1 col-xs-10 col-sm-10 col-lg-10">
+			<section class="contentTechTack">
+				<div class="row">
+					<div class="infoBlock">
+						<!--{{details.date | date: 'mediumDate'}}-->
+						<span class="time">{{details.date | date: 'hh:mm'}}</span>
+						<span class="date">{{details.date | date: 'MMM d'}}</span>
+						<span data-ng-bind="details.location"></span>
+						<canvas id='location' width=50 height=60></canvas>
+					</div>
+					<div class="titleTechTack">
+						<h2>
+							<span data-ng-bind="details.title"></span>
+							<span data-ng-bind="details.level" class="btn btn-info btn-xs"></span>
+							<canvas id='level' width=110 height=40></canvas>
+						</h2>
+						<a class="authorBlock" data-ng-repeat="user in details.lectors | userData" href="user/{{user.id}}">
+							<div class="hexo" ><div><div style="background-image: url('{{user.photo}}')"></div></div>
+							</div>
+							<span class="authorName"  data-ng-bind="user.name"></span>
+							<!--<span class="authorTitle">Software Engineer</span>-->
+						</a>
+					</div>
+				</div>
+				<div class="row description"  data-ng-bind-html="details.description"></div>
+				<div class="row">
+					<ul class="tags list-unstyled clearfix">
+						<li>CSS</li>
+						<li>HTML</li>
+						<li>JavaScript</li>
+					</ul>
+					<div data-ng-bind-html="details.notes"></div>
+					<!--<a href="#" class="fileLink">An Introduction to NodeJS.ppt<span>20.10.2010</span></a>-->
+				</div>
+				<div class="row attendees">
+					<div class="grid clearfix">
+						<div class="hexo" data-ng-repeat="attendee in details.oddAttendees | userData "><div><div style="background-image: url('{{attendee.photo}}')"></div></div></div>
+					</div>
+					<div class="grid1 clearfix">
+						<div class="hexo" data-ng-repeat="attendee in details.evenAttendees | userData "><div><div style="background-image: url('{{attendee.photo}}')"></div></div></div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</section>
+<!--
+<script type="text/javascript">
+	drawTechTalkLocation('location', 'K1/3 212', 25, 20, 8, '#60e3ff');
+	drawTechTalkLevel('level', 2, 20, 15, 8, '#fefe85');
+</script>-->
