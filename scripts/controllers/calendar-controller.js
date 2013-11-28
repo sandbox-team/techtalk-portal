@@ -3,7 +3,12 @@
   'use strict';
 
   ng.module('tp')
+    /**
+     * Calendar controller, deals with fetching list of TechTalks and forming calendar dates
+     * basing on the TechTalks fetched
+     */
     .controller('CalendarCtrl', ['$scope', 'helper', 'data', '$location', '$routeParams', function($scope, helper, dataProvider, $location, $routeParams) {
+
       var now = new Date(),
           activeDate = new Date(),
           monthIndex = now.getMonth(),
@@ -201,10 +206,17 @@
         }
       }
     }])
+    /**
+     * News block controller. Deals with fetching news and displaying them
+     */
     .controller('NewsCtrl', ['$scope', 'helper', 'data', function($scope, helper, dataProvider) {
       var page = 1,
           getPage;
 
+      /**
+       * Load a set of news for a given page, and add them to the end of the news list
+       * @param {Number} page News page number to load
+       */
       getPage = function(page) {
         dataProvider
           .getNewsPage(page)
@@ -215,14 +227,14 @@
 
             $scope.news = $scope.news.concat(data);
           });
-      }
+      };
 
       $scope.news = [];
       $scope.noMoreNews = false;
       $scope.viewMore = function($scope) {
         page++;
         getPage(page);
-      }
+      };
 
       getPage(page);
     }]);

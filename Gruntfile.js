@@ -58,6 +58,7 @@ module.exports = function(grunt) {
       development: {
         files: {
           'public/js/core.js': [
+            'bower_components/hammerjs/dist/hammer.js',
             'bower_components/jquery/jquery.js', 
             'bower_components/angular/angular.js',
             'bower_components/angular-route/angular-route.js',
