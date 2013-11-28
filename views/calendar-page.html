@@ -49,7 +49,7 @@
         <a data-ng-href="/portal/post/{{new._id}}">{{new.title}}</a>
         <a class="btn btn-primary" data-ng-href="/portal/post/{{new._id}}/edit" data-ng-if="global.isAuthN">Edit</a>
       </h4>
-      <p class="news-item-author">by {{new.author.name}} on {{new.date|date:'d-MMM-yyyy'}}</p>
+      <p class="news-item-author">by {{new.author|userParam:'name'}} on {{new.date|date:'d-MMM-yyyy'}}</p>
       <div class="news-item-content">{{new.content|htmlToPlaintext|limitTo:200}}</div>
     </li>
   </ul>

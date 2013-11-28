@@ -95,7 +95,7 @@
         var now = Date.now();
         var post = new dataProvider.Post({
           title: '',
-          author: user,
+          author: user._id,
           date: now,
           content: ''
         });

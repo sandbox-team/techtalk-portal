@@ -66,19 +66,22 @@
                 users = users || $rootScope.global.users;
 
                 var usersNumber = users.length,
+                    email,
                     i = 0;
 
-                id = id + (~id.indexOf('@') ? '' : appConfig.EMAIL_SUFFIX);
+                if (id) {
+                  email = id + (~id.indexOf('@') ? '' : appConfig.EMAIL_SUFFIX);
 
-                if (_memory[id]) {
-                  return _memory[id];
-                }
-                else {
-                  for (; i < usersNumber; i++) {
-                    var user = users[i];
-                    if (user.email === id) {
-                      _memory[id] = user;
-                      return user;
+                  if (_memory[id]) {
+                    return _memory[id];
+                  }
+                  else {
+                    for (; i < usersNumber; i++) {
+                      var user = users[i];
+                      if (user.email === email || user._id === id) {
+                        _memory[id] = user;
+                        return user;
+                      }
                     }
                   }
                 }

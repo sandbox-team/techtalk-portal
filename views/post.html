@@ -6,10 +6,10 @@
   </div>
   <div class="row post-author">
     <div class="col-md-2">
-      <img src="http://placehold.it/100x133" data-ng-src="{{post.author.photo}}" />
+      <img src="http://placehold.it/100x133" data-ng-src="{{post.author|userParam:'photo'}}" />
     </div>
     <div class="col-md-10">
-      <h3>{{post.author.name}}</h3>
+      <h3>{{post.author|userParam:'name'}}</h3>
       <p class="post-author-date"><i>on <b>{{post.date|date:'medium'}}</b></i></p>
     </div>
   </div>

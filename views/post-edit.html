@@ -7,9 +7,9 @@
     <div class="col-md-2 control-label"><label>Author:</label></div>
     <div class="col-md-10">
       <div class="col-md-2">
-        <img src="http://placehold.it/100x133" data-ng-src="{{post.author.photo}}" />
+        <img src="http://placehold.it/100x133" data-ng-src="{{post.author|userParam:'photo'}}" />
       </div>
-      <h3>{{post.author.name}}</h3>
+      <h3>{{post.author|userParam:'name'}}</h3>
     </div>
     <!--
     <div class="col-md-10" data-tp-user-search="author" data-selected="creator" data-available="global.users"></div>
