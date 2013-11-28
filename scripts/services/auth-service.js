@@ -7,7 +7,22 @@
         var USER_KEY = 'user',
             _user = helper.storage.get(USER_KEY);
 
+        function clearSession(){
+          $cookieStore.remove(appConfig.userCookie);
+          $rootScope.global.isAuthN = false;
+          $rootScope.global.currentUser = null;
+          _user = null;
+          helper.storage.remove(USER_KEY);
+        }
+
         return {
+          checkAuthN: function() {
+            return $http.get('/portal/auth').error(function(data, status){
+              if (status === 401 && data.code === 'NOPERMISSION'){
+                clearSession();
+              }
+            });
+          },
           isAuthN: function() {
             var userSettings = $cookieStore.get(appConfig.userCookie);
             return userSettings && userSettings.authN;
@@ -38,11 +53,7 @@
             return _user;
           },
           logout: function() {
-            $cookieStore.remove(appConfig.userCookie); 
-            $rootScope.global.isAuthN = false;
-            $rootScope.global.currentUser = null;
-            _user = null;
-            helper.storage.remove(USER_KEY);
+            clearSession();
 
             $http({
               method: 'POST',

@@ -54,6 +54,10 @@ function checkAuth(req, res, next) {
 }
 
 //Authentication
+app.get('/auth', checkAuth, function(req, res){
+  res.send('ok');
+});
+
 app.post('/auth', function(req, res) {
   var login = req.body.login,
       password = req.body.password;
@@ -239,28 +243,14 @@ app.get('/api/user/:name?', function(req, res) {
   });
 });*/
 
-app.get('/api/techtalk/:id?', function(req, res) {
-  var id = req.params.id,
-      query = req.query;
+app.get('/api/techtalk', function(req, res) {
+  var query = req.query;
 
-  if (typeof id !== 'undefined') {
-    TechTalk
-      .findOne(id)
-      .populate('lectors')
-      .populate('attendees')
-      .exec(function(err, result) {
-        if (err) return res.send(err);
-        //console.log('\t>> result'.grey, result);
-        res.json(result);
-      });
-  }
-  else if (query.from && query.to) {
+  if (query.from && query.to) {
     TechTalk
       .find()
       .where('date').gte(new Date(req.query.from))
       .where('date').lt(new Date(req.query.to))
-      .populate('lectors')
-      .populate('attendees')
       .exec(function(err, results) {
         if (err) return res.send(err);
         console.log('\t>> results'.grey, results);
@@ -270,21 +260,31 @@ app.get('/api/techtalk/:id?', function(req, res) {
   else {
     TechTalk
       .find()
-      .populate('lectors')
-      .populate('attendees')
       .exec(function(err, results) {
         if (err) return res.send(err);
-        //console.log('\t>> results'.grey, results);
+        console.log('\t>> results'.grey, results);
         res.json(results);
       });
   }
+});
+
+app.get('/api/techtalk/:id', function(req, res) {
+  var id = req.params.id;
+
+  TechTalk
+    .findOne(id)
+    .exec(function(err, result) {
+      if (err) return res.send(err);
+      console.log('\t>> result'.grey, result);
+      res.json(result);
+    });
 });
 
 app.post('/api/techtalk', checkAuth, function(req, res) {
   console.log('/api/techtalk'.cyan, req.body);
   TechTalk.create(req.body, function(err, result) {
     if (err) return res.send(err);
-    console.log('\t>> results'.grey, result);
+    console.log('\t>> result'.grey, result);
     res.json(result);
   });
 });
@@ -296,23 +296,26 @@ app.put('/api/techtalk/:id', checkAuth, function(req, res) {
 
   TechTalk.findOneAndUpdate({id: req.params.id}, { $set: updatedData }, function(err, result) {
     if (err) return res.send(err);
-    //console.log('\t>> results'.grey, result);
-    res.json({status: 'success', result: result});
+    //console.log('\t>> result'.grey, result);
+    res.json(result);
   });
 });
 
 app.delete('/api/techtalk/:id', checkAuth, function(req, res) {
-  TechTalk.remove({id: req.params.id}).exec(function(err) {
-    if (err) return res.send(err);
-    res.send('ok');
-  });
+  console.log('/api/techtalk/:id'.cyan, req.params.id);
+  TechTalk
+    .remove({id: req.params.id})
+    .exec(function(err) {
+      if (err) return res.send(err);
+      res.send('ok');
+    });
 });
 
 /**
  * Tags
  */
 
-app.get('/api/tags/reset', function(req, res) {
+/*app.get('/api/tag/reset', function(req, res) {
   var tags = [];
   Tag.remove({}, function() {
     for (var i = 0; i < data.tags.length; i++) {
@@ -323,26 +326,29 @@ app.get('/api/tags/reset', function(req, res) {
       res.send(result);
     });
   });
-});
+});*/
 
-app.get('/api/tags', function(req, res) {
-  var tags = [];
-  Tag.find({}).exec(function(err, results) {
-    if (err) return res.send(err);
-    console.log('\t>> results'.grey, results);
-    for (var i = 0; i < results.length; i++) {
-      tags.push(results[i]._id);
-    }
-    res.json(tags);
-  });
+app.get('/api/tag', function(req, res) {
+  Tag
+    .find({})
+    .exec(function(err, results) {
+      if (err) return res.send(err);
+      console.log('\t>> results'.grey, results);
+
+      var tags = [];
+      for (var i = 0; i < results.length; i++) {
+        tags.push(results[i]._id);
+      }
+      res.json(tags);
+    });
 });
 
 app.post('/api/tag', function(req, res) {
   console.log('/api/tag'.cyan, req.body);
   Tag.create({_id: req.body.tag}, function(err, result) {
     if (err) return res.send(err);
-    console.log('\t>> results'.grey, result);
-    res.send('ok');
+    console.log('\t>> result'.grey, result);
+    res.json(result);
   });
 });
 
@@ -357,35 +363,37 @@ app.post('/api/tag', function(req, res) {
 });*/
 
 app.get('/api/news', function(req, res) {
-  console.log('/api/news?page=1&amount=5|id=1'.cyan, req.query);
+  console.log('/api/news?page=1&amount=5'.cyan, req.query);
   var page = req.query.page,
-      countOnPage = req.query.amount || 5;
+    countOnPage = req.query.amount || 5;
 
-  if (req.query.id) {
-    News
-      .findById(req.query.id)
-      .populate('author')
-      .exec(function(err, result) {
-        if (err) return res.send(err);
-        console.log('\t>> result'.grey, result);
-        res.json(result);
-      });
-  } else {
-    News
-      .find({})
-      .sort('-date')
-      .populate('author')
-      .exec(function(err, results) {
-        if (err) return res.send(err);
-        if (page) {
-          var from = (page - 1) * countOnPage,
-            to = from + countOnPage;
-          res.json(results.slice(from, to));
-        } else {
-          res.json(results);
-        }
-      });
-  }
+  News
+    .find({})
+    .sort('-date')
+    .exec(function(err, results) {
+      if (err) return res.send(err);
+      console.log('\t>> result'.grey, results);
+      if (page) {
+        var from = (page - 1) * countOnPage,
+          to = from + countOnPage;
+        res.json(results.slice(from, to));
+      } else {
+        res.json(results);
+      }
+    });
+});
+
+app.get('/api/news/:id', function(req, res) {
+  console.log('/api/news/:id'.cyan, req.params.id);
+  var id = req.params.id;
+
+  News
+    .findById(id)
+    .exec(function(err, result) {
+      if (err) return res.send(err);
+      console.log('\t>> result'.grey, result);
+      res.json(result);
+    });
 });
 
 app.post('/api/news', function(req, res) {
@@ -397,30 +405,26 @@ app.post('/api/news', function(req, res) {
   });
 });
 
-app.put('/api/news', function(req, res) {
-  console.log('/api/news'.cyan, req.query);
+app.put('/api/news/:id', function(req, res) {
+  console.log('/api/news'.cyan, req.params.id);
   console.log('/api/news'.cyan, req.body);
-
-  var id = req.query.id;
+  var id = req.params.id;
   var updatedData = {
-      title: req.body.title,
-      content: req.body.content,
-      updated: new Date()
+    title: req.body.title,
+    content: req.body.content,
+    updated: new Date()
   };
 
   News.findByIdAndUpdate(id, { $set: updatedData }, function(err, result) {
     if (err) return res.send(err);
-    result.populate('author', function(err, result){
-      if (err) return res.send(err);
-      console.log('\t>> results'.grey, result);
-      res.json(result);
-    });
+    console.log('\t>> results'.grey, result);
+    res.json(result);
   });
 });
 
-app.delete('/api/news', function(req, res) {
-  var id = req.query.id;
-  console.log('delete news id '.cyan, id);
+app.delete('/api/news/:id', function(req, res) {
+  console.log('delete news id '.cyan, req.params.id);
+  var id = req.params.id;
 
   News.findByIdAndRemove(id, function(err) {
     if (err) return res.send(err);

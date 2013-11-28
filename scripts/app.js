@@ -72,10 +72,14 @@
           })
           .otherwise({redirectTo: '/portal'});
       }])
-      .run(['$rootScope', 'helper', function($rootScope, helper) {
+      .run(['$rootScope', '$q', 'authService', 'helper', function($rootScope, $q, authService, helper) {
         $rootScope.$on('$locationChangeStart', function(event, newLocation, oldLocation) {
           $rootScope.previousUrl = oldLocation;
         });
+
+        return $q.all([
+          authService.checkAuthN()
+        ]);
       }])
   /**
    *
