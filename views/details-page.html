@@ -15,17 +15,17 @@
 						<!--{{details.date | date: 'mediumDate'}}-->
 						<span class="time">{{details.date | date: 'hh:mm'}}</span>
 						<span class="date">{{details.date | date: 'MMM d'}}</span>
-						<span data-ng-bind="details.location"></span>
+						<!--<span data-ng-bind="details.location"></span>-->
 						<canvas id='location' width=50 height=60></canvas>
 					</div>
 					<div class="titleTechTack">
 						<h2>
 							<span data-ng-bind="details.title"></span>
 							<span data-ng-bind="details.level" class="btn btn-info btn-xs"></span>
-							<canvas id='level' width=110 height=40></canvas>
+							<!--<canvas id='level' width=110 height=40></canvas>-->
 						</h2>
-						<a class="authorBlock" data-ng-repeat="user in details.lectors | userData" href="user/{{user.id}}">
-							<div class="hexo" ><div><div style="background-image: url('{{user.photo}}')"></div></div>
+						<a class="authorBlock" data-ng-repeat="user in details.lectors " href="user/{{user.id}}">
+							<div class="hexo" ><div><div style="background-image: url('img/user/{{user}}.gif')"></div></div>
 							</div>
 							<span class="authorName"  data-ng-bind="user.name"></span>
 							<!--<span class="authorTitle">Software Engineer</span>-->
@@ -35,19 +35,17 @@
 				<div class="row description"  data-ng-bind-html="details.description"></div>
 				<div class="row">
 					<ul class="tags list-unstyled clearfix">
-						<li>CSS</li>
-						<li>HTML</li>
-						<li>JavaScript</li>
+						<li data-ng-repeat="tag in details.tags">{{tag}}</li>
 					</ul>
 					<div data-ng-bind-html="details.notes"></div>
 					<!--<a href="#" class="fileLink">An Introduction to NodeJS.ppt<span>20.10.2010</span></a>-->
 				</div>
 				<div class="row attendees">
 					<div class="grid clearfix">
-						<div class="hexo" data-ng-repeat="attendee in details.oddAttendees | userData "><div><div style="background-image: url('{{attendee.photo}}')"></div></div></div>
+						<div class="hexo" data-ng-repeat="attendee in details.oddAttendees"><div><div style="background-image: url('img/user/{{attendee}}.gif')"></div></div></div>
 					</div>
 					<div class="grid1 clearfix">
-						<div class="hexo" data-ng-repeat="attendee in details.evenAttendees | userData "><div><div style="background-image: url('{{attendee.photo}}')"></div></div></div>
+						<div class="hexo" data-ng-repeat="attendee in details.evenAttendees"><div><div style="background-image: url('img/user/{{attendee}}.gif')"></div></div></div>
 					</div>
 				</div>
 			</section>
