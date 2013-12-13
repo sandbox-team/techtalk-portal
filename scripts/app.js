@@ -133,7 +133,7 @@
               userData;
 
           for (; i < length; i++) {
-            userData = helper.getUser(ids[i].email);
+            userData = helper.getUser(ids[i]);
             userData && out.push(userData);
           }
 

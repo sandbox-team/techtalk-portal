@@ -18,19 +18,32 @@
 			  <div class="container">
 				  <div class="col-xs-6 col-sm-6 col-lg-6">
 					  <a class="logo" href="#">&lt;epam&gt;TechTalks</a>
+                      <a href="/portal/new" class="btn btn-primary" data-ng-if="global.isAuthN">Add Talk</a>
 				  </div>
 				  <div class="col-xs-6 col-sm-6 col-lg-6">
-					  <form class="form-inline pull-right" role="form">
+					  <form class="form-inline pull-right" role="form"
+                          data-ng-if="!global.isAuthN && !authInProgress"
+                          data-ng-submit="signin();">
 						  <div class="form-group">
 							  <label class="sr-only" for="exampleInputEmail2">Email address</label>
-							  <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+							  <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email"
+                                required
+                                data-ng-model="auth.login">
 						  </div>
 						  <div class="form-group">
 							  <label class="sr-only" for="exampleInputPassword2">Password</label>
-							  <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+							  <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password"
+                                required
+                                data-ng-model="auth.password"/>
 						  </div>
-						  <button type="submit" class="btn btn-default">Sign in</button>
+						  <button type="submit" class="btn btn-default"
+                            data-ng-disabled="loginForm.$invalid">Sign in</button>
 					  </form>
+                      <span class="text-info pull-right signInLoader" data-ng-if="authInProgress">Please wait...</span>
+                      <div class="userMenu pull-right" data-ng-if="global.isAuthN">
+                          <a href=""><img class="userAvatar" data-ng-src="{{global.currentUser.photo}}"/><span data-ng-bind="global.currentUser.name"></span></a>
+                          <a href="" class="btn btn-danger" data-ng-click="logout();">Log out</a>
+                      </div>
 				  </div>
 			  </div>
 		  </header>
